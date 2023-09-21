@@ -13,10 +13,10 @@ const Cancel_Modify = ({navigation}) => {
         </View>
 
         <View style={styles.Body} >
-        <TouchableOpacity onPress={()=>{navigation.navigate('SingleDay')}} style={styles.Carts1} >
+        <TouchableOpacity onPress={()=>{navigation.navigate('ModifyScreen')}} style={styles.Carts1} >
         <Text style={styles.Day_Txt} >Modify</Text> 
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>{navigation.navigate('MultipleDay')}} style={styles.Carts1} >
+        <TouchableOpacity onPress={()=>{navigation.navigate('Cancel')}} style={styles.Carts1} >
         <Text style={styles.Day_Txt} >Cancel</Text> 
         </TouchableOpacity>
         </View>

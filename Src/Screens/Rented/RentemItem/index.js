@@ -41,7 +41,7 @@ const Renteditem = ({navigation}) => {
     </TouchableOpacity>
   )
   const renderItem2 = ({ item }) => (
-    <TouchableOpacity onPress={() => { navigation.navigate('BobizzDetail',{Data:item}) }}>
+    <TouchableOpacity onPress={() => { navigation.navigate('RentedDetail',{Data:item}) }}>
     <View style={styles.Cart}>
         <View style={styles.Item_Detail} >
         <Image source={item.Image1} style={styles.Product_Img} resizeMode='cover' />
@@ -86,7 +86,7 @@ const Renteditem = ({navigation}) => {
          <Text style={[styles.Bobizz_Txt,BtnState===0?styles.ActiveTxt:null]} >My Bobizz</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.Switch,BtnState===1?styles.ActiveStyle:null]}   onPress={()=>{setBtnState(1)}} >
-         <Text style={[styles.Bobizz_Txt,BtnState===1?styles.ActiveTxt:null]} >My Bobizz</Text>
+         <Text style={[styles.Bobizz_Txt,BtnState===1?styles.ActiveTxt:null]} >Rent Orders</Text>
         </TouchableOpacity>
        </View>
 

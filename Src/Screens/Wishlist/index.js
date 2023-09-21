@@ -1,46 +1,60 @@
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ImageBackground } from 'react-native'
-import React from 'react'
-
 import { Heart, Wishlist } from '../../Themes/Images'
 import { Colors } from '../../Themes/Colors'
 import { Fonts } from '../../Themes/Fonts'
 import { WishlistData } from './DummyData'
 import CustomHeader from '../../Components/CustomHeader/CustomHeader'
 
+const WishlistItem = ({ navigation }) => {
+  // Create an array to store the state for each item
+  const [itemStates, setItemStates] = useState(WishlistData.map(() => true));
 
-const WishlistItem = ({navigation}) => { // Change the parameter to 'props'
-
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item, index }) => (
     <View style={styles.Cart}>
       <ImageBackground source={item.Image1} style={styles.Product_Img} imageStyle={{ borderRadius: 10, alignItems: 'center' }} resizeMode='cover'>
-        <Image source={Heart} style={styles.Wishlist} />
+        {itemStates[index] ? (
+          <TouchableOpacity onPress={() => toggleItemState(index)}>
+            <Image source={Heart} style={styles.Wishlist} />
+          </TouchableOpacity>
+        ) :<TouchableOpacity onPress={() => toggleItemState(index)}>
+        <Image source={Wishlist} style={styles.Wishlist} />
+      </TouchableOpacity> }
       </ImageBackground>
-      <TouchableOpacity >
+      <TouchableOpacity>
         <Text style={styles.Title}>{item.Title}</Text>
         <Text style={styles.MeetingPoint}>{item.MeetingPoint}</Text>
-        <View style={{ flexDirection: 'row', marginBottom: "4%" }}>
-          <Text style={styles.Price_Txt}>Price</Text>
+        <View style={{ flexDirection: 'row', marginBottom: '4%' }}>
+          <Text style={styles.Price_Txt}>Price :</Text>
           <Text style={styles.Total}>{item.Price}</Text>
         </View>
       </TouchableOpacity>
     </View>
-  )
+  );
+
+  // Function to toggle the state of a specific item
+  const toggleItemState = (index) => {
+    const updatedStates = [...itemStates];
+    updatedStates[index] = !updatedStates[index];
+    setItemStates(updatedStates);
+  };
 
   return (
     <View style={styles.MainCont}>
-        <CustomHeader title={'Favorites'} onBackPress={()=>{navigation.goBack()}} />
-      <View style={styles.Fav} >
-      <FlatList
-        data={WishlistData}
-        numColumns={2}
-        renderItem={renderItem}
-      />
+      <CustomHeader title={'Favorites'} onBackPress={() => { navigation.goBack() }} />
+      <View style={styles.Fav}>
+        <FlatList
+          data={WishlistData}
+          numColumns={2}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+        />
       </View>
     </View>
-  )
+  );
 }
 
-export default WishlistItem
+export default WishlistItem;
 
 const styles = StyleSheet.create({
   MainCont: {

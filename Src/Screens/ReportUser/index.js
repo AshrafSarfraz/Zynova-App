@@ -121,9 +121,9 @@ const styles=StyleSheet.create({
         lineHeight:16
        },
        TypeInput:{
-        padding:'4%',
+        padding:'3%',
         backgroundColor:Colors.White,
-        borderRadius:8,
+        borderRadius:5,
         borderWidth:0.2
 
        }

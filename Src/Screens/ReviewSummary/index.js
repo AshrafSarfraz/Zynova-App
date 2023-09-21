@@ -1,12 +1,27 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import React,{useState} from 'react'
 import { Colors } from '../../Themes/Colors'
 import CustomHeader2 from '../../Components/CustomHeader2/CustomHeader2'
 import CustomButton from '../../Components/CustomButton/CustomButton'
 import { Exclimation, Star, Star3, Tick2, Tick3 } from '../../Themes/Images'
 import { Fonts } from '../../Themes/Fonts'
+import RentAlert from '../../Components/Alerts/RentRequest'
 
 const Review_Summary = ({navigation}) => {
+
+  const [alertVisible, setAlertVisible] = useState(false);
+
+  const showAlert = () => {
+    setAlertVisible(true);
+  };
+
+  const hideAlert = () => {
+    setAlertVisible(false);
+  };
+
+
+
+
   return (
     <View style={styles.MainCont} >
         <View style={styles.HEADER} >
@@ -72,12 +87,19 @@ const Review_Summary = ({navigation}) => {
         <Image style={styles.Tick} source={Tick3} />
         <Text style={styles.Request} >Automatically Accept Rent Requests</Text>
         </View>
+        <TouchableOpacity onPress={showAlert} >
         <Image style={styles.Tick} source={Exclimation} />
+        </TouchableOpacity>
         </View>
         </View>
         <View style={styles.Footer} >
         <CustomButton title={'Continue'} onPress={()=>{navigation.navigate('Payment')}} />
         </View>
+        <RentAlert
+        visible={alertVisible}
+        message="This is a custom alert!"
+        onClose={()=>{hideAlert()}}
+      />
     </View>
   )
 }
@@ -242,7 +264,7 @@ const styles=StyleSheet.create({
       alignItems:'center'
     },
     Tick:{
-      width:30,height:30
+      width:25,height:25
     },
     Request:{
       fontSize:14,

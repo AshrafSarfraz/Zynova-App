@@ -9,7 +9,7 @@ import DistanceDropDown from '../DropDown/Distance';
 import CustomCalendar2 from '../../Screens/SelectDays/Calender/Calender2';
 
 
-const FilterRBSheet = ({ refRBSheet }) => {
+const FilterRBSheet = ({ refRBSheet ,navigation}) => {
     const [ButtonState,setButtonState]=useState(0)
   return (
     <RBSheet
@@ -72,7 +72,7 @@ const FilterRBSheet = ({ refRBSheet }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.ApplyBtn}
-          onPress={() => refRBSheet.current.close()}
+          onPress={() => {refRBSheet.current.close(),navigation.navigate('SearchData')}}
         >
           <Text style={styles.CloseBtn_Txt} >Apply</Text>
         </TouchableOpacity>
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     borderColor:Colors.Green,
     padding:'3%',
     width:'47%',
-    borderRadius:10,
+    borderRadius:5,
     alignItems:'center' 
   },
   DayText:{
@@ -170,14 +170,14 @@ const styles = StyleSheet.create({
      backgroundColor:'#9F9F9F',
      width:'47%',
      padding:'5%',
-      borderRadius:10,
+      borderRadius:5,
       alignItems:'center'
   },
   ApplyBtn:{
     backgroundColor:'#167738',
     width:'47%',
     padding:'5%',
-     borderRadius:10,
+     borderRadius:5,
      alignItems:'center'
  },
   CloseBtn_Txt:{

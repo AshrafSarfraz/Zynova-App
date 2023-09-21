@@ -20,7 +20,7 @@ const Disscuss = ({navigation}) => {
         <Text style={styles.Desc} >{item.Description}</Text>
         </View>
         </View> 
-        <View>
+        <View  >
         <Text style={styles.Day} >{item.Day}</Text>
         <Text style={styles.Time} >{item.Time}</Text>
         </View>
@@ -121,6 +121,7 @@ const styles=StyleSheet.create({
     fontSize:12,fontFamily:Fonts.SF_Medium,
     color:'#6F6F6F',
     lineHeight:16,
+   textAlign:'right'
   },
   Time:{
     fontSize:12,fontFamily:Fonts.SF_Medium,

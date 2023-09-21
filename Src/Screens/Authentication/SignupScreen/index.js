@@ -80,11 +80,11 @@ const SignUp = ({ navigation }) => {
               onChangeText={(txt) => { setConfirmPassword(txt); }}
               style={styles.User_Input} />
               { ShowConfirmPassword===false?  
-              <TouchableOpacity onPress={()=>{setShowPassword(true)}} >
+              <TouchableOpacity onPress={()=>{setShowConfirmPassword(true)}} >
               <Image source={Hide} style={[styles.Input_Icon ,{tintColor:ConfirmPassword!==''?Colors.Black2:Colors.Grey9}  ]} resizeMode='contain' />
               </TouchableOpacity> 
                :  
-               <TouchableOpacity onPress={()=>{setShowPassword(false)}} >
+               <TouchableOpacity onPress={()=>{setShowConfirmPassword(false)}} >
                <Image source={Show} style={[styles.Input_Icon ,{tintColor:ConfirmPassword!==''?Colors.Black2:Colors.Grey9}  ]} resizeMode='contain' />
                </TouchableOpacity> 
                  }

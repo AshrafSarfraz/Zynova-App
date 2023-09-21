@@ -24,18 +24,18 @@ const Search = ({navigation}) => {
           </TouchableOpacity>
           <Image source={Bobi_Logo} style={styles.Bobi} />
         {BtnState===0?
-         <View style={styles.Auth_Cont} >
+         <View style={styles.Auth_Container} >
          <TouchableOpacity onPress={()=>{navigation.navigate('Login')}} >
           <Text style={styles.login_Text} >Log in</Text>
          </TouchableOpacity>
          <Text  style={{color:Colors.Green}} >/</Text>
-         <TouchableOpacity onPress={()=>{navigation.navigate('SignUp')}} >
+         <TouchableOpacity onPress={()=>{navigation.navigate('Login')}} >
           <Text style={styles.login_Text} >Sign Up</Text>
          </TouchableOpacity>
         </View>
         :
          <View style={styles.Auth_Cont} >
-           <TouchableOpacity onPress={()=>{navigation.navigate('WishlistItem')}} style={styles.Auth_Icon} >
+           <TouchableOpacity onPress={()=>{navigation.navigate('Notification')}} style={styles.Auth_Icon} >
             <Image source={Bell} style={styles.Bell} />
            </TouchableOpacity>
            
@@ -91,7 +91,7 @@ const Search = ({navigation}) => {
   </View>
     :null
   }
-      <FilterRBSheet refRBSheet={refRBSheet} />
+      <FilterRBSheet refRBSheet={refRBSheet} navigation={navigation} />
       </View>
   )
 }
@@ -135,6 +135,15 @@ Bobi:{
   width:50,height:50,
   resizeMode:'contain'
 },
+Auth_Container:{
+  flexDirection:'row',
+  alignItems:"center",
+  borderWidth:1,
+  height:40,
+  paddingHorizontal:'3%',
+  borderRadius:10,
+  borderColor:Colors.Green
+},
 Auth_Cont:{
   flexDirection:'row',
   alignItems:"center",
@@ -144,7 +153,7 @@ login_Text:{
  
      color:Colors.Green,
      fontFamily:Fonts.SF_Medium,
-     lineHeight:18,
+     lineHeight:16,
      fontSize:14
 },
 Input_Cont:{

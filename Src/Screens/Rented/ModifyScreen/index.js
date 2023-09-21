@@ -105,6 +105,26 @@ const styles=StyleSheet.create({
         marginTop:"5%",
         marginBottom:"3%"
     },
+    Location_Cont:{
+       backgroundColor:Colors.White,
+       borderRadius:5,
+       flexDirection:'row',
+       justifyContent:'space-between',
+       paddingHorizontal:'4%',
+       alignItems:'center',
+       elevation:1,
+       height:60,
+    },
+    Rolex_Txt:{
+      fontSize:14,
+      fontFamily:Fonts.SF_Medium,
+      color:Colors.Black,
+      lineHeight:16,
+      
+    },
+    Location:{
+      width:20,height:20,tintColor:Colors.Grey9,resizeMode:'contain'
+    },
     
     SwitchCont:{
         flexDirection:"row",

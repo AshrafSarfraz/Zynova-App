@@ -83,7 +83,8 @@ const styles=StyleSheet.create({
            borderRadius:6,
            borderWidth:0.2,
            marginVertical:'4%',
-           color:Colors.Black
+           color:Colors.Black,
+           fontSize:14
         },
         InputCont:{
            flexDirection:'row',
@@ -99,7 +100,9 @@ const styles=StyleSheet.create({
             width:'100%',
             borderRadius:6,
             borderWidth:0.2,
-            marginVertical:'4%'
+            marginVertical:'4%',
+            color:Colors.Black,
+            fontSize:14
         },
         Footer:{
            marginTop:'55%'

@@ -49,8 +49,9 @@ export default WhatUserThink
 
 const styles=StyleSheet.create({
   MainCont:{
-   color:Colors.Bg,
+   backgroundColor:Colors.Bg,
    padding:'3%',
+   flex:1
   },
   Cart:{
     backgroundColor:Colors.White,

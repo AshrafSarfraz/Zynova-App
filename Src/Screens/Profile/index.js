@@ -20,7 +20,7 @@ const ProfileScreen = ({navigation}) => {
         <View style={styles.DetailCont} >
          <Text style={styles.UserName} >Luke Skywalker</Text>
          <Text style={styles.RentedItem} >Rented Objects: 0</Text>
-         <TouchableOpacity style={styles.Identity_Btn} >
+         <TouchableOpacity style={styles.Identity_Btn}   onPress={()=>{navigation.navigate('VerifyID')}}>
           <Text style={styles.Identity_Txt} >Verify your Identity</Text>
          </TouchableOpacity>
         </View>

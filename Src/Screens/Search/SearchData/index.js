@@ -46,10 +46,20 @@ const SearchData = ({navigation}) => {
         null
     }
      {SearchInput !== 'Headphone' && SearchInput !== '' ?
+         <View style={{marginTop:'2%'}} >
+           <View style={styles.ResultCont} >
+                <Text style={styles.FoundItem_Txt} >4 Found</Text>
+                <View style={styles.DefaultCont} >
+                <Text style={styles.Default_Txt} >Default</Text>
+                <Image source={Swap} style={styles.Swap} />
+                </View>
+            </View>
+         
          <View style={styles.NoFound}>
           <Image source={Anger} style={styles.Anger} />
           <Text style={styles.Not_Found} >Not Found</Text>
           <Text style={styles.Sorry_Txt} >Sorry, the keyword you entered cannot be found, please check again or search with another keyword.</Text>
+         </View>
          </View>
        :
         null
@@ -117,7 +127,8 @@ Input_Cont:{
       alignItems:'center',
       height:600,
       justifyContent:'center',
-      alignItems:'center'
+      alignItems:'center',
+      marginTop:'-10%'
    
   },
   ResultCont:{

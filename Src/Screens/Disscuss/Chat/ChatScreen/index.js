@@ -6,7 +6,7 @@ import moment from 'moment';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Colors } from '../../../../Themes/Colors';
 import { Fonts } from '../../../../Themes/Fonts';
-import { Back_Icon, Dots, Exclimation, Send } from '../../../../Themes/Images';
+import { Back_Icon, Dots, Exclimation, Send, Tick2 } from '../../../../Themes/Images';
 import { RentedData } from './DummyData';
 import ReportAlert from '../../../../Components/Alerts/ReportAlert';
 
@@ -91,7 +91,7 @@ const ChatScreen = ({navigation,}) => {
             borderBottomLeftRadius: 25,
             borderBottomRightRadius: 20,
             marginBottom: '3%',
-            width: '80%',
+            width: '85%',
             alignItems: 'flex-start',
           },
           right: {
@@ -102,7 +102,7 @@ const ChatScreen = ({navigation,}) => {
             borderBottomLeftRadius: 20,
             borderBottomRightRadius: 10,
             marginBottom: '3%',
-            width: '80%',
+            width: '85%',
             alignItems: 'flex-start',
           },
         }}
@@ -131,7 +131,8 @@ const ChatScreen = ({navigation,}) => {
           bottom: 5, // Position it at the bottom
         }}
       >
-        {moment(props.currentMessage.createdAt).format('hh:mm A')}
+        {/* {moment(props.currentMessage.createdAt).format('hh:mm A')} */}
+        {moment(props.currentMessage.createdAt).format('hh:mm ')}
       </Text>
     );
   };
@@ -208,6 +209,7 @@ const ChatScreen = ({navigation,}) => {
         renderBubble={renderBubble}
         renderTime={renderTime}
         renderAvatar={null}
+        
       />
       <View style={styles.InputOuter_View}>
         <View style={{backgroundColor:Colors.Bg,marginBottom:"5%",flexDirection:'row',width:'100%',paddingTop:'1%',borderTopWidth:0.5,borderColor:Colors.Grey9}} >
@@ -273,6 +275,7 @@ const styles = StyleSheet.create({
     Header:{
      flexDirection:'row',
      justifyContent:'space-between',
+     marginVertical:'2%'
     },
     Go_Back_Icon:{
      width:30,height:30,
@@ -283,7 +286,7 @@ const styles = StyleSheet.create({
      fontSize:20,fontFamily:Fonts.SF_SemiBold,color:Colors.Green
     },
     Dots:{
-     width:50,height:50,tintColor:'#000000',
+     width:30,height:30,tintColor:'#000000',
      resizeMode:'center'
     },
     Buttons_View:{
