@@ -99,7 +99,7 @@ const RentedItemDetails = ({navigation}) => {
         <View style={styles.Title_Rating} >
           <View style={styles.Title_Cont} >
           <Text style={styles.Title} >{Product.Title}</Text>
-          <Text style={styles.Brand} >{Product.Brand}</Text>
+         
           </View>
           <View style={styles.Rating_Cont} >
            <Image source={Star} style={styles.Star_Icon} />
@@ -115,6 +115,7 @@ const RentedItemDetails = ({navigation}) => {
         <View style={styles.Price_Cont} >
         <Text style={styles.Price} >You paid:</Text>
         <Text style={styles.Total} >{Product.Price}</Text>
+     
         </View>
         <View style={styles.Desc_Cont} >
         <Text style={styles.Desc} >Description</Text>
@@ -129,7 +130,7 @@ const RentedItemDetails = ({navigation}) => {
             <Text style={styles.OwnerName} >{Product.OwnerName}</Text>
             </View>
             </View>
-            <TouchableOpacity onPress={()=>{}} >
+            <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
                 <Image source={Chatting} style={styles.Chatting} />
             </TouchableOpacity>
          </View>

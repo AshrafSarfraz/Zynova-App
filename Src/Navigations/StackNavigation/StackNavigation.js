@@ -46,6 +46,12 @@ import ModifyScreen from '../../Screens/Rented/ModifyScreen';
 import CancelScreen from '../../Screens/Rented/Cancel';
 import VerifyID from '../../Screens/Profile/VerifyID';
 import RentedItemDetails from '../../Screens/Rented/RentedItemDetail';
+import BobizzItemDetails from '../../Screens/Rented/BobizzDetail';
+import RequestScreen from '../../Screens/Rented/Request';
+import RequestDetail1 from '../../Screens/Rented/RequestDetail/RequestDetail_1';
+import RequestDetail_1 from '../../Screens/Rented/RequestDetail/RequestDetail_1';
+import RequestDetail_2 from '../../Screens/Rented/RequestDetail/RequestDetail_2';
+import OwnerProfiles from '../../Screens/OwnerProfile';
 
 
 
@@ -97,13 +103,17 @@ const StackNavigations=()=>{
      <Stack.Screen name='Preference'     component={SelectPreference} />
      <Stack.Screen name='ScanQrCode'     component={ScanQrCode} />
      <Stack.Screen name='RentedDetail'   component={RentedItemDetails} />
-     <Stack.Screen name='BobizzDetail'   component={BobizzDetails} />
+     <Stack.Screen name='BobizzDetail'   component={BobizzItemDetails} />
      <Stack.Screen name='ModifyCancel'   component={Cancel_Modify} />
      <Stack.Screen name='QrcodeScanner'  component={QrcodeScanner} />
      <Stack.Screen name='RentedItem'     component={Renteditem} />
      <Stack.Screen name='ModifyScreen'   component={ModifyScreen} />
      <Stack.Screen name='Cancel'         component={CancelScreen} />
      <Stack.Screen name='VerifyID'       component={VerifyID} />
+     <Stack.Screen name='RequestScreen'  component={RequestScreen} />
+     <Stack.Screen name='RequestDetail1' component={RequestDetail_1} />
+     <Stack.Screen name='RequestDetail2' component={RequestDetail_2} />
+     <Stack.Screen name='OwnerProfile'   component={OwnerProfiles} />
     </Stack.Navigator>
   </NavigationContainer>
 

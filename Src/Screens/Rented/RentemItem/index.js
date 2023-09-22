@@ -18,7 +18,7 @@ const Renteditem = ({navigation}) => {
 
 
    const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => { navigation.navigate('ProductDetails',{Data:item}) }}>
+    <TouchableOpacity onPress={() => { navigation.navigate('BobizzDetail',{Data:item}) }}>
     <View style={styles.Cart}>
         <View style={styles.Item_Detail} >
         <Image source={item.Image1} style={styles.Product_Img} resizeMode='cover' />
@@ -75,7 +75,7 @@ const Renteditem = ({navigation}) => {
             <Image source={Bobi_Logo} style={styles.Logo} />
             <Text style={styles.Rented_Item} >Rented items</Text>
         </View>
-        <TouchableOpacity style={styles.Req_Btn} >
+        <TouchableOpacity style={styles.Req_Btn} onPress={()=>{navigation.navigate('RequestScreen')}} >
             <Image style={styles.Btn_Img}  source={require('../../../Assets/Images/recieve.png')} />
             <Text style={styles.Request} >Requests</Text>
         </TouchableOpacity>

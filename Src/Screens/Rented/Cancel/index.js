@@ -6,9 +6,19 @@ import { Fonts } from '../../../Themes/Fonts'
 import { DocPlus, } from '../../../Themes/Images'
 import CustomButton from '../../../Components/CustomButton/CustomButton'
 import ReasonDropDown from '../../../Components/DropDown/Reason'
+import AcceptAlert from '../../../Components/Alerts/Request_Accept'
+import CancelAlert from '../../../Components/Alerts/CancelAlert'
 
 const CancelScreen = ({navigation}) => {
-   
+  const [alertVisible, setAlertVisible] = useState(false);
+
+  const showAlert = () => {
+    setAlertVisible(true);
+  };
+
+  const hideAlert = () => {
+    setAlertVisible(false);
+  };
   return (
    <ScrollView contentContainerStyle={styles.MainCont} >
      <CustomHeader title={'Cancel'}  onBackPress={()=>{navigation.goBack()}} />
@@ -26,10 +36,15 @@ const CancelScreen = ({navigation}) => {
         <Text style={styles.Upload_Txt} >Upload here</Text>
         </TouchableOpacity>
        </View>
-       <CustomButton title={'Submit'} onPress={()=>{''}} />
+       <CustomButton title={'Submit'} onPress={showAlert} />
        </View>
 
-      
+       <CancelAlert
+        visible={alertVisible}
+        message="This is a custom alert!"
+        onClose={()=>{hideAlert(),navigation.navigate('RentedItem')}}
+        
+      />
 
    </ScrollView>
   )

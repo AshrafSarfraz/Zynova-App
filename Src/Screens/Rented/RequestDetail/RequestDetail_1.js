@@ -5,8 +5,8 @@ import { useRoute } from '@react-navigation/native'
 import { Back_Icon, Chatting, Flag, Heart, Location, Modify, Plus1, QR, Scan, Star } from '../../../Themes/Images';
 import { Colors } from '../../../Themes/Colors';
 import { Fonts } from '../../../Themes/Fonts';
-import Rating from '../../../Components/Rating/Rating';
-import ProgressBar from '../../../Components/ProgressBar';
+import SuccessAlert from '../../../Components/Alerts/Success_Alert';
+import AcceptAlert from '../../../Components/Alerts/Request_Accept';
 
 
 const slides = [
@@ -27,10 +27,20 @@ const slides = [
 
 
 
-const BobizzItemDetails = ({navigation}) => {
+const RequestDetail_1 = ({navigation}) => {
     const route=useRoute();
- 
+    const Product=route.params.Data;
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const [alertVisible, setAlertVisible] = useState(false);
+
+    const showAlert = () => {
+      setAlertVisible(true);
+    };
+  
+    const hideAlert = () => {
+      setAlertVisible(false);
+    };
   
     const renderSlides = ({ item }) => (
       <View style={styles.slideContainer}>
@@ -100,18 +110,11 @@ const BobizzItemDetails = ({navigation}) => {
         <View style={styles.Title_Rating} >
           <View style={styles.Title_Cont} >
           <Text style={styles.Title} >Headphones 7.1</Text>
-          <Text style={styles.Brand} >-Stereo</Text>
+          <Text style={styles.Brand} > - Stereo</Text>
           </View>
-          <View style={styles.Rating_Cont} >
-           <Image source={Star} style={styles.Star_Icon} />
-          <Text style={styles.Rating} >4.5 (13)</Text>
-          </View>
+        
         </View>
 
-        <View style={styles.Address_Cont} >
-        
-          <Text style={styles.Address} >45 Ave,3411 Philli</Text>
-        </View>
         
         <View style={styles.Price_Cont} >
          <View  style={styles.Box1}>
@@ -119,7 +122,7 @@ const BobizzItemDetails = ({navigation}) => {
         <Text style={styles.Product_Data} >CHF 3.60</Text>
         </View>
         <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >Rented at:</Text>
+        <Text style={styles.Product_Value} >Pickup at:</Text>
         <Text style={styles.Product_Data} >06/04/2024 at 1:00PM</Text>
         </View>
         <View  style={styles.Box1}>
@@ -127,24 +130,9 @@ const BobizzItemDetails = ({navigation}) => {
         <Text style={styles.Product_Data} >08/04/2024 at 1:00PM</Text>
         </View>
        
-        <Text style={styles.Product_Value} >State when Rented:</Text>
-        <ProgressBar/>
-        <View style={styles.Progress_Condition_Cont} >
-          <Text style={styles.Perfect} >Perfect</Text>
-          <Text style={styles.Fair} >Fair</Text>
-          <Text style={styles.Terrible} >Terrible</Text>
+        
         </View>
-        <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >Located at:</Text>
-        <Text style={styles.Product_Data} >45 Ave, 3411 Philli.</Text>
-        </View>
-        </View>
-         <TouchableOpacity onPress={()=>{}} >
-        <View style={styles.QrCode_Cont}>
-          <Text style={styles.Renter_Txt} >Renter will scan to confirm the pickup:</Text>
-          <Image source={QR}   style={styles.QR} />
-        </View>
-        </TouchableOpacity>
+         
          
          <View style={styles.OwnerDetail} >
             <View style={{flexDirection:'row',alignItems:"center"}} >
@@ -155,26 +143,38 @@ const BobizzItemDetails = ({navigation}) => {
             </View>
             </View>
             <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
-                <Image source={Chatting} style={styles.Chatting} />
+            <Text style={[styles.Owner_Text,{color:Colors.Green,marginRight:'4%'}]} >view Profile</Text>
             </TouchableOpacity>
          </View>
 
-        
-        <TouchableOpacity style={styles.ModifyBtn}  onPress={()=>{navigation.navigate('ModifyCancel')}} >
-            <Image source={Modify} style={styles.Modify} />
-            <Text  style={styles.Modify_Txt}>Modify</Text>
+          <View style={styles.Button_Cont} >
+            <View style={{width:'47%',}} >
+          <TouchableOpacity style={styles.DeclineBtn}  onPress={()=>{navigation.goBack()}} >
+            <Text  style={styles.Decline_Txt}>Decline</Text>
         </TouchableOpacity>
+         </View>
+         <View style={{width:'47%'}} >
+         <TouchableOpacity style={styles.AcceptBtn}  onPress={showAlert} >
+            <Text  style={styles.Accept_Txt}>Accept</Text>
+        </TouchableOpacity>
+         </View> 
+         </View>
+         
           
       </View>
  
- 
+      <AcceptAlert
+        visible={alertVisible}
+        message="This is a custom alert!"
+        onClose={()=>{hideAlert(),navigation.navigate('BobizzDetail')}}
+      />
       
 
     </ScrollView>
   )
 }
 
-export default BobizzItemDetails
+export default RequestDetail_1
 
 const styles=StyleSheet.create({
     MainContainer: {
@@ -446,27 +446,46 @@ const styles=StyleSheet.create({
         fontFamily:Fonts.SF_Bold,
         marginBottom:'3%'
       },
-      ScanBtn:{
+      Button_Cont:{
         flexDirection:'row',
-        alignItems:"center",
-        justifyContent:'center',
-        backgroundColor:Colors.Green,
-        width:'100%',
-        padding:'4%',
-        marginTop:'5%',
-        borderRadius:10
+        justifyContent:'space-between',
+        alignItems:'center',
+        height:80
       },
-      ModifyBtn:{
+      DeclineBtn:{
         flexDirection:'row',
         alignItems:"center",
         justifyContent:'center',
         borderWidth:1,
         borderColor:Colors.Green,
         width:'100%',
-        padding:'4%',
+        padding:'10%',
         marginTop:'5%',
         borderRadius:10
       },
+      AcceptBtn:{
+        flexDirection:'row',
+        alignItems:"center",
+        justifyContent:'center',
+        backgroundColor:Colors.Green,
+        width:'100%',
+        padding:'10%',
+        marginTop:'5%',
+        borderRadius:10
+      },
+      Decline_Txt:{
+        color:Colors.Green,
+        fontSize:14,
+        fontFamily:Fonts.SF_Medium,
+        lineHeight:19
+      },
+      Accept_Txt:{
+        color:Colors.White,
+        fontSize:14,
+        fontFamily:Fonts.SF_Medium,
+        lineHeight:19
+      },
+      
       Scan:{
         width:25,height:25,
         marginRight:'3%',
@@ -479,12 +498,6 @@ const styles=StyleSheet.create({
       },
       Rent:{
         color:Colors.White,
-        fontSize:14,
-        fontFamily:Fonts.SF_Medium,
-        lineHeight:19
-      },
-      Modify_Txt:{
-        color:Colors.Green,
         fontSize:14,
         fontFamily:Fonts.SF_Medium,
         lineHeight:19

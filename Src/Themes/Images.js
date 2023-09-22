@@ -27,8 +27,8 @@ export const Return=require(ImgPath+'Return.png')
 export const ScanBg=require(ImgPath+'ScanBg.png')
 export const Qrcode=require(ImgPath+'Qrcode.png')
 export const Chatting=require(ImgPath+'chatting.png')
-
-
+export const QR=require(ImgPath+'QR.png')
+export const Bhoot=require(ImgPath+'Bhoot.png')
 
 
 

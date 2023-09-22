@@ -50,7 +50,7 @@ const Payment = ({navigation}) => {
         <PaymentAlert
         visible={alertVisible}
         message="This is a custom alert!"
-        onClose={()=>{hideAlert(),navigation.navigate('')}}
+        onClose={()=>{hideAlert(),navigation.navigate('RentedItem',{ updateButtonState: 1 })}}
       />
     </ScrollView>
   )

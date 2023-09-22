@@ -67,7 +67,7 @@ const SearchData = ({navigation}) => {
 
       
 
-     <FilterRBSheet refRBSheet={refRBSheet} />
+     <FilterRBSheet refRBSheet={refRBSheet} navigation={navigation} />
      
     </ScrollView>
   )
