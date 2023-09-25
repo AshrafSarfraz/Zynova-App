@@ -126,8 +126,8 @@ const styles=StyleSheet.create({
      alignItems:'center',
      backgroundColor:"#FFFFFF",
      elevation:1,
-     borderRadius:10,
-     borderWidth:0.2
+     borderRadius:5,
+  
      
     },
     DetailCont:{
@@ -136,7 +136,7 @@ const styles=StyleSheet.create({
     },
     ImgCont:{
     backgroundColor:'#ECECEC',
-    borderRadius:10,
+    borderRadius:5,
     padding:'2%',
     margin:'2%',
     marginRight:"4%"
@@ -183,8 +183,8 @@ const styles=StyleSheet.create({
      marginVertical:"3%",
      padding:'3%',
      paddingBottom:'0%',
-     borderRadius:10,
-     borderWidth:0.2,
+     borderRadius:5,
+    elevation:1,
     
     
     },
@@ -234,9 +234,9 @@ const styles=StyleSheet.create({
       backgroundColor:Colors.White,
       paddingHorizontal:'3%',
       paddingVertical:"6%",
-      borderRadius:10,
+      borderRadius:5,
       elevation:1,
-      borderWidth:0.2,
+     
       flexDirection:'row',
       justifyContent:'space-between',
       alignItems:"center"
@@ -264,7 +264,7 @@ const styles=StyleSheet.create({
       alignItems:'center'
     },
     Tick:{
-      width:25,height:25
+      width:22,height:22
     },
     Request:{
       fontSize:14,

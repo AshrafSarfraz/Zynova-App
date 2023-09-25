@@ -75,16 +75,10 @@ const RequestDetail_1 = ({navigation}) => {
          <View  style={styles.Header} >
           <TouchableOpacity   onPress={()=>{navigation.goBack()}}  style={styles.Back_Cont} >
             <Image  source={Back_Icon} style={styles.Back_Icon}/>
-            <Text style={styles.Back_Txt} >Details</Text>
+            <Text style={styles.Back_Txt} >Request Details</Text>
           </TouchableOpacity>
          <View style={styles.Auth_Cont} >
-           <TouchableOpacity onPress={()=>{navigation.navigate('Report')}} style={styles.Auth_Icon} >
-            <Image source={Flag} style={styles.Bell} />
-           </TouchableOpacity>
            
-           <TouchableOpacity onPress={()=>{navigation.navigate('WishlistItem')}} >
-           <Image source={Heart} style={styles.Heart} />
-           </TouchableOpacity>
           </View>
       
     
@@ -118,7 +112,7 @@ const RequestDetail_1 = ({navigation}) => {
         
         <View style={styles.Price_Cont} >
          <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >you’ll Receive</Text>
+        <Text style={styles.Product_Value} >You’ll Receive</Text>
         <Text style={styles.Product_Data} >CHF 3.60</Text>
         </View>
         <View  style={styles.Box1}>

@@ -28,13 +28,13 @@ const Payment = ({navigation}) => {
        </View>
        <View>
         <Text style={styles.CardTxt} >Card Number</Text>
-        <TextInput placeholder='2672 4738 7837 7285' placeholderTextColor={Colors.Grey9} style={styles.InputText} />
+        <TextInput placeholder='2672 4738 7837 7285'  keyboardType='numeric' placeholderTextColor={Colors.Grey9} style={styles.InputText} />
        </View>
      
      <View style={styles.InputCont}>
         <View style={styles.CvvCont} >
         <Text style={styles.CardTxt} >Expiry</Text>
-        <TextInput placeholder='09/07/26' placeholderTextColor={Colors.Grey9} style={styles.Cvv} keyboardType='numeric' />
+        <TextInput placeholder='09/07/26'  placeholderTextColor={Colors.Grey9} style={styles.Cvv} keyboardType='numeric' />
        </View>
        <View style={styles.CvvCont} >
         <Text style={styles.CardTxt} >CVV</Text>
@@ -81,7 +81,7 @@ const styles=StyleSheet.create({
            backgroundColor:Colors.White,
            padding:'4%',
            borderRadius:6,
-           borderWidth:0.2,
+          elevation:1,
            marginVertical:'4%',
            color:Colors.Black,
            fontSize:14
@@ -99,7 +99,7 @@ const styles=StyleSheet.create({
             padding:'9%',
             width:'100%',
             borderRadius:6,
-            borderWidth:0.2,
+           elevation:1,
             marginVertical:'4%',
             color:Colors.Black,
             fontSize:14

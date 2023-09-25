@@ -1,5 +1,5 @@
 import react from 'react'
-import {View} from 'react-native'
+import { View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Splash_Screen from '../../Screens/Authentication/Splash/Splash_Screen';
@@ -52,6 +52,12 @@ import RequestDetail1 from '../../Screens/Rented/RequestDetail/RequestDetail_1';
 import RequestDetail_1 from '../../Screens/Rented/RequestDetail/RequestDetail_1';
 import RequestDetail_2 from '../../Screens/Rented/RequestDetail/RequestDetail_2';
 import OwnerProfiles from '../../Screens/OwnerProfile';
+import Add_Object from '../../Screens/Post/Add_Object';
+import Confirm_And_Post from '../../Screens/Post/Confirm_Post';
+import Graph from '../../Screens/Post/Graph';
+import Post from '../../Screens/Post/Post';
+import PostDetails from '../../Screens/Post/PostDetail';
+import PostModify from '../../Screens/Post/Modify';
 
 
 
@@ -60,64 +66,70 @@ import OwnerProfiles from '../../Screens/OwnerProfile';
 
 
 
-const Stack=createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
-const StackNavigations=()=>{
-    return(
-  <NavigationContainer>
-    <Stack.Navigator initialRouteName='Splash_Blank' screenOptions={{headerShown:false}} >
-     <Stack.Screen name='Splash_Blank'   component={Splash_Blank} />
-     <Stack.Screen name='Splash'         component={Splash_Screen} />
-     <Stack.Screen name='OnBoarding'     component={OnBoarding} />
-     <Stack.Screen name='SignUp'         component={SignUp} />
-     <Stack.Screen name='Login'          component={SignInScreen} />
-     <Stack.Screen name='PhoneValidation'component={PhoneValidation} />
-     <Stack.Screen name='Otp'            component={Otp} />
-     <Stack.Screen name='Forget'         component={ForgetPassword} />
-     <Stack.Screen name='GetCode'        component={GetCode} />
-     <Stack.Screen name='Reset'          component={Reset} />
-     <Stack.Screen name='Welcome'        component={Welcome} />
-     <Stack.Screen name='BottomTab'      component={Bottom} />
-     <Stack.Screen name='Maps'           component={MapScreen} />
-     <Stack.Screen name='SearchItem'     component={SearchItem} />
-     <Stack.Screen name='ProductDetails' component={ProductDetails} />
-     <Stack.Screen name='Report'         component={ReportUser} />
-     <Stack.Screen name='ReportSubmit'   component={ReportSubmit} />
-     <Stack.Screen name='WishlistItem'   component={WishlistItem} />
-     <Stack.Screen name='SelectDays'     component={SelectDays} />
-     <Stack.Screen name='MultipleDay'    component={MultipleDay} />
-     <Stack.Screen name='SingleDay'      component={SingleDay} />
-     <Stack.Screen name='ReviewSummary'  component={Review_Summary} />
-     <Stack.Screen name='Payment'        component={Payment} />
-     <Stack.Screen name='Account'        component={Account} />
-     <Stack.Screen name='Balance'        component={Balance} />
-     <Stack.Screen name='WhatUserThink'  component={WhatUserThink} />
-     <Stack.Screen name='Contact'        component={Contact} />
-     <Stack.Screen name='Details'        component={Details} />
-     <Stack.Screen name='Withdraw'       component={Withdraw} />
-     <Stack.Screen name='SearchData'     component={SearchData} />
-     <Stack.Screen name='Chatting'       component={ChatScreen} />
-     <Stack.Screen name='ReportUser'     component={ReportUsers} />
-     <Stack.Screen name='Notification'   component={Notifications} />
-     <Stack.Screen name='ReviewSummary2' component={Review_Summary2} />
-     <Stack.Screen name='Preference'     component={SelectPreference} />
-     <Stack.Screen name='ScanQrCode'     component={ScanQrCode} />
-     <Stack.Screen name='RentedDetail'   component={RentedItemDetails} />
-     <Stack.Screen name='BobizzDetail'   component={BobizzItemDetails} />
-     <Stack.Screen name='ModifyCancel'   component={Cancel_Modify} />
-     <Stack.Screen name='QrcodeScanner'  component={QrcodeScanner} />
-     <Stack.Screen name='RentedItem'     component={Renteditem} />
-     <Stack.Screen name='ModifyScreen'   component={ModifyScreen} />
-     <Stack.Screen name='Cancel'         component={CancelScreen} />
-     <Stack.Screen name='VerifyID'       component={VerifyID} />
-     <Stack.Screen name='RequestScreen'  component={RequestScreen} />
-     <Stack.Screen name='RequestDetail1' component={RequestDetail_1} />
-     <Stack.Screen name='RequestDetail2' component={RequestDetail_2} />
-     <Stack.Screen name='OwnerProfile'   component={OwnerProfiles} />
-    </Stack.Navigator>
-  </NavigationContainer>
+const StackNavigations = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Splash_Blank'   screenOptions={{ headerShown: false }} >
+        <Stack.Screen name='Splash_Blank'          component={Splash_Blank} />
+        <Stack.Screen name='Splash'                component={Splash_Screen} />
+        <Stack.Screen name='OnBoarding'            component={OnBoarding} />
+        <Stack.Screen name='SignUp'                component={SignUp} />
+        <Stack.Screen name='Login'                 component={SignInScreen} />
+        <Stack.Screen name='PhoneValidation'       component={PhoneValidation} />
+        <Stack.Screen name='Otp'                   component={Otp} />
+        <Stack.Screen name='Forget'                component={ForgetPassword} />
+        <Stack.Screen name='GetCode'               component={GetCode} />
+        <Stack.Screen name='Reset'                 component={Reset} />
+        <Stack.Screen name='Welcome'               component={Welcome} />
+        <Stack.Screen name='BottomTab'             component={Bottom} />
+        <Stack.Screen name='Maps'                  component={MapScreen} />
+        <Stack.Screen name='SearchItem'            component={SearchItem} />
+        <Stack.Screen name='ProductDetails'        component={ProductDetails} />
+        <Stack.Screen name='Report'                component={ReportUser} />
+        <Stack.Screen name='ReportSubmit'          component={ReportSubmit} />
+        <Stack.Screen name='WishlistItem'          component={WishlistItem} />
+        <Stack.Screen name='SelectDays'            component={SelectDays} />
+        <Stack.Screen name='MultipleDay'           component={MultipleDay} />
+        <Stack.Screen name='SingleDay'             component={SingleDay} />
+        <Stack.Screen name='ReviewSummary'         component={Review_Summary} />
+        <Stack.Screen name='Payment'               component={Payment} />
+        <Stack.Screen name='Account'               component={Account} />
+        <Stack.Screen name='Balance'               component={Balance} />
+        <Stack.Screen name='WhatUserThink'         component={WhatUserThink} />
+        <Stack.Screen name='Contact'               component={Contact} />
+        <Stack.Screen name='Details'               component={Details} />
+        <Stack.Screen name='Withdraw'              component={Withdraw} />
+        <Stack.Screen name='SearchData'            component={SearchData} />
+        <Stack.Screen name='Chatting'              component={ChatScreen} />
+        <Stack.Screen name='ReportUser'            component={ReportUsers} />
+        <Stack.Screen name='Notification'          component={Notifications} />
+        <Stack.Screen name='ReviewSummary2'        component={Review_Summary2} />
+        <Stack.Screen name='Preference'            component={SelectPreference} />
+        <Stack.Screen name='ScanQrCode'            component={ScanQrCode} />
+        <Stack.Screen name='RentedDetail'          component={RentedItemDetails} />
+        <Stack.Screen name='BobizzDetail'          component={BobizzItemDetails} />
+        <Stack.Screen name='ModifyCancel'          component={Cancel_Modify} />
+        <Stack.Screen name='QrcodeScanner'         component={QrcodeScanner} />
+        <Stack.Screen name='RentedItem'            component={Renteditem} />
+        <Stack.Screen name='ModifyScreen'          component={ModifyScreen} />
+        <Stack.Screen name='Cancel'                component={CancelScreen} />
+        <Stack.Screen name='VerifyID'              component={VerifyID} />
+        <Stack.Screen name='RequestScreen'         component={RequestScreen} />
+        <Stack.Screen name='RequestDetail1'        component={RequestDetail_1} />
+        <Stack.Screen name='RequestDetail2'        component={RequestDetail_2} />
+        <Stack.Screen name='OwnerProfile'          component={OwnerProfiles} />
+        <Stack.Screen name='Post'                  component={Post} />
+        <Stack.Screen name='Add_Object'            component={Add_Object} />
+        <Stack.Screen name='Confirm_Post'          component={Confirm_And_Post} />
+        <Stack.Screen name='Graph'                 component={Graph} />
+        <Stack.Screen name='PostModify'            component={PostModify} />
+        <Stack.Screen name='PostDetails'           component={PostDetails} />
+      </Stack.Navigator>
+    </NavigationContainer>
 
-    )
+  )
 }
 
 export default StackNavigations

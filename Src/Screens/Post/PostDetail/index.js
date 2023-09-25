@@ -27,7 +27,7 @@ const slides = [
 
 
 
-const BobizzItemDetails = ({navigation}) => {
+const PostDetails = ({navigation}) => {
     const route=useRoute();
  
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -102,59 +102,37 @@ const BobizzItemDetails = ({navigation}) => {
           <Text style={styles.Title} >Headphones 7.1</Text>
           <Text style={styles.Brand} >-Stereo</Text>
           </View>
-          
+          <View style={styles.Rating_Cont} >
+           <Image source={Star} style={styles.Star_Icon} />
+          <Text style={styles.Rating} >4.5 (13)</Text>
+          </View>
         </View>
 
-        
+        <View style={styles.Address_Cont} >
+          <Image source={Location} style={styles.Location} />
+          <Text style={styles.Address} >45 Ave,3411 Philli</Text>
+        </View>
         
         <View style={styles.Price_Cont} >
          <View  style={styles.Box1}>
         <Text style={styles.Product_Value} >you’ll Receive</Text>
-        <Text style={styles.Product_Data} >CHF 3.60</Text>
-        </View>
-        <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >Rented at:</Text>
-        <Text style={styles.Product_Data} >06/04/2024 at 1:00PM</Text>
-        </View>
-        <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >Return at:</Text>
-        <Text style={styles.Product_Data} >08/04/2024 at 1:00PM</Text>
+        <Text style={styles.Product_Data} >CHF 3.60 / Day</Text>
         </View>
        
-        <Text style={styles.Product_Value} >State when Rented:</Text>
-        <ProgressBar/>
-        <View style={styles.Progress_Condition_Cont} >
-          <Text style={styles.Perfect} >Perfect</Text>
-          <Text style={styles.Fair} >Fair</Text>
-          <Text style={styles.Terrible} >Terrible</Text>
-        </View>
-        <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >Located at:</Text>
-        <Text style={styles.Product_Data} >45 Ave, 3411 Philli.</Text>
-        </View>
+       
         </View>
          <TouchableOpacity onPress={()=>{}} >
         <View style={styles.QrCode_Cont}>
-          <Text style={styles.Renter_Txt} >Renter will scan to confirm the pickup:</Text>
-          <Image source={QR}   style={styles.QR} />
+          <Text style={styles.Desc} >Description</Text>
+          <Text style={styles.Renter_Txt} >This headset offers ultimate comfort for prolonged gaming sessions through its low weight and noise reducing closed ear cups using soft comfortable signature memory foam with a highly adjustable headband for a perfect fit. Crystal clear sound and excellent noise isolation bring you a total immersion into your gaming session.</Text>
+
         </View>
         </TouchableOpacity>
          
-         <View style={styles.OwnerDetail} >
-            <View style={{flexDirection:'row',alignItems:"center"}} >
-            <Image source={require('../../../Assets/Images/img1.png')} style={styles.OwnerImg} />
-            <View  style={styles.User} >
-            <Text style={styles.Owner_Text} >Owner :</Text>
-            <Text style={styles.OwnerName} >Alex Hales</Text>
-            </View>
-            </View>
-            <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
-                <Image source={Chatting} style={styles.Chatting} />
-            </TouchableOpacity>
-         </View>
+        
 
         
-        <TouchableOpacity style={styles.ModifyBtn}  onPress={()=>{navigation.navigate('ModifyCancel')}} >
+        <TouchableOpacity style={styles.ModifyBtn}  onPress={()=>{navigation.navigate('PostModify')}} >
             <Image source={Modify} style={styles.Modify} />
             <Text  style={styles.Modify_Txt}>Modify</Text>
         </TouchableOpacity>
@@ -168,7 +146,7 @@ const BobizzItemDetails = ({navigation}) => {
   )
 }
 
-export default BobizzItemDetails
+export default PostDetails
 
 const styles=StyleSheet.create({
     MainContainer: {
@@ -388,17 +366,14 @@ const styles=StyleSheet.create({
        },
 
        QrCode_Cont:{
-        flexDirection:"row",
-        alignItems:'center',
-        backgroundColor:Colors.White,
+     
         borderRadius:10,
-       
         padding:'3%',
         marginBottom:'3%',
-        justifyContent:"space-between"
+       
        },
        Renter_Txt:{
-         width:'55%',
+         width:'99%',
          color:Colors.Black,
          fontSize:12,
          fontFamily:Fonts.SF_Regular

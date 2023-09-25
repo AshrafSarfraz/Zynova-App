@@ -165,7 +165,7 @@ const styles=StyleSheet.create({
   },
   Cart:{
     padding:'5%',
-    borderWidth:0.2,
+   
     backgroundColor:Colors.White,
     elevation:1,
     borderRadius:10,
@@ -225,7 +225,7 @@ const styles=StyleSheet.create({
   },
   TimePickCont:{
     backgroundColor:Colors.White,
-    borderWidth:0.2,
+  
     borderRadius:8,
     paddingVertical:'4%',
     paddingHorizontal:'1%',

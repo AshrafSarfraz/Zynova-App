@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     alignItems:'center',
     padding:'4%',
-    borderWidth:0.5,
+   
     borderRadius:10,
     elevation:2,
     backgroundColor:Colors.White
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     padding:'4%',
     borderBottomLeftRadius:10,
     borderBottomRightRadius:10,
-    borderWidth:0.2,
+    borderWidth:0.5,
+    borderTopWidth:0,
     zIndex:1
   },
   ValueBtn:{

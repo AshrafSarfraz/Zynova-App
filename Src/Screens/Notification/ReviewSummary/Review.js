@@ -70,7 +70,7 @@ const Review_Summary2 = ({navigation}) => {
        
         </View>
         <View style={styles.Footer} >
-        <CustomButton title={'Continue'} onPress={()=>{navigation.navigate('Payment')}} />
+        <CustomButton title={'Continue to Payments'} onPress={()=>{navigation.navigate('Payment')}} />
         </View>
     </View>
   )
@@ -99,7 +99,7 @@ const styles=StyleSheet.create({
      backgroundColor:"#FFFFFF",
      elevation:1,
      borderRadius:10,
-     borderWidth:0.2
+     
      
     },
     DetailCont:{
@@ -156,7 +156,8 @@ const styles=StyleSheet.create({
      padding:'3%',
      paddingBottom:'0%',
      borderRadius:10,
-     borderWidth:0.2,
+     elevation:1,
+     
     
     
     },
@@ -208,7 +209,7 @@ const styles=StyleSheet.create({
       paddingVertical:"6%",
       borderRadius:10,
       elevation:1,
-      borderWidth:0.2,
+      
       flexDirection:'row',
       justifyContent:'space-between',
       alignItems:"center"

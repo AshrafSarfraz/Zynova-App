@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
-     borderWidth:0.2,
+     
      elevation:2,
      backgroundColor:Colors.White,
      borderRadius:5,

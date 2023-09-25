@@ -38,7 +38,7 @@ const styles=StyleSheet.create({
  },
  TimePickCont:{
    backgroundColor:Colors.White,
-   borderWidth:0.2,
+  
    borderRadius:5,
    paddingVertical:'4%',
    paddingHorizontal:'1%',

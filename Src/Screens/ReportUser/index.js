@@ -124,7 +124,7 @@ const styles=StyleSheet.create({
         padding:'3%',
         backgroundColor:Colors.White,
         borderRadius:5,
-        borderWidth:0.2
+        borderWidth:1
 
        }
 })

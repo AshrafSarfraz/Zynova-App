@@ -29,7 +29,7 @@ export const Qrcode=require(ImgPath+'Qrcode.png')
 export const Chatting=require(ImgPath+'chatting.png')
 export const QR=require(ImgPath+'QR.png')
 export const Bhoot=require(ImgPath+'Bhoot.png')
-
+export const shout=require(ImgPath+'shout.png')
 
 
 
@@ -69,3 +69,7 @@ export const Rotate=require(IconPath+'rotate.png')
 export const Swap=require(IconPath+'Swap.png')
 export const Dots=require(IconPath+'Dots.png')
 export const Modify=require(IconPath+'Modify.png')
+export const Plus2=require(IconPath+'plus2.png')
+export const Minus=require(IconPath+'minus.png')
+export const Add_circle=require(IconPath+'add_circle.png')
+export const Remove=require(IconPath+'remove.png')

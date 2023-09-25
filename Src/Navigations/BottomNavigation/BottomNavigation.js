@@ -2,10 +2,11 @@ import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Search from '../../Screens/Search';
-import Post from '../../Screens/Post';
+
 import ProfileScreen from '../../Screens/Profile';
 import Disscuss from '../../Screens/Disscuss';
 import Renteditem from '../../Screens/Rented/RentemItem';
+import Post from '../../Screens/Post/Post';
 
 
 

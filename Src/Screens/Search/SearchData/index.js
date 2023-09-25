@@ -158,7 +158,7 @@ Input_Cont:{
     width:20,height:20,
   },
   Anger:{
-    width:150,height:150,
+    width:220,height:160,
     marginBottom:'5%'
   },
   Not_Found:{

@@ -79,10 +79,8 @@ const styles=StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'flex-end',
-    borderWidth:0.5,
     marginBottom:'3%',
     borderRadius:10,
-    backgroundColor:Colors.White,
     padding:'3%'
   },
   UserImg:{
