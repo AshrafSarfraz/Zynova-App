@@ -66,7 +66,7 @@ const Add_Object = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.MainCont}>
-     <CustomHeader title={'Add Object'} />
+     <CustomHeader title={'Add Object'}   onBackPress={()=>{navigation.goBack()}} />
 
      <View style={{marginVertical:'5%'}} >
       <CustomProgressBar progress={1}/>
@@ -210,6 +210,9 @@ const styles=StyleSheet.create({
     borderRadius:5,
     elevation:1,
     marginBottom:'3%'
+  },
+  State_Txt:{
+    fontSize:14,fontFamily:Fonts.SF_Medium,color:Colors.Grey9,lineHeight:18
   },
   Input:{
     width:'80%',

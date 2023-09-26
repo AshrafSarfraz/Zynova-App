@@ -330,6 +330,9 @@ const styles=StyleSheet.create({
   
   
   },
+  State_Txt:{
+    fontSize:14,fontFamily:Fonts.SF_Medium,color:Colors.Grey9,lineHeight:18
+  },
   InputCont2:{
     width:'47%',
     padding:'1%',

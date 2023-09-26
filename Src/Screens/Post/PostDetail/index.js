@@ -268,6 +268,9 @@ const styles=StyleSheet.create({
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium,
       },
+      State_Txt:{
+        fontSize:14,fontFamily:Fonts.SF_Medium,color:Colors.Grey9,lineHeight:18
+      },
       Brand:{
         fontSize:18,
         lineHeight:22,

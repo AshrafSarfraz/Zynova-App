@@ -173,6 +173,9 @@ const styles=StyleSheet.create({
     top:"90%",
     right:'5%'
    },
+   State_Txt:{
+    fontSize:14,fontFamily:Fonts.SF_Medium,color:Colors.Grey9,lineHeight:18
+  },
    Add_circle:{
     width:25,height:25,marginRight:'7%'
    },

@@ -443,7 +443,10 @@ CustomButton:{
 },
 Label:{
   fontSize:14,fontFamily:Fonts.SF_Medium,color:Colors.Grey9,marginVertical:'1%'
-}
+},
+State_Txt:{
+  fontSize:14,fontFamily:Fonts.SF_Medium,color:Colors.Grey9,lineHeight:18
+},
   
 
 })
