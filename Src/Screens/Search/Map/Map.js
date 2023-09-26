@@ -4,9 +4,20 @@ import MapView, { Marker } from 'react-native-maps';
 import { Colors } from '../../../Themes/Colors';
 import { Circle } from '../../../Themes/Images';
 import { Fonts } from '../../../Themes/Fonts';
+import MapAlert from '../../../Components/Alerts/MapAlert';
+import { useNavigation } from '@react-navigation/native';
 
-const MapScreen = ({ navigation }) => {
-   
+const MapScreen = () => {
+   const navigation=useNavigation();
+  const [alertVisible, setAlertVisible] = useState(false);
+
+  const showAlert = () => {
+    setAlertVisible(true);
+  };
+
+  const hideAlert = () => {
+    setAlertVisible(false);
+  };
 
   const initialRegion = {
     latitude: 37.78825, // Replace with the latitude of your location
@@ -27,13 +38,29 @@ const MapScreen = ({ navigation }) => {
             description="This is your location"
           />
         </MapView>
+        <TouchableOpacity onPress={showAlert} style={{  position: 'absolute',top: '7%',left: '30%',}} >
         <Image source={Circle} style={styles.FrameGreen1} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={showAlert} style={{ position: 'absolute',top: '65%',left: '75%',}} >
         <Image source={Circle} style={styles.FrameRed} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={showAlert} style={{ position: 'absolute',top: '40%', left: '20%',  }} >
         <Image source={Circle} style={styles.FrameGreen2} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={showAlert} style={{   position: 'absolute',top: '20%',left: '65%',}} >
         <Image source={Circle} style={styles.Diamond1} />
+        </TouchableOpacity>
+
+        
      
        
       </View>
+      <MapAlert
+        visible={alertVisible}
+        message="This is a custom alert!"
+        onClose={()=>{hideAlert(),navigation.navigate('ProductDetails',{Data:item})}}
+        
+      />
     </View>
   );
 };
@@ -57,30 +84,22 @@ const styles = StyleSheet.create({
   FrameGreen1: {
     width: 60,
     height: 60,
-    position: 'absolute',
-    top: '7%',
-    left: '30%',
+  
   },
   FrameGreen2: {
     width: 60,
     height: 60,
-    position: 'absolute',
-    top: '40%',
-    left: '20%',
+    
   },
   FrameRed: {
     width: 60,
     height: 60,
-    position: 'absolute',
-    top: '65%',
-    left: '75%',
+   
   },
   Diamond1: {
     width: 60,
     height: 60,
-    position: 'absolute',
-    top: '20%',
-    left: '65%',
+   
   },
 
   userHeader: {

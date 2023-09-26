@@ -83,7 +83,7 @@ const Search = ({navigation}) => {
           :null
          } 
    {BtnState===1?
-    <MapScreen/>  :null
+    <MapScreen navigation={navigation}  />  :null
   }
   {BtnState===2?
   <View style={{paddingHorizontal:'3%'}} > 

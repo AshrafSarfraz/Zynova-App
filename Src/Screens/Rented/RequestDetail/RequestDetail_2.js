@@ -143,7 +143,7 @@ const RequestDetail_2 = ({navigation}) => {
         </View>
          
          
-         
+        <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
          <View style={styles.OwnerDetail} >
             <View style={{flexDirection:'row',alignItems:"center"}} >
             <Image source={require('../../../Assets/Images/img1.png')} style={styles.OwnerImg} />
@@ -156,6 +156,7 @@ const RequestDetail_2 = ({navigation}) => {
             <Text style={[styles.Owner_Text,{color:Colors.Green,marginRight:'4%'}]} >view Profile</Text>
             </TouchableOpacity>
          </View>
+         </TouchableOpacity>
 
           <View style={styles.Button_Cont} >
             <View style={{width:'47%',}} >

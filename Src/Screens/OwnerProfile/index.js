@@ -1,15 +1,27 @@
-import { View, Text,ScrollView ,StyleSheet,Image} from 'react-native'
+import { View, Text,ScrollView ,StyleSheet,Image,TouchableOpacity} from 'react-native'
 import React from 'react'
 import CustomHeader from '../../Components/CustomHeader/CustomHeader'
 import { Colors } from '../../Themes/Colors'
-import { Star } from '../../Themes/Images'
+import { Back_Icon, Flag, Star } from '../../Themes/Images'
 import { Fonts } from '../../Themes/Fonts'
 
 
 const OwnerProfiles = ({navigation}) => {
   return (
    <ScrollView contentContainerStyle={styles.MainCont} >
-    <CustomHeader title={'Profile'}  onBackPress={()=>{navigation.goBack()}} />
+      <View  style={styles.Header} >
+          <TouchableOpacity   onPress={()=>{navigation.goBack()}}  style={styles.Back_Cont} >
+            <Image  source={Back_Icon} style={styles.Back_Icon}/>
+            <Text 
+            style={styles.Back_Txt} >Details
+            </Text>
+          </TouchableOpacity>
+         <View style={styles.Auth_Cont} >
+           <TouchableOpacity onPress={()=>{navigation.navigate('Report')}} style={styles.Auth_Icon} >
+            <Image source={Flag} style={styles.Bell} />
+           </TouchableOpacity>
+          </View> 
+          </View>
       <View>
     <View style={styles.User_Cont} >
       <Image source={require('../../Assets/Images/img1.png')} style={styles.ProfileImg} />
@@ -39,6 +51,48 @@ const styles=StyleSheet.create({
     flex:1,
     padding:'3%'
   },
+  Header:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    paddingVertical:'4%',
+    backgroundColor:Colors.Bg,
+    },
+    Back_Cont:{
+       flexDirection:'row',
+       alignItems:"center",
+    
+    },
+    Back_Txt:{
+         marginLeft:"8%",
+         color:Colors.Green,
+         fontFamily:Fonts.SF_Medium,
+         lineHeight:24,
+         fontSize:20
+    },
+    Back_Icon:{
+     width:25,height:25,
+     marginLeft:"5%",
+     tintColor:Colors.Green
+    },
+    Bobi:{
+      width:50,height:50,
+      resizeMode:'contain'
+    },
+    Auth_Cont:{
+      flexDirection:'row',
+      alignItems:"center",
+      left:'10%'
+    },
+     
+    Bell:{
+      width:40,height:40,
+      marginRight:'10%'
+      
+    },
+  
+
+
+
   User_Cont:{
     backgroundColor:Colors.Green,
     borderRadius:10,

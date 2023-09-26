@@ -6,7 +6,7 @@ import { Fonts } from '../../Themes/Fonts'
 import { WishlistData } from './DummyData'
 import CustomHeader from '../../Components/CustomHeader/CustomHeader'
 
-const WishlistItem = ({ navigation }) => {
+const WishlistItem = (props,{ navigation }) => {
   // Create an array to store the state for each item
   const [itemStates, setItemStates] = useState(WishlistData.map(() => true));
 
@@ -21,7 +21,7 @@ const WishlistItem = ({ navigation }) => {
         <Image source={Wishlist} style={styles.Wishlist} />
       </TouchableOpacity> }
       </ImageBackground>
-      <TouchableOpacity>
+      <TouchableOpacity  onPress={() => { props.navigation.navigate('ProductDetails',{Data:item}) }}  >
         <Text style={styles.Title}>{item.Title}</Text>
         <Text style={styles.MeetingPoint}>{item.MeetingPoint}</Text>
         <View style={{ flexDirection: 'row', marginBottom: '4%' }}>
@@ -41,7 +41,7 @@ const WishlistItem = ({ navigation }) => {
 
   return (
     <View style={styles.MainCont}>
-      <CustomHeader title={'Favorites'} onBackPress={() => { navigation.goBack() }} />
+      <CustomHeader title={'Favorites'} onBackPress={() => {props.navigation.goBack()}} />
       <View style={styles.Fav}>
         <FlatList
           data={WishlistData}

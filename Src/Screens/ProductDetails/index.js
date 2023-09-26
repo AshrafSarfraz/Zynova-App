@@ -120,7 +120,7 @@ const ProductDetails = ({navigation}) => {
         <Text style={styles.Desc} >Description</Text>
         <Text style={styles.Detail} >{Product.Description}</Text>
         </View>
-         
+        <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
          <View style={styles.OwnerDetail} >
             <Image source={Product.OwnerImage} style={styles.OwnerImg} />
             <View  style={styles.User} >
@@ -128,6 +128,7 @@ const ProductDetails = ({navigation}) => {
             <Text style={styles.OwnerName} >{Product.OwnerName}</Text>
             </View>
          </View>
+         </TouchableOpacity>
 
         <TouchableOpacity style={styles.Btn}  onPress={()=>{navigation.navigate('SelectDays')}} >
             <Image source={Plus1} style={styles.Plus1} />

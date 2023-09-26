@@ -111,8 +111,10 @@ const styles=StyleSheet.create({
         fontSize:20,fontFamily:Fonts.SF_SemiBold,color:Colors.Green
        },
        Dots:{
-        width:50,height:50,tintColor:'#000000',
-        resizeMode:'center'
+        width:25,height:25,tintColor:'#000000',
+        resizeMode:'center',
+        top:"25%",
+        right:"10%"
        },
        Txt_Other:{
         fontSize:14,

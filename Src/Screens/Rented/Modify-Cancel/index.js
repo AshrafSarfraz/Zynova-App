@@ -21,7 +21,7 @@ const Cancel_Modify = ({navigation}) => {
         </TouchableOpacity>
         </View>
         <View style={styles.Footer} >
-        <TouchableOpacity style={styles.Btn}  onPress={()=>{navigation.navigate('ReportSubmit')}} >
+        <TouchableOpacity style={styles.Btn}  onPress={()=>{navigation.navigate('Report')}} >
             <Image source={W_Flag} style={styles.Plus1} />
             <Text  style={styles.Rent}>Report Problem</Text>
         </TouchableOpacity>

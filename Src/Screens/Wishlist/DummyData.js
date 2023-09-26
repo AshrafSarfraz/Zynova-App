@@ -12,7 +12,8 @@ export const WishlistData=[
         Price:'CHF 3.60 / day',
         MeetingPoint:'Meeting Point: Rolex Learning Center, 1015 Ecublens, Suisse',
         Description:'This headset offers ultimate comfort for prolonged gaming sessions through its low weight and noise reducing closed ear cups using soft comfortable signature memory foam with a highly adjustable headband for a perfect fit. Crystal clear sound and excellent noise isolation bring you a total immersion into your gaming session.',
-        
+        OwnerImage: require('../../Assets/Images/img1.png')  ,
+        OwnerName:'Alex Hales'
     },
     {
         Id:2,
@@ -27,7 +28,8 @@ export const WishlistData=[
         Price:'CHF 3.60 / day',
         MeetingPoint:'Meeting Point: Rolex Learning Center, 1015 Ecublens, Suisse',
         Description:'This headset offers ultimate comfort for prolonged gaming sessions through its low weight and noise reducing closed ear cups using soft comfortable signature memory foam with a highly adjustable headband for a perfect fit. Crystal clear sound and excellent noise isolation bring you a total immersion into your gaming session.',
-       
+        OwnerImage: require('../../Assets/Images/img1.png')  ,
+        OwnerName:'Alex Hales'
     },
     {
         Id:3,
@@ -42,7 +44,8 @@ export const WishlistData=[
         Price:'CHF 3.60 / day',
         MeetingPoint:'Meeting Point: Rolex Learning Center, 1015 Ecublens, Suisse',
         Description:'This headset offers ultimate comfort for prolonged gaming sessions through its low weight and noise reducing closed ear cups using soft comfortable signature memory foam with a highly adjustable headband for a perfect fit. Crystal clear sound and excellent noise isolation bring you a total immersion into your gaming session.',
-       
+        OwnerImage: require('../../Assets/Images/img1.png')  ,
+        OwnerName:'Alex Hales'
     },
     {
         Id:4,
@@ -57,6 +60,7 @@ export const WishlistData=[
         Price:'CHF 3.60 / day',
         MeetingPoint:'Meeting Point: Rolex Learning Center, 1015 Ecublens, Suisse',
         Description:'This headset offers ultimate comfort for prolonged gaming sessions through its low weight and noise reducing closed ear cups using soft comfortable signature memory foam with a highly adjustable headband for a perfect fit. Crystal clear sound and excellent noise isolation bring you a total immersion into your gaming session.',
-      
+        OwnerImage: require('../../Assets/Images/img1.png')  ,
+        OwnerName:'Alex Hales'
     },
 ]

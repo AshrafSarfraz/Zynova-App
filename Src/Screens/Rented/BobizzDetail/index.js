@@ -133,7 +133,7 @@ const BobizzItemDetails = ({navigation}) => {
         <Text style={styles.Product_Data} >45 Ave, 3411 Philli.</Text>
         </View>
         </View>
-         <TouchableOpacity onPress={()=>{}} >
+         <TouchableOpacity onPress={()=>{navigation.navigate('ScanQrCode')}} >
         <View style={styles.QrCode_Cont}>
           <Text style={styles.Renter_Txt} >Renter will scan to confirm the pickup:</Text>
           <Image source={QR}   style={styles.QR} />
@@ -154,7 +154,7 @@ const BobizzItemDetails = ({navigation}) => {
          </View>
 
         
-        <TouchableOpacity style={styles.ModifyBtn}  onPress={()=>{navigation.navigate('ModifyCancel')}} >
+        <TouchableOpacity style={styles.ModifyBtn}  onPress={()=>{navigation.navigate('PostModify')}} >
             <Image source={Modify} style={styles.Modify} />
             <Text  style={styles.Modify_Txt}>Modify</Text>
         </TouchableOpacity>

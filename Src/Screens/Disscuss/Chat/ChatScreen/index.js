@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
      fontSize:20,fontFamily:Fonts.SF_SemiBold,color:Colors.Green
     },
     Dots:{
-     width:30,height:30,tintColor:'#000000',
+     width:25,height:25,tintColor:'#000000',
      resizeMode:'center'
     },
     Buttons_View:{
