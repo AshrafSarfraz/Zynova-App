@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity,FlatList } from 'react-native'
 import React, { useState,useEffect } from 'react'
-import { Add_circle,  Bobi_Logo, Scan, shout } from '../../../Themes/Images'
+import { Add_circle,  Bobi_Logo, Scan, Star, Star3, shout } from '../../../Themes/Images'
 import { Colors } from '../../../Themes/Colors'
 import { Fonts } from '../../../Themes/Fonts'
 import { PostData } from './DummyData'
@@ -31,6 +31,7 @@ const Post = ({navigation}) => {
     const renderItem = ({ item }) => (
         <TouchableOpacity onPress={() => { 
           if(item.Id===1){
+            
             navigation.navigate('PostModify')
           }
           else{
@@ -49,14 +50,37 @@ const Post = ({navigation}) => {
             {item.Pause!=='' ?  
              <Image source={item.Pause} style={styles.Pause_Img} resizeMode='cover' />: null}
             </View>
+            {item.Pause!=='' ? 
+             <View style={{ flexDirection: 'row',marginTop:"3%" ,width:'30%' }}>
+             <Text style={styles.Time_Txt}>State : </Text>
+             <View style={styles.MainCont1} >
+              <Image source={Star} style={styles.Img1} />
+              <Image source={Star} style={styles.Img1} />
+              <Image source={Star} style={styles.Img1} />
+              <Image source={Star} style={styles.Img1} />
+              <Image source={Star3} style={styles.Img1} />
+              
+             </View>
+           </View>
+            : 
             <View style={{ flexDirection: 'row',marginTop:"3%"  }}>
               <Text style={styles.Time_Txt}>Pick up:</Text>
               <Text style={styles.Time}>{item.Pick}</Text>
             </View>
+            }
+              {item.Pause!=='' ? 
+             <View style={{ flexDirection: 'row',marginTop:"3%"  }}>
+             <Text style={styles.Time_Txt}>Price : </Text>
+             <Text style={styles.Time}>{item.Price}</Text>
+           </View>
+            : 
             <View style={{ flexDirection: 'row', marginTop:"3%" }}>
-              <Text style={styles.Time_Txt}>Return:</Text>
-              <Text style={styles.Time}>{item.Return}</Text>
-            </View>
+            <Text style={styles.Time_Txt}>Return:</Text>
+            <Text style={styles.Time}>{item.Return}</Text>
+          </View>
+            }
+
+           
             </View>
             </View>
             <View>
@@ -248,7 +272,24 @@ const styles=StyleSheet.create({
     color: Colors.Green,
     marginBottom: '2%',
    
-  }
+  },
+  MainCont1:{
+    flexDirection:'row',
+    alignItems:'center',
+   
+ },
+ Img1:{
+    width:12,height:12,
+    margin:'1%',
+   
+ },
+ Rating:{
+    fontFamily:Fonts.SF_Medium,
+    fontSize:14,
+    lineHeight:18,
+    color:Colors.Black,
+    marginLeft:"3%"
+ }
    
 
 })

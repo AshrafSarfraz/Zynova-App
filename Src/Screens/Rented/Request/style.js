@@ -66,6 +66,7 @@ const style = StyleSheet.create({
     },
     
     Circular_View:{
+        
         padding:'4%',
         borderRadius:20,
         paddingRight:'2%'

@@ -212,7 +212,7 @@ const Confirm_And_Post = ({navigation}) => {
       />
     
       <View style={styles.CustomButton} >
-      <CustomButton title={'Post'} onPress={showAlert1} />
+      <CustomButton title={'Post it'} onPress={showAlert1} />
       </View>
 
 
@@ -253,7 +253,7 @@ const styles=StyleSheet.create({
     color:Colors.Black
   },
   Location:{
-    width:20,height:20,resizeMode:'contain',tintColor:Colors.Grey9
+    width:20,height:20,resizeMode:'contain',tintColor:Colors.Black
   },
   thumb: {
     height: 30, // Customize thumb height
@@ -371,11 +371,11 @@ const styles=StyleSheet.create({
     
   },
   Attach_Txt:{
-      fontSize:16,
+      fontSize:14,
       width:200,
       fontFamily:Fonts.SF_Medium,
       lineHeight:20,
-      color:Colors.Black,
+      color:Colors.Grey9,
      
   },
   Image_sq:{

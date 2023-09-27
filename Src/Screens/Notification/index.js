@@ -11,14 +11,16 @@ import Swipeout from 'react-native-swipeout';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import CustomHeader from '../../Components/CustomHeader/CustomHeader';
+import { Dot } from '../../Themes/Images';
+import { Colors } from '../../Themes/Colors';
 
 const Notifications = () => {
   const navigation = useNavigation();
   const [notificationArray, setNotificationArray] = useState([
-    { image: require('../../Assets/Images/User2.png'), Info: 'Rent Request from User for the item named ', Type :'‘Headphones 7.1’',  Accept: ' has been accepted!' ,  Time: '4 min Ago' ,Btn:'Proceed to pay',Image2:require('../../Assets/Icons/next.png') },
-    { image: require('../../Assets/Images/picc.png'), Info: 'DeLorem ipsum dolor sit amet, consectetur adipiscing elit.  ', Type :'',  Accept: '' ,  Time: '4 min Ago' ,Btn:'See details',Image2:''},
-    { image: require('../../Assets/Images/picc.png'), Info: 'DeLorem ipsum dolor sit amet, consectetur adipiscing elit.  ', Type :'',  Accept: '' ,  Time: '4 min Ago' ,Btn:'See details',Image2:''},
-    { image: require('../../Assets/Images/picc.png'), Info: 'DeLorem ipsum dolor sit amet, consectetur adipiscing elit.  ', Type :'',  Accept: '' ,  Time: '4 min Ago' ,Btn:'See details',Image2:''},
+    { image: require('../../Assets/Images/User2.png'), Info: 'Rent Request from User for the item named ', Type :'‘Headphones 7.1’',  Accept: ' has been accepted!' ,  Time: '4 min Ago' ,Btn:'Proceed to pay',Image2:require('../../Assets/Icons/next.png') ,status:'Offline' },
+    { image: require('../../Assets/Images/picc.png'), Info: 'DeLorem ipsum dolor sit amet, consectetur adipiscing elit.  ', Type :'',  Accept: '' ,  Time: '4 min Ago' ,Btn:'See details',Image2:''  ,status:'Online'},
+    { image: require('../../Assets/Images/picc.png'), Info: 'DeLorem ipsum dolor sit amet, consectetur adipiscing elit.  ', Type :'',  Accept: '' ,  Time: '4 min Ago' ,Btn:'See details',Image2:''  ,status:'Offline'},
+    { image: require('../../Assets/Images/picc.png'), Info: 'DeLorem ipsum dolor sit amet, consectetur adipiscing elit.  ', Type :'',  Accept: '' ,  Time: '4 min Ago' ,Btn:'See details',Image2:''  ,status:'Offline'},
     
 ]);
 const [notificationArray1, setNotificationArray1] = useState([
@@ -60,11 +62,15 @@ const [notificationArray1, setNotificationArray1] = useState([
                   onPress: () => onDeleteNotification(item),
                 },
               ]}>
+              <View style={{paddingTop:'2%',backgroundColor:Colors.Bg}} >
               <TouchableOpacity style={styles.Card_View} onPress={()=>{navigation.navigate('ReviewSummary2')}} >
                 <View style={styles.Circular_View}>
                   <Image source={item.image} style={styles.Alarm_Imge} />
                 </View>
                 <View style={styles.Texts_View}>
+                {item.status==='Online'   ?
+                <Image source={Dot}  style={{width:15,height:15,alignSelf:"flex-end",top:'-24%' ,right:'-5%'}} />
+               :null}
                   <Text style={styles.Info_Text}>{item.Info}
                   <Text style={styles.Type_Text}>{item.Type} 
                   <Text style={styles.Info_Text}>{item.Accept} </Text>
@@ -79,6 +85,7 @@ const [notificationArray1, setNotificationArray1] = useState([
                   </View>
                 </View>
               </TouchableOpacity>
+              </View>
             </Swipeout>
           )}
           keyExtractor={(_, index) => index.toString()}

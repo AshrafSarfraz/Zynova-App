@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
        alignSelf:'center'
     },
     Txt:{
-      fontSize:24,
+      fontSize:22,
       fontFamily:Fonts.SF_SemiBold,
       color:Colors.Black,
       lineHeight:28,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     Txt2:{
         fontSize:14,
         fontFamily:Fonts.SF_Medium,
-        color:Colors.Black,
+        color:'#585858',
         lineHeight:20,
         marginTop:'0%',
         marginBottom:"15%",

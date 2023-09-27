@@ -168,7 +168,7 @@ const styles=StyleSheet.create({
    
     backgroundColor:Colors.White,
     elevation:1,
-    borderRadius:10,
+    borderRadius:5,
     height:90,
     justifyContent:'space-between'
   },
@@ -200,13 +200,13 @@ const styles=StyleSheet.create({
     padding:'4%',
     elevation:1,
     backgroundColor:Colors.White,
-    borderRadius:10,
+    borderRadius:5,
   },
   Doc_Cont:{
     height:250,
     width:'100%',
     backgroundColor:Colors.White,
-    borderRadius:10,
+    borderRadius:5,
     elevation:1,
     alignItems:'center',
     justifyContent:'center',

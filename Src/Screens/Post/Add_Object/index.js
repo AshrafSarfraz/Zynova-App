@@ -337,11 +337,11 @@ const styles=StyleSheet.create({
     
   },
   Attach_Txt:{
-      fontSize:16,
+      fontSize:14,
       width:200,
       fontFamily:Fonts.SF_Medium,
       lineHeight:20,
-      color:Colors.Black,
+      color:Colors.Grey9,
      
   },
   Image_sq:{

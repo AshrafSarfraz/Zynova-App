@@ -13,15 +13,15 @@ const slides = [
   {
     key: 'slide1',
    
-    image: require('../../../Assets/Images/headphone2.png'), // Replace with your own image path
+    image: require('../../../Assets/Images/headphone1.png'), // Replace with your own image path
   },
   {
     key: 'slide2',
-    image: require('../../../Assets/Images/headphone2.png'),  // Replace with your own image path
+    image: require('../../../Assets/Images/headphone1.png'),  // Replace with your own image path
   },
   {
     key: 'slide3',
-    image: require('../../../Assets/Images/headphone2.png'),  // Replace with your own image path
+    image: require('../../../Assets/Images/headphone1.png'),  // Replace with your own image path
   },
 ];
 
@@ -115,7 +115,7 @@ const PostDetails = ({navigation}) => {
         
         <View style={styles.Price_Cont} >
          <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >you’ll Receive</Text>
+        <Text style={styles.Product_Value} >Price :</Text>
         <Text style={styles.Product_Data} >CHF 3.60 / Day</Text>
         </View>
        
@@ -290,6 +290,9 @@ const styles=StyleSheet.create({
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium,
         paddingLeft:'2%'
+      },
+      Location:{
+        width:15,height:15,resizeMode:'contain' , marginRight:"1%"
       },
        Address_Cont:{
         flexDirection:'row',

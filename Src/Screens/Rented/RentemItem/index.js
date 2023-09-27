@@ -1,7 +1,7 @@
 import { View, Text,StyleSheet,Image,TouchableOpacity,FlatList,ImageBackground } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import { Colors } from '../../../Themes/Colors'
-import { Bobi, Bobi_Logo, Scan, Wishlist } from '../../../Themes/Images'
+import { Bobi, Bobi_Logo, Dot, Scan, Wishlist } from '../../../Themes/Images'
 import { Fonts } from '../../../Themes/Fonts'
 import { BobizzData, RentedItemData } from './DummyData'
 import { useRoute } from '@react-navigation/native'
@@ -75,9 +75,12 @@ const Renteditem = ({navigation}) => {
             <Image source={Bobi_Logo} style={styles.Logo} />
             <Text style={styles.Rented_Item} >Rented items</Text>
         </View>
-        <TouchableOpacity style={styles.Req_Btn} onPress={()=>{navigation.navigate('RequestScreen')}} >
+        <TouchableOpacity  onPress={()=>{navigation.navigate('RequestScreen')}} >
+        <Image source={Dot}  style={{width:10,height:10,alignSelf:"flex-end",top:'12%' ,right:'0%',zIndex:1}} />
+            <View style={styles.Req_Btn} >
             <Image style={styles.Btn_Img}  source={require('../../../Assets/Images/recieve.png')} />
             <Text style={styles.Request} >Requests</Text>
+            </View>
         </TouchableOpacity>
         </View>
        
@@ -149,6 +152,7 @@ const styles=StyleSheet.create({
         borderWidth:1,
         borderColor:Colors.Green,
         padding:'2%',
+        paddingVertical:'4%',
         borderRadius:10,
         alignItems:'center',
         justifyContent:"center"

@@ -49,7 +49,7 @@ const style = StyleSheet.create({
         width:'68%'
     },
     separator: {
-        height: 12, // Adjust the height as needed for spacing
+        height: 4, // Adjust the height as needed for spacing
         // Change to your desired separator color
       },
     Info_Text:{

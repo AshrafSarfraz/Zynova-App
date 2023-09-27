@@ -29,7 +29,7 @@ const CustomProgressBar = ({ progress }) => {
 
       </View>
       {/* <View style={[styles.line, progress >= 3 ? null : null]} /> */}
-      <View style={{flexDirection:'row',alignItems:'center',backgroundColor:'red'}}>
+      <View style={{flexDirection:'row',alignItems:'center',backgroundColor:'#E9E9E9'}}>
 
       </View>
     </View>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 50,
-    backgroundColor: 'white',
+    backgroundColor: '#C3C3C3',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     height: 4,
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#C3C3C3',
   },
   activeLine: {
     backgroundColor:Colors.Green,
@@ -80,11 +80,11 @@ const styles = StyleSheet.create({
   textAlign:'center'
   },
   nonactiveText:{
-    color: Colors.Black,
+    color:'#C3C3C3' ,
   },nonactiveCircle:{
-    backgroundColor:"white",
+    backgroundColor:"#C3C3C3",
     borderWidth:3,
-    borderColor:'#D9D9D9'
+    borderColor:'#C3C3C3'
   },
   stepText2: {
     color: Colors.Grey9,

@@ -13,15 +13,15 @@ const slides = [
   {
     key: 'slide1',
    
-    image: require('../../../Assets/Images/headphone2.png'), // Replace with your own image path
+    image: require('../../../Assets/Images/headphone1.png'), // Replace with your own image path
   },
   {
     key: 'slide2',
-    image: require('../../../Assets/Images/headphone2.png'),  // Replace with your own image path
+    image: require('../../../Assets/Images/headphone1.png'),  // Replace with your own image path
   },
   {
     key: 'slide3',
-    image: require('../../../Assets/Images/headphone2.png'),  // Replace with your own image path
+    image: require('../../../Assets/Images/headphone1.png'),  // Replace with your own image path
   },
 ];
 

@@ -13,7 +13,7 @@ const OwnerProfiles = ({navigation}) => {
           <TouchableOpacity   onPress={()=>{navigation.goBack()}}  style={styles.Back_Cont} >
             <Image  source={Back_Icon} style={styles.Back_Icon}/>
             <Text 
-            style={styles.Back_Txt} >Details
+            style={styles.Back_Txt} >Owner Profile
             </Text>
           </TouchableOpacity>
          <View style={styles.Auth_Cont} >
@@ -64,7 +64,7 @@ const styles=StyleSheet.create({
     },
     Back_Txt:{
          marginLeft:"8%",
-         color:Colors.Green,
+         color:Colors.Black,
          fontFamily:Fonts.SF_Medium,
          lineHeight:24,
          fontSize:20
@@ -72,7 +72,7 @@ const styles=StyleSheet.create({
     Back_Icon:{
      width:25,height:25,
      marginLeft:"5%",
-     tintColor:Colors.Green
+     tintColor:Colors.Black
     },
     Bobi:{
       width:50,height:50,

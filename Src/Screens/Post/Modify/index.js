@@ -1,21 +1,17 @@
 import { View, Text, ScrollView, StyleSheet, TextInput ,Image, TouchableOpacity} from 'react-native'
-
 import React,{useState} from 'react'
 import Slider from 'react-native-slider';
 import DocumentPicker, { DocumentPickerResponse } from 'react-native-document-picker';
 
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
-import SelectCategories from '../../../Components/DropDown/SelectCategories'
 import { Colors } from '../../../Themes/Colors'
 import { Exclimation, Location, Minus, Plus2, Remove } from '../../../Themes/Images'
-import CustomProgressBar from '../../../Components/ProgressBar/CustomProgressBar/Custom_Progress';
 import { Fonts } from '../../../Themes/Fonts';
 import Icons from 'react-native-vector-icons/FontAwesome5';
-import RentAlert from '../../../Components/Alerts/RentRequest';
 import Exclimation_Alert from '../../../Components/Alerts/ExclimationAlert';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
-import PostAlert from '../../../Components/Alerts/PostAlert';
 import HoldAlert from '../../../Components/Alerts/HoldAlert';
+import DeleteAlert from '../../../Components/Alerts/DeleteAlert';
 
 const PostModify = ({navigation}) => {
    const[ Categories,setCategories]=useState('Electronics')
@@ -37,6 +33,7 @@ const PostModify = ({navigation}) => {
 
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertVisible1, setAlertVisible1] = useState(false);
+  const [alertVisible2, setAlertVisible2] = useState(false);
 
   const showAlert = () => {
     setAlertVisible(true);
@@ -51,6 +48,13 @@ const PostModify = ({navigation}) => {
 
   const hideAlert1 = () => {
     setAlertVisible1(false);
+  };
+  const showAlert2 = () => {
+    setAlertVisible2(true);
+  };
+
+  const hideAlert2 = () => {
+    setAlertVisible2(false);
   };
 
 
@@ -90,7 +94,9 @@ const PostModify = ({navigation}) => {
     <ScrollView contentContainerStyle={styles.MainCont}>
       <View style={styles.HeaderCont} >
      <CustomHeader title={'Modify'}  onBackPress={()=>{navigation.goBack()}}  />
+      <TouchableOpacity onPress={showAlert2} >
      <Image source={Remove} style={styles.Remove} />
+     </TouchableOpacity>
      </View>
      <View style={{marginVertical:'7%'}} >
       <TouchableOpacity style={styles.Edit_Btn} >
@@ -235,6 +241,11 @@ const PostModify = ({navigation}) => {
         message="This is a custom alert!"
         onClose={()=>{hideAlert()}}
       />
+      <DeleteAlert
+        visible={alertVisible2}
+        message="This is a custom alert!"
+        onClose={()=>{hideAlert2()}}
+      />
     </ScrollView>
   )
 }
@@ -257,8 +268,8 @@ const styles=StyleSheet.create({
      marginRight:'2%'
   },
   Remove:{
-      width:45,height:45,
-      top:"3%"
+      width:35,height:35,
+     
   },
   Edit_Btn:{
       borderWidth:2,
