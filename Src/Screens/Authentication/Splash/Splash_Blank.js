@@ -9,7 +9,7 @@ const Splash_Blank= ({navigation}) => {
   
  setTimeout(() => {
      navigation.navigate('Splash')
-  }, 1000);
+  }, 2000);
 
     return (
     <View style={styles.Main_Container} >

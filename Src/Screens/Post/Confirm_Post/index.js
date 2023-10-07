@@ -148,7 +148,9 @@ const Confirm_And_Post = ({navigation}) => {
       <TextInput  multiline  value={Desc} placeholder=''  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
      </View>
      
+     
     <View  style={{}} >
+      <Text style={{fontSize:14,fontFamily:Fonts.SF_Regular,color:Colors.Grey9 , marginBottom:'2%',fontWeight:"600"}} >Pictures</Text>
     <View style={styles.Img_Picker}>
       {singleFile==='' ?
       <View>

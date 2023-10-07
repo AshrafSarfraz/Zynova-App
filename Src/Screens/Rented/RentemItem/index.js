@@ -9,6 +9,8 @@ import { useRoute } from '@react-navigation/native'
 const Renteditem = ({navigation}) => {
   const route=useRoute();
   const [BtnState,setBtnState]=useState(0)
+  const [Loading,setLoading]=useState(false)
+ 
    
    useEffect(() => {
     if (route.params && route.params.updateButtonState) {
@@ -16,6 +18,10 @@ const Renteditem = ({navigation}) => {
     }
   }, [route.params]);
 
+
+  setTimeout(() => {
+     setLoading(true)
+  }, 2000);
 
    const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => { navigation.navigate('BobizzDetail',{Data:item}) }}>
@@ -94,24 +100,41 @@ const Renteditem = ({navigation}) => {
        </View>
 
         
-       {BtnState===0? <View>
-        <FlatList
-        data={RentedItemData}
-       
-        renderItem={renderItem}
-      />
+       {BtnState===0? 
+       <View>
+       {Loading===false?
+        <View style={styles.NoFoundCont} >
+        <Image source={require('../../../Assets/Images/No.png')} style={styles.NoFoundData_Image} />
+        <Text style={styles.NoFoundData} >It seems you haven’t posted anything, Start posting to see stuff here!</Text>
+        </View>:
+
+          <FlatList
+          data={RentedItemData}
+          renderItem={renderItem}
+          />
+      
+      } 
        </View>:null
 
        }
-        {BtnState===1? <View>
-        <FlatList
-        data={BobizzData}
+        {BtnState===1? 
+        <View>
+        {Loading===false?
+         <View style={styles.NoFoundCont} >
+         <Image source={require('../../../Assets/Images/No.png')} style={styles.NoFoundData_Image} />
+         <Text style={styles.NoFoundData} >It seems you haven’t ordered anything, Start ordering to see stuff here!</Text>
+         </View>:
+ 
+           <FlatList
+           data={BobizzData}
+           renderItem={renderItem2}
+           />
        
-        renderItem={renderItem2}
-      />
-       </View>:null
-
+       } 
+        </View>:null
        }
+       
+       
 
     </View>
   )
@@ -251,6 +274,23 @@ const styles=StyleSheet.create({
         color: Colors.Green,
         marginBottom: '2%',
        
+      },
+      NoFoundCont:{
+        height:520,
+        justifyContent:'center',
+        alignItems:"center"
+      },
+      NoFoundData_Image:{
+        width:250,height:250,
+        resizeMode:"contain"
+      },
+      NoFoundData:{
+        fontSize:22,
+        fontFamily:Fonts.SF_SemiBold,
+        marginTop:"15%",
+        textAlign:'center',
+        color:Colors.Green,
+        width:'90%'
       }
 
 

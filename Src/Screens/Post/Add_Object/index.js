@@ -122,7 +122,7 @@ const Add_Object = ({navigation}) => {
       <TextInput  placeholder='Description of your Object (Optional)'  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
      </View>
      
-    <View  style={{}} >
+    {/* <View  style={{}} >
     <View style={styles.Img_Picker}>
       {singleFile==='' ?
       <View>
@@ -133,10 +133,7 @@ const Add_Object = ({navigation}) => {
         </View>
         :null}
         
-         {/* <Image
-          source={{ uri: singleFile }}
-          style={styles.Image_sq}
-        /> */}
+       
         {images.map((imageUri, index) => (
         <View key={index} style={styles.Img_Pickers}>
           <Image
@@ -159,7 +156,7 @@ const Add_Object = ({navigation}) => {
 
 
           </View>
-    </View>
+    </View> */}
 
 
 
@@ -313,7 +310,7 @@ const styles=StyleSheet.create({
    flexDirection:'row',
    alignItems:'center',
    justifyContent:'space-between',
-   marginBottom:"10%"
+   marginBottom:"15%"
   },
   Forget_Btn:{
 
