@@ -2,21 +2,29 @@ import React,{useState} from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image, Alert,TextInput } from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { Colors } from '../../Themes/Colors';
-import { Bobi, Bobi_Logo, Location } from '../../Themes/Images';
+import { Location } from '../../Themes/Images';
 import { Fonts } from '../../Themes/Fonts';
-import PickupTime from '../DropDown/PickupTime';
 import DistanceDropDown from '../DropDown/Distance';
-import CustomCalendar2 from '../../Screens/SelectDays/Calender/Calender2';
-
+import CustomCalendar from '../../Screens/SelectDays/Calender/Calender';
+import Icons from 'react-native-vector-icons/FontAwesome5';
 
 const FilterRBSheet = ({ refRBSheet ,navigation}) => {
     const [ButtonState,setButtonState]=useState(0)
+    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked1, setIsChecked1] = useState(false);
+    const toggleCheckbox = () => {
+      setIsChecked(!isChecked);
+    };
+    const toggleCheckbox1 = () => {
+      setIsChecked1(!isChecked1);
+    };
+  
   return (
     <RBSheet
       ref={refRBSheet}
       closeOnDragDown={true}
       
-        height={600}
+        height={650}
         closeOnPressMask={false}
         
         customStyles={{
@@ -58,7 +66,31 @@ const FilterRBSheet = ({ refRBSheet ,navigation}) => {
         <Text style={styles.DistanceTxt} >Distance Radius</Text>
         <DistanceDropDown/>
      </View>:
-        <CustomCalendar2/>
+     <View>    
+      <View   style={styles.Checkbox_Cont}>
+      <View style={styles.container}>
+          <TouchableOpacity
+          style={[styles.checkbox, isChecked ? styles.checked : null]}
+          onPress={toggleCheckbox}
+          >
+         {isChecked && <Icons name="check" color="white" size={12} />}
+         </TouchableOpacity>
+         <Text style={styles.label}>For Return</Text>
+         </View>
+         <View style={styles.container}>
+          <TouchableOpacity
+          style={[styles.checkbox, isChecked1 ? styles.checked : null]}
+          onPress={toggleCheckbox1}
+          >
+         {isChecked1 && <Icons name="check" color="white" size={12} />}
+         </TouchableOpacity>
+         <Text style={styles.label}>For Pick-up</Text>
+         </View>
+        </View>
+        <CustomCalendar/>
+
+     </View>
+      
         }
       
    
@@ -89,17 +121,17 @@ const styles = StyleSheet.create({
     
   },
    Filter_Txt:{
-    fontSize:24,
+    fontSize:20,
     color:Colors.Black,
-    lineHeight:22,
+    lineHeight:24,
     fontFamily:Fonts.SF_SemiBold,
-    marginBottom:'4%',
+    marginBottom:'3%',
     textAlign:'center'
    },
   SearchBtnCont:{
     flexDirection:"row",
-    paddingTop:"7%",
-    paddingBottom:'3%',
+    paddingTop:"4%",
+    paddingBottom:'4%',
     borderTopWidth:0.5,
     justifyContent:'space-between'
 
@@ -131,8 +163,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
-     
-     elevation:2,
+     elevation:1,
      backgroundColor:Colors.White,
      borderRadius:5,
      paddingHorizontal:'5%',
@@ -161,9 +192,9 @@ const styles = StyleSheet.create({
   Bottom_Btn_Cont:{
     flexDirection:'row',
     alignItems:'center',
-    marginTop:'5%',
+    marginTop:'3%',
     borderTopWidth:0.5,
-    paddingVertical:'5%',
+    paddingVertical:'3%',
     justifyContent:'space-between'
   },
   ResetBtn:{
@@ -186,6 +217,38 @@ const styles = StyleSheet.create({
     fontWeight:'500',
     lineHeight:20,
     color:Colors.White,
+  },
+  Checkbox_Cont:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf:"center",
+    justifyContent:'space-between',
+    width:'80%'
+  },
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderWidth: 3,
+    borderRadius:5,
+    borderColor: Colors.Green,
+    marginRight: 10,
+  },
+  checked: {
+    backgroundColor: 'green',
+    alignItems:'center',
+    justifyContent:'center',
+    borderColor: Colors.Green,
+  },
+  label: {
+    fontSize: 14,
+    color: Colors.Black,
+    fontFamily:Fonts.SF_Bold,
+    lineHeight:18, 
   },
 
 });

@@ -11,15 +11,17 @@ const SearchItem = (props) => { // Change the parameter to 'props'
 
   const renderItem = ({ item, index }) => (
     <View style={styles.Cart}>
+        <TouchableOpacity  onPress={() => { props.navigation.navigate('ProductDetails',{Data:item}) }} >
       <ImageBackground source={item.Image1} style={styles.Product_Img} imageStyle={{ borderRadius: 10, alignItems: 'center' }} resizeMode='cover'>
         {itemStates[index] ? (
-          <TouchableOpacity onPress={() => toggleItemState(index)}>
+          <TouchableOpacity onPress={() => toggleItemState(index)} style={{width:30,height:30,alignSelf:"flex-end"}} >
             <Image source={Wishlist} style={styles.Wishlist} />
           </TouchableOpacity>
-        ) :<TouchableOpacity onPress={() => toggleItemState(index)}>
+        ) :<TouchableOpacity onPress={() => toggleItemState(index)}  style={{width:30,height:30,alignSelf:"flex-end"}} >
         <Image source={Heart} style={styles.Wishlist} />
       </TouchableOpacity> }
       </ImageBackground>
+      </TouchableOpacity>
       <TouchableOpacity  onPress={() => { props.navigation.navigate('ProductDetails',{Data:item}) }} >
         <Text style={styles.Title}>{item.Title}</Text>
         <Text style={styles.MeetingPoint}>{item.MeetingPoint}</Text>

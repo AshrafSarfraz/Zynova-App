@@ -186,9 +186,10 @@ const CustomCalendar = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 410,
+    height: 355,
     resizeMode: 'cover',
-    padding:"3%"
+    paddingHorizontal:"3%",
+    paddingVertical:'2%'
   },
   header: {
     flexDirection: 'row',
@@ -204,10 +205,10 @@ const styles = StyleSheet.create({
   },
   navigationButtonText: {
   
-    fontSize: 18,
+    fontSize: 16,
   },
   monthYear: {
-    fontSize: 18,
+    fontSize: 16,
    fontFamily:Fonts.SF_Medium,
     color: Colors.White,
   },
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems:'center',
-    marginTop: '4%',
+    marginTop: '3%',
   
   },
   dayOfWeek: {
@@ -232,7 +233,7 @@ const styles = StyleSheet.create({
   },
   dayContainer: {
     flex: 1,
-    paddingVertical: '3%',
+    paddingVertical: '2%',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -276,22 +277,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.White,
     textAlign: 'left',
-    marginTop: 10,
+    marginTop: 6,
   
   },
   selectedDateRange: {
-    fontSize: 30,
+    fontSize: 24,
     color: Colors.White,
     fontWeight: 'bold',
     textAlign: 'left',
-    marginVertical: 5,
+    marginVertical: 3,
     
   },
   yearChange: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 10,
+    marginVertical: 6,
   },
   yearChangeButton: {
     paddingHorizontal: 10,

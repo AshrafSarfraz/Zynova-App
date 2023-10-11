@@ -6,7 +6,7 @@ import { Discovery, H_Logo, Hide, Lock, Logo, Message, Profile, Show } from '../
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import { styles } from './style';
 import CustomHeader2 from '../../../Components/CustomHeader2/CustomHeader2';
-
+import PhoneInput from 'react-native-phone-number-input'
 
 const SignUp = ({ navigation }) => {
   const [Username, setUsername] = useState('');
@@ -16,6 +16,7 @@ const SignUp = ({ navigation }) => {
   const [ShowPassword,setShowPassword]=useState(false)
   const [ShowConfirmPassword,setShowConfirmPassword]=useState(false)
   const [isChecked, setIsChecked] = useState(false);
+  const [PhoneNumber,setPhoneNumber]=useState('')
  
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);
@@ -50,6 +51,15 @@ const SignUp = ({ navigation }) => {
               style={styles.User_Input}
             />
           </View>
+          <PhoneInput
+        defaultValue={PhoneNumber}
+        defaultCode='US'
+        placeholder='000 000 000'
+        onChangeFormattedText={(txt)=>{setPhoneNumber(txt)}}
+        containerStyle={{width:'98%',elevation:1,marginBottom:"3%",height:60, borderRadius:12,backgroundColor:'#F4F4F4',alignSelf:'center',overflow:'',borderWidth:PhoneNumber.length===0?0:1  ,borderColor:PhoneNumber.length>=11?Colors.Green:Colors.Red }}
+        textContainerStyle={{backgroundColor:Colors.White4,}}
+        textInputProps={{fontSize:14,color:'#000000' ,padding:'0%',}}
+          />
          
           <View style={[styles.Input_Field,Password!==''? styles.Active_Input_Field:null]}>
             <Image source={Lock} style={[styles.Input_Icon ,{tintColor:Password!==''?Colors.Black2:Colors.Grey9}  ]} resizeMode='contain' />

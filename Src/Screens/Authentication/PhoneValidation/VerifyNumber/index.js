@@ -22,14 +22,15 @@ const PhoneValidation = ({navigation}) => {
      <Image source={T_Logo}  style={styles.Logo} />
       <Text style={styles.Header_Txt} >Verify your number to continue</Text>
        <View  style={styles.PhoneInputCont} >
-      <PhoneInput
+       <PhoneInput
         defaultValue={PhoneNumber}
         defaultCode='US'
         placeholder='000 000 000'
-        
         onChangeFormattedText={(txt)=>{setPhoneNumber(txt)}}
-        containerStyle={{width:'100%', borderRadius:20,backgroundColor:'#FFFFFF',alignSelf:'center',overflow:'hidden',borderWidth:PhoneNumber.length===0?0:1  ,borderColor:PhoneNumber.length>=11?Colors.Green:Colors.Red }}
-      />
+        containerStyle={{width:'98%',elevation:1,marginBottom:"3%",height:60, borderRadius:12,backgroundColor:'#FFFFFF',alignSelf:'center',overflow:'',borderWidth:PhoneNumber.length===0?0:1  ,borderColor:PhoneNumber.length>=11?Colors.Green:Colors.Red }}
+        textContainerStyle={{backgroundColor:Colors.White,}}
+        textInputProps={{fontSize:14,color:'#000000' ,padding:'0%',}}
+          />
       {PhoneNumber.length<11?<Text style={styles.Error} >This phone number is invalid</Text>:null}
       </View>
       <View style={styles.container}>
