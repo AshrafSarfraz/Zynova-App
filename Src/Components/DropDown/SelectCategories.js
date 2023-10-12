@@ -45,12 +45,12 @@ const SelectCategories = () => {
       </View>:null
       }
 
-
+{/* 
 
 {showInput && (
         <View>
             <Text style={styles.Explain_Txt} >
-            Explain type of report
+            Explain type of Category
             </Text>
         <TextInput
           style={styles.input}
@@ -62,7 +62,7 @@ const SelectCategories = () => {
           }}
         />
         </View>
-      )}
+      )} */}
     </View>
   );
 };
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     lineHeight:18,
   },
   SelectValue:{
-   color:Colors.Grey9,
+   color:Colors.Black,
     fontFamily:Fonts.SF_Regular,
     fontSize:14,
     lineHeight:18,

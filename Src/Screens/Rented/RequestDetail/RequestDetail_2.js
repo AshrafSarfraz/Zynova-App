@@ -117,29 +117,29 @@ const RequestDetail_2 = ({navigation}) => {
         
         <View style={styles.Price_Cont} >
          <View  style={styles.Box1}>
-        <Text style={styles.Product_Data} >Current Meeting Time</Text>
+        <Text style={styles.Product_Data} >Current Meeting Location</Text>
         </View>
         <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >Current Pickup at:</Text>
-        <Text style={styles.Product_Data} >06/04/2024 at 1:00PM</Text>
+        <Text style={styles.Product_Value} >Current Meeting Location:</Text>
+        <Text style={styles.Product_Data} >Rolex Learning Center, 1015 Ecublens, Suisse</Text>
         </View>
-        <View  style={styles.Box1}>
+        {/* <View  style={styles.Box1}>
         <Text style={styles.Product_Value} >Current Return at:</Text>
         <Text style={styles.Product_Data} >08/04/2024 at 1:00PM</Text>
-        </View>
+        </View> */}
         </View>
         <View style={[styles.Price_Cont,{borderWidth:1,borderColor:Colors.Green,marginTop:'0%'}]} >
          <View  style={styles.Box1}>
-        <Text style={styles.Product_Data} >New Meeting Time</Text>
+        <Text style={styles.Product_Data} >New Meeting Location</Text>
         </View>
         <View  style={styles.Box1}>
-        <Text style={styles.Product_Value} >Current Pickup at:</Text>
-        <Text style={styles.Product_Data} >06/04/2024 at 1:00PM</Text>
+        <Text style={styles.Product_Value} >New Meeting Location:</Text>
+        <Text style={styles.Product_Data} >Rolex Learning Center, 1015 Ecublens, Suisse</Text>
         </View>
-        <View  style={styles.Box1}>
+        {/* <View  style={styles.Box1}>
         <Text style={styles.Product_Value} >New Return at:</Text>
         <Text style={styles.Product_Data} >08/04/2024 at 1:00PM</Text>
-        </View>
+        </View> */}
         </View>
          
          

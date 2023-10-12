@@ -136,7 +136,7 @@ const ProductDetails = ({navigation}) => {
         </TouchableOpacity>
             <View style={styles.Top_Review_Cont} >
         <Text style={styles.Top} >Top Reviews</Text>
-        <TouchableOpacity  style={styles.ViewBtn} >
+        <TouchableOpacity  style={styles.ViewBtn}   onPress={()=>{navigation.navigate('Top_Reviews')}} >
             <Text style={styles.View_Txt} >View All</Text>
         </TouchableOpacity>
 
@@ -265,15 +265,15 @@ const styles=StyleSheet.create({
       },
       Type_Cont:{
         backgroundColor:'#D0A700',
-        width:80,
+        width:90,
         alignItems:'center',
         padding:"1%",
         marginBottom:"3%",
         borderRadius:5,
       },
       Type_Text:{
-        fontSize:12,
-        lineHeight:14,
+        fontSize:14,
+        lineHeight:16,
         color:Colors.White,
         fontFamily:Fonts.SF_Medium,
       },
@@ -288,14 +288,14 @@ const styles=StyleSheet.create({
         alignItems:'center'
       },
       Title:{
-        fontSize:18,
-        lineHeight:22,
+        fontSize:20,
+        lineHeight:25,
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium,
       },
       Brand:{
-        fontSize:18,
-        lineHeight:22,
+        fontSize:20,
+        lineHeight:25,
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium,
       },
@@ -304,11 +304,11 @@ const styles=StyleSheet.create({
        alignItems:"center"
       },
       Star_Icon:{
-        width:15,height:15,  
+        width:16,height:16,  
       },
       Rating:{
-        fontSize:14,
-        lineHeight:18,
+        fontSize:16,
+        lineHeight:20,
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium,
         paddingLeft:'2%'
@@ -324,8 +324,8 @@ const styles=StyleSheet.create({
         marginRight:"2%"
        },
       Address:{
-        fontSize:14,
-        lineHeight:16,
+        fontSize:16,
+        lineHeight:18,
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium, 
        },
@@ -336,14 +336,14 @@ const styles=StyleSheet.create({
         borderRadius:10,
        },
        Price:{
-        fontSize:14,
-        lineHeight:18,
+        fontSize:16,
+        lineHeight:20,
         color:Colors.Black,
-        fontFamily:Fonts.SF_Regular,
+        fontFamily:Fonts.SF_Medium,
        },
        Total:{
-        fontSize:14,
-        lineHeight:18,
+        fontSize:16,
+        lineHeight:20,
         color:Colors.Green,
         fontFamily:Fonts.SF_Medium,
         marginTop:"1%"
@@ -352,15 +352,15 @@ const styles=StyleSheet.create({
 
        },
        Desc:{
-        fontSize:16,
-        lineHeight:20,
+        fontSize:18,
+        lineHeight:22,
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium,
         marginVertical:"3%"
        },
        Detail:{
-        fontSize:13,
-        lineHeight:17,
+        fontSize:15,
+        lineHeight:20,
         color:Colors.Black,
         fontFamily:Fonts.SF_Regular,
         marginBottom:'3%'
@@ -381,15 +381,15 @@ const styles=StyleSheet.create({
         marginLeft:"3%"
        },
        Owner_Text:{
-        fontSize:10,
-        lineHeight:13,
+        fontSize:12,
+        lineHeight:15,
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium,
         marginBottom:'3%'
       },
       OwnerName:{
-        fontSize:14,
-        lineHeight:17,
+        fontSize:16,
+        lineHeight:20,
         color:Colors.Black,
         fontFamily:Fonts.SF_Bold,
         marginBottom:'3%'
@@ -410,9 +410,9 @@ const styles=StyleSheet.create({
       },
       Rent:{
         color:Colors.White,
-        fontSize:14,
+        fontSize:16,
         fontFamily:Fonts.SF_Medium,
-        lineHeight:19
+        lineHeight:20
       },
        Top_Review_Cont:{
         flexDirection:'row',
@@ -420,15 +420,15 @@ const styles=StyleSheet.create({
         alignItems:'center',
        },
        Top:{
-        fontSize:14,
-        lineHeight:17,
+        fontSize:16,
+        lineHeight:19,
         color:Colors.Black,
         fontWeight:'500',
         fontFamily:Fonts.SF_SemiBold,
        },
        View_Txt:{
-        fontSize:12,
-        lineHeight:15,
+        fontSize:14,
+        lineHeight:17,
         color:Colors.Black,
         fontFamily:Fonts.SF_Medium,
        },
@@ -450,7 +450,7 @@ const styles=StyleSheet.create({
          width:45,height:45
        },
        Review_Text:{
-        fontSize:11,
+        fontSize:12,
         lineHeight:15,
         color:Colors.Black,
         fontFamily:Fonts.SF_Regular,

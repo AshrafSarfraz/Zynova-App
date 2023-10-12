@@ -211,8 +211,10 @@ const styles=StyleSheet.create({
         lineHeight:17
     },
     ActiveStyle:{
-        borderBottomWidth:4,
-        borderColor:Colors.Green
+        borderBottomWidth:2,
+        borderColor:Colors.Green,
+      
+      
     },
     ActiveTxt:{
         color:Colors.Green

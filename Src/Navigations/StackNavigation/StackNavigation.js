@@ -58,6 +58,7 @@ import Graph from '../../Screens/Post/Graph';
 import Post from '../../Screens/Post/Post';
 import PostDetails from '../../Screens/Post/PostDetail';
 import PostModify from '../../Screens/Post/Modify';
+import Top_Reviews from '../../Screens/Search/Reviews';
 
 
 
@@ -126,6 +127,7 @@ const StackNavigations = () => {
         <Stack.Screen name='Graph'                 component={Graph} />
         <Stack.Screen name='PostModify'            component={PostModify} />
         <Stack.Screen name='PostDetails'           component={PostDetails} />
+        <Stack.Screen name='Top_Reviews'           component={Top_Reviews} />
       </Stack.Navigator>
     </NavigationContainer>
 
