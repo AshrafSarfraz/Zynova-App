@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import { Colors } from '../../../Themes/Colors';
-import { Discovery, H_Logo, Hide, Lock, Logo, Message, Profile, Show } from '../../../Themes/Images';
+import {  Hide, Lock, Logo, Message, Show } from '../../../Themes/Images';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import { styles } from './style';
 

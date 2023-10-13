@@ -114,7 +114,7 @@ const Add_Object = ({navigation}) => {
       <Image source={Minus} style={styles.Plus} />
       </TouchableOpacity>
       <View style={styles.InputCont2} >
-      <TextInput  placeholder='Rent per day'  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
+      <TextInput  placeholder='Rent per day'  placeholderTextColor={Colors.Grey9}  style={styles.Rented_Input} />
      </View>
      <TouchableOpacity>
       <Image source={Plus2} style={styles.Plus} />
@@ -216,7 +216,12 @@ const styles=StyleSheet.create({
   },
   Input:{
     width:'80%',
-    color:Colors.Black
+    color:Colors.Black,
+  },
+  Rented_Input:{
+    width:'100%',
+    color:Colors.Black,
+    textAlign:"center"
   },
   Location:{
     width:20,height:20,resizeMode:'contain',tintColor:Colors.Grey9

@@ -544,7 +544,8 @@ marginRight:10,
 resizeMode:'contain'
 },
 Textinputcontainer:{
-width:"70%"
+width:"70%",
+color:Colors.Black
 },
 Touch_Image:{
   alignSelf:'center',
