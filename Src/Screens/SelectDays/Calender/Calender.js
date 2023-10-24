@@ -143,7 +143,7 @@ const CustomCalendar = () => {
 
   const formatSelectedDateRange = () => {
     if (selectedStartDate && selectedEndDate) {
-      return `${selectedStartDate.getDate()} ${monthsOfYear[selectedStartDate.getMonth()].slice(0, 3)} - ${selectedEndDate.getDate()} ${monthsOfYear[selectedEndDate.getMonth()].slice(0, 3)}`;
+      return `${monthsOfYear[selectedStartDate.getMonth()].slice(0, 3)} ${selectedStartDate.getDate()} - ${monthsOfYear[selectedEndDate.getMonth()].slice(0, 3)} ${selectedEndDate.getDate()}`;
     }
     return '';
   };
@@ -265,7 +265,6 @@ const styles = StyleSheet.create({
     color: 'black', // You can customize the text color as needed
   },
   prevNextMonthDate: {
-    // Set the background color to red for prev/next month's dates
      height:0,
      bottom:'200%'
   },
@@ -281,11 +280,14 @@ const styles = StyleSheet.create({
   
   },
   selectedDateRange: {
-    fontSize: 24,
-    color: Colors.White,
-    fontWeight: 'bold',
+    fontSize: 30,
+    color: '#FFFFFF',
+    fontFamily:Fonts.SF_Medium,
     textAlign: 'left',
-    marginVertical: 3,
+    fontWeight:"600",
+    lineHeight:36,
+    marginTop:"1%"
+   
     
   },
   yearChange: {

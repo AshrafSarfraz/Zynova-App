@@ -75,7 +75,7 @@ const RequestDetail_2 = ({navigation}) => {
          <View  style={styles.Header} >
           <TouchableOpacity   onPress={()=>{navigation.goBack()}}  style={styles.Back_Cont} >
             <Image  source={Back_Icon} style={styles.Back_Icon}/>
-            <Text style={styles.Back_Txt} >Details</Text>
+            <Text style={styles.Back_Txt} >Request Details</Text>
           </TouchableOpacity>
          <View style={styles.Auth_Cont} >
            <TouchableOpacity onPress={()=>{navigation.navigate('Report')}} style={styles.Auth_Icon} >

@@ -6,7 +6,7 @@ import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
 const Graph = ({navigation}) => {
   return (
     <View>
-      <CustomHeader title={'Graph'} onBackPress={()=>{navigation.goBack()}} />
+      <CustomHeader title={'Choose Disponibilities'} onBackPress={()=>{navigation.goBack()}} />
        <View style={{height:'80%'}} />
       <CustomButton title={'Next'} onPress={()=>{navigation.navigate('Confirm_Post')}} />
     </View>

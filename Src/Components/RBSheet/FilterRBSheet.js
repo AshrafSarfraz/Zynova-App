@@ -247,8 +247,9 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     color: Colors.Black,
-    fontFamily:Fonts.SF_Bold,
+    fontFamily:Fonts.SF_Medium,
     lineHeight:18, 
+    fontWeight:'600'
   },
 
 });
