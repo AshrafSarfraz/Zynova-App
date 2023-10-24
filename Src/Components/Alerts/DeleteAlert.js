@@ -51,8 +51,7 @@ const styles = StyleSheet.create({
       lineHeight:28,
       marginVertical:'4%',
       marginBottom:"8%",
-      textAlign:"center",
-      width:'98%',
+      width:'100%',
     },
     Txt2:{
         fontSize:14,
@@ -61,8 +60,7 @@ const styles = StyleSheet.create({
         lineHeight:20,
         marginTop:'0%',
         marginBottom:"20%",
-        textAlign:"center",
-        width:'96%',
+        width:'100%',
       },
       BtnCont:{
        flexDirection:'row',

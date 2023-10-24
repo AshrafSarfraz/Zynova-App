@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     width: '46%',
     elevation: 2,
     padding: '1%',
+    marginBottom:'3%'
   },
   Product_Img: {
     width: '100%', height: 100,

@@ -143,7 +143,7 @@ const CustomCalendar = () => {
 
   const formatSelectedDateRange = () => {
     if (selectedStartDate && selectedEndDate) {
-      return `${selectedStartDate.getDate()} ${monthsOfYear[selectedStartDate.getMonth()].slice(0, 3)} - ${selectedEndDate.getDate()} ${monthsOfYear[selectedEndDate.getMonth()].slice(0, 3)}`;
+      return `${monthsOfYear[selectedStartDate.getMonth()].slice(0, 3)} ${selectedStartDate.getDate()} - ${monthsOfYear[selectedEndDate.getMonth()].slice(0, 3)} ${selectedEndDate.getDate()}`;
     }
     return '';
   };
@@ -186,9 +186,10 @@ const CustomCalendar = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 410,
+    height: 355,
     resizeMode: 'cover',
-    padding:"3%"
+    paddingHorizontal:"3%",
+    paddingVertical:'2%'
   },
   header: {
     flexDirection: 'row',
@@ -204,10 +205,10 @@ const styles = StyleSheet.create({
   },
   navigationButtonText: {
   
-    fontSize: 18,
+    fontSize: 16,
   },
   monthYear: {
-    fontSize: 18,
+    fontSize: 16,
    fontFamily:Fonts.SF_Medium,
     color: Colors.White,
   },
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems:'center',
-    marginTop: '4%',
+    marginTop: '3%',
   
   },
   dayOfWeek: {
@@ -232,7 +233,7 @@ const styles = StyleSheet.create({
   },
   dayContainer: {
     flex: 1,
-    paddingVertical: '3%',
+    paddingVertical: '2%',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -264,7 +265,6 @@ const styles = StyleSheet.create({
     color: 'black', // You can customize the text color as needed
   },
   prevNextMonthDate: {
-    // Set the background color to red for prev/next month's dates
      height:0,
      bottom:'200%'
   },
@@ -276,22 +276,25 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.White,
     textAlign: 'left',
-    marginTop: 10,
+    marginTop: 6,
   
   },
   selectedDateRange: {
     fontSize: 30,
-    color: Colors.White,
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontFamily:Fonts.SF_Medium,
     textAlign: 'left',
-    marginVertical: 5,
+    fontWeight:"600",
+    lineHeight:36,
+    marginTop:"1%"
+   
     
   },
   yearChange: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 10,
+    marginVertical: 6,
   },
   yearChangeButton: {
     paddingHorizontal: 10,

@@ -1,11 +1,20 @@
 import { View, Text,StyleSheet,Image,TouchableOpacity,FlatList } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import { Colors } from '../../Themes/Colors'
 import { Fonts } from '../../Themes/Fonts'
 import { Bobi_Logo } from '../../Themes/Images'
 import { ChatData } from './DummyData'
 
 const Disscuss = ({navigation}) => {
+const [Loading,setLoading]=useState(false)
+  
+  
+  setTimeout(() => {
+    setLoading(true)
+ }, 2000);
+
+
+
 
   const RenderItem=({item})=>(
     <TouchableOpacity  onPress={()=>{navigation.navigate('Chatting')}}>
@@ -38,11 +47,18 @@ const Disscuss = ({navigation}) => {
            <Text style={styles.Chat_Txt} >Chats</Text>
           </View>
           <View  style={styles.FlatList_Cont} >
+          {Loading===false?
+         <View style={styles.NoFoundCont} >
+         <Image source={require('../../Assets/Images/NoChat.png')} style={styles.NoFoundData_Image} />
+         <Text style={styles.NoFoundData} >Get a bobizzz to be able to chat with their owner</Text>
+         </View>:
+ 
            <FlatList
            data={ChatData}
            renderItem={RenderItem}
-           
            />
+       
+       }
           </View>
     </View>
   )
@@ -125,5 +141,22 @@ const styles=StyleSheet.create({
     fontSize:12,fontFamily:Fonts.SF_Medium,
     color:'#6F6F6F',
     lineHeight:16,
+  },
+  NoFoundCont:{
+    height:520,
+    justifyContent:'center',
+    alignItems:"center"
+  },
+  NoFoundData_Image:{
+    width:300,height:300,
+    resizeMode:"contain"
+  },
+  NoFoundData:{
+    fontSize:24,
+    fontFamily:Fonts.SF_SemiBold,
+    marginTop:" 10%",
+    textAlign:'center',
+    color:Colors.Green,
+    width:'90%'
   }
 })

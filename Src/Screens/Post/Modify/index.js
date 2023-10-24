@@ -99,7 +99,7 @@ const PostModify = ({navigation}) => {
      </TouchableOpacity>
      </View>
      <View style={{marginVertical:'7%'}} >
-      <TouchableOpacity style={styles.Edit_Btn} >
+      <TouchableOpacity style={styles.Edit_Btn}  onPress={()=>{navigation.navigate('Graph')}} >
         <Text style={styles.Edit_Txt} >Edit Disponibilities</Text>
       </TouchableOpacity>
      </View>
@@ -145,12 +145,12 @@ const PostModify = ({navigation}) => {
      </View>
      <Text style={styles.Label} >Rent per day</Text>
      <View style={styles.Rent_Cont} >
-       <View style={styles.InputCont2} > 
-      <TextInput  value={Price} placeholder=''  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
-     </View>
+       
      <View style={styles.Qty_Cont} >
       <Image source={Minus} style={styles.Plus} />
-      <Text style={styles.Val}>50 CHF</Text>
+      <View style={styles.InputCont2} > 
+      <TextInput  value={Price} placeholder=''  placeholderTextColor={Colors.Grey9}  style={styles.Input1} />
+     </View>
       <Image source={Plus2} style={styles.Plus} />
      </View>
      </View>
@@ -219,7 +219,7 @@ const PostModify = ({navigation}) => {
    
     
       <View style={styles.CustomButton} >
-      <CustomButton title={'Update'} onPress={()=>{navigation.navigate('PostDetails')}} />
+      <CustomButton title={'Update'} onPress={()=>{navigation.navigate('PostDetails' ,{ updateButtonState: 1 } )}} />
       </View>
 
 
@@ -245,6 +245,7 @@ const PostModify = ({navigation}) => {
         visible={alertVisible2}
         message="This is a custom alert!"
         onClose={()=>{hideAlert2()}}
+        OnDelete={()=>{hideAlert2(),navigation.navigate('RentedItem')}}
       />
     </ScrollView>
   )
@@ -302,6 +303,12 @@ const styles=StyleSheet.create({
     fontSize:14,
     fontFamily:Fonts.SF_Medium
   },
+  Input1:{
+    color:Colors.Black,
+    fontSize:14,
+    fontFamily:Fonts.SF_Medium,
+    textAlign:"center"
+  },
   Location:{
     width:20,height:20,resizeMode:'contain',tintColor:Colors.Black
   },
@@ -337,7 +344,8 @@ const styles=StyleSheet.create({
   Rent_Cont:{
     flexDirection:'row',
     alignItems:'center',
-    justifyContent:'space-between',
+    justifyContent:'center',
+   
   
   
   },
@@ -345,19 +353,21 @@ const styles=StyleSheet.create({
     fontSize:14,fontFamily:Fonts.SF_Medium,color:Colors.Grey9,lineHeight:18
   },
   InputCont2:{
-    width:'47%',
+    width:'50%',
     padding:'1%',
     backgroundColor:Colors.White,
     elevation:1,
     alignItems:'center',
     borderRadius:10,
-    marginVertical:'3%'
+    marginVertical:'3%',
+    
   },
   Qty_Cont:{
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
-    width:'40%'
+    width:'80%',
+    alignSelf:"center"
   },
   Plus:{
     width:35,height:35,

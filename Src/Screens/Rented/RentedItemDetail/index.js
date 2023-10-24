@@ -122,6 +122,7 @@ const RentedItemDetails = ({navigation}) => {
         <Text style={styles.Detail} >{Product.Description}</Text>
         </View>
          
+         <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
          <View style={styles.OwnerDetail} >
             <View style={{flexDirection:'row',alignItems:"center"}} >
             <Image source={Product.OwnerImage} style={styles.OwnerImg} />
@@ -130,10 +131,11 @@ const RentedItemDetails = ({navigation}) => {
             <Text style={styles.OwnerName} >{Product.OwnerName}</Text>
             </View>
             </View>
-            <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
+            <TouchableOpacity onPress={()=>{navigation.navigate('Chatting')}} >
                 <Image source={Chatting} style={styles.Chatting} />
             </TouchableOpacity>
          </View>
+         </TouchableOpacity>
 
         <TouchableOpacity style={styles.ScanBtn}  onPress={()=>{navigation.navigate('QrcodeScanner')}} >
             <Image source={Scan} style={styles.Scan} />

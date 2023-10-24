@@ -4,19 +4,18 @@ import { Colors } from '../../Themes/Colors';
 import { Exclimation, Mobile, Wallet } from '../../Themes/Images';
 import { Fonts } from '../../Themes/Fonts';
 
-const ReportAlert = ({ visible, message, onClose }) => {
+const ReportAlert = ({ visible, message, onClose,onPress }) => {
   return (
     <Modal transparent={true} visible={visible} animationType="fade">
       <View style={styles.overlay}>
+       <TouchableOpacity style={styles.Bg} onPress={onPress} >
         <View style={styles.alertContainer}>
-
-       
-
           <TouchableOpacity style={styles.okButton} onPress={onClose}>
             <Image source={Exclimation} style={styles.Exclimation} />
             <Text style={styles.okButtonText}>Report</Text>
           </TouchableOpacity>
         </View>
+      </TouchableOpacity>
       </View>
     </Modal>
   );
@@ -25,8 +24,13 @@ const ReportAlert = ({ visible, message, onClose }) => {
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
- alignItems:'flex-end',
+   alignItems:'flex-end',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  Bg:{
+      flex:1,
+      width:"100%",
+      alignItems:'flex-end',
   },
   alertContainer: {
     backgroundColor: 'white',

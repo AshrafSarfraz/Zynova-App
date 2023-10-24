@@ -7,9 +7,21 @@ import { DocPlus, Location } from '../../../Themes/Images'
 import CustomButton from '../../../Components/CustomButton/CustomButton'
 import PickupTime from '../../../Components/DropDown/PickupTime'
 import ReturnTime from '../../../Components/DropDown/Return'
+import SubmissionAlert from '../../../Components/Alerts/SubmissionAlert'
+import SubmissionAlert2 from '../../../Components/Alerts/SubmissionAlert2'
 
 const ModifyScreen = ({navigation}) => {
     const [BtnState,setBtnState]=useState(0)
+    const [alertVisible, setAlertVisible] = useState(false);
+
+
+  const showAlert = () => {
+    setAlertVisible(true);
+  };
+
+  const hideAlert = () => {
+    setAlertVisible(false);
+  };
   return (
    <ScrollView contentContainerStyle={styles.MainCont} >
      <CustomHeader title={'Modify'}  onBackPress={()=>{navigation.goBack()}} />
@@ -49,7 +61,7 @@ const ModifyScreen = ({navigation}) => {
         <Text style={styles.Upload_Txt} >Upload here</Text>
         </TouchableOpacity>
        </View>
-       <CustomButton title={'Submit'} onPress={()=>{''}} />
+       <CustomButton title={'Submit'} onPress={showAlert} />
        </View>:null
        }
         {BtnState===1? 
@@ -81,11 +93,16 @@ const ModifyScreen = ({navigation}) => {
         <Text style={styles.Upload_Txt} >Upload here</Text>
         </TouchableOpacity>
        </View>
-       <CustomButton title={'Submit'} onPress={()=>{''}} />
+       <CustomButton title={'Submit'} onPress={showAlert} />
        </View>:null
 
        }
-
+        <SubmissionAlert2
+        visible={alertVisible}
+        message="This is a custom alert!"
+        onClose={()=>{hideAlert(),navigation.navigate('RentedItem',{ updateButtonState: 1 })}}
+       
+      />
    </ScrollView>
   )
 }
@@ -191,7 +208,14 @@ const styles=StyleSheet.create({
     lineHeight:16
   },
 
-
+  Input_Location:{
+    fontSize:14,
+    fontFamily:Fonts.SF_Medium,
+    color:Colors.Black,
+    lineHeight:18,
+    backgroundColor:Colors.White,
+    
+  },
   Input_Design:{
     fontSize:14,
     fontFamily:Fonts.SF_Medium,

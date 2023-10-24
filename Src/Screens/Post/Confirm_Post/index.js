@@ -134,12 +134,12 @@ const Confirm_And_Post = ({navigation}) => {
      </View>
      <Text style={styles.Label} >Rent per day</Text>
      <View style={styles.Rent_Cont} >
-       <View style={styles.InputCont2} > 
-      <TextInput  value={Price} placeholder=''  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
-     </View>
+       
      <View style={styles.Qty_Cont} >
       <Image source={Minus} style={styles.Plus} />
-      <Text style={styles.Val}>50 CHF</Text>
+      <View style={styles.InputCont2} > 
+      <TextInput  value={Price} placeholder=''  placeholderTextColor={Colors.Grey9}  style={styles.Input1} />
+     </View>
       <Image source={Plus2} style={styles.Plus} />
      </View>
      </View>
@@ -148,7 +148,9 @@ const Confirm_And_Post = ({navigation}) => {
       <TextInput  multiline  value={Desc} placeholder=''  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
      </View>
      
+     
     <View  style={{}} >
+      <Text style={{fontSize:14,fontFamily:Fonts.SF_Regular,color:Colors.Grey9 , marginBottom:'2%',fontWeight:"600"}} >Pictures</Text>
     <View style={styles.Img_Picker}>
       {singleFile==='' ?
       <View>
@@ -252,6 +254,10 @@ const styles=StyleSheet.create({
     width:'80%',
     color:Colors.Black
   },
+  Input1:{
+    textAlign:"center",
+    color:Colors.Black
+  },
   Location:{
     width:20,height:20,resizeMode:'contain',tintColor:Colors.Black
   },
@@ -287,12 +293,10 @@ const styles=StyleSheet.create({
   Rent_Cont:{
     flexDirection:'row',
     alignItems:'center',
-    justifyContent:'space-between',
-  
-  
+    justifyContent:'center',
   },
   InputCont2:{
-    width:'47%',
+    width:'50%',
     padding:'1%',
     backgroundColor:Colors.White,
     elevation:1,
@@ -304,10 +308,10 @@ const styles=StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
-    width:'40%'
+    width:'80%'
   },
   Plus:{
-    width:35,height:35,
+    width:30,height:30,
     tintColor:Colors.Green
   },
   Val:{

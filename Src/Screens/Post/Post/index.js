@@ -42,13 +42,12 @@ const Post = ({navigation}) => {
         }}>
           
         <View style={styles.Cart}>
+          
             <View style={styles.Item_Detail} >
             <Image source={item.Image1} style={styles.Product_Img} resizeMode='cover' />
             <View style={{marginLeft:"6%"}} >
              <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}} >  
             <Text style={styles.Title}>{item.Title}</Text>
-            {item.Pause!=='' ?  
-             <Image source={item.Pause} style={styles.Pause_Img} resizeMode='cover' />: null}
             </View>
             {item.Pause!=='' ? 
              <View style={{ flexDirection: 'row',marginTop:"3%" ,width:'30%' }}>
@@ -83,11 +82,16 @@ const Post = ({navigation}) => {
            
             </View>
             </View>
-            <View>
-                
+            <View  style={{height:70}} >
+            {item.Pause!=='' ? 
+             <View style={{}} >
+             <Image source={item.Pause} style={styles.Pause_Img} resizeMode='cover' />
+            </View>
+              : null} 
             <TouchableOpacity  style={styles.ScanImg} >
                 <Image source={Scan} style={styles.ScanImg} />
             </TouchableOpacity>
+
             </View>
         </View>
         </TouchableOpacity>
@@ -225,14 +229,15 @@ const styles=StyleSheet.create({
     alignItems:"center",
   },
   ScanImg:{
-    width:20,height:20,
+    width:22,height:22,
     bottom:'2%',
-    right:'15%'
+    right:'0%',
+    top:'50%'
   },
   Pause_Img:{
-    width:23,height:23,
-    left:'580%'
-     
+    width:25,height:25,
+     marginBottom:'-90%',
+     top:'-300%'
     
     
      

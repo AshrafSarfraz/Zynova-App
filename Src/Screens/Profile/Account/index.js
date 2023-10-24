@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity,Image,TextInput } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity,Image,TextInput, ScrollView } from 'react-native'
 import React,{useState} from 'react'
 import { Colors } from '../../../Themes/Colors'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
@@ -22,7 +22,7 @@ const Account = ({navigation}) => {
 
 
   return (
-    <View style={styles.MainCont}>
+    <ScrollView style={styles.MainCont}>
     <View style={styles.HeaderCont} >
     <CustomHeader title={'Account'}  onBackPress={()=>{navigation.goBack()}} />
     </View>
@@ -45,10 +45,12 @@ const Account = ({navigation}) => {
             placeholderTextColor={Colors.Grey9}
             onChangeText={(txt) => { setEmail(txt); }}
             style={styles.User_Input}
+          
             />
           </View>
+          <View  style={{marginTop:"20%"}} >
           <CustomButton title={'Save Changes'}  onPress={()=>{navigation.goBack()}}/>
-
+          </View>
     </View>
           <View  style={styles.Footer} >
           <TouchableOpacity style={styles.ChangePassword} onPress={()=>{navigation.navigate('Forget')}} >
@@ -64,7 +66,7 @@ const Account = ({navigation}) => {
         onClose={()=> {hideAlert()}}
         OnDelete={()=>{hideAlert(),navigation.navigate('Login')}}
       />
-    </View>
+    </ScrollView>
   )
 }
 
@@ -77,6 +79,7 @@ const styles=StyleSheet.create({
   },
   HeaderCont:{
     flex:0.1,
+    justifyContent:"center"
   
   },
   Body:{
@@ -124,7 +127,7 @@ const styles=StyleSheet.create({
   },
   Footer:{
     flex:0.2,
-    justifyContent:'flex-end'
+    marginTop:'50%'
    
   },
   ChangePassword:{

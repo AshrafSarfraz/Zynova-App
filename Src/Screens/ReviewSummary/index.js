@@ -84,12 +84,14 @@ const Review_Summary = ({navigation}) => {
         </View>
         <View style={styles.Tick_Exclimation_Cont} >
         <View style={styles.TickCont} >
-        <Image style={styles.Tick} source={Tick3} />
-        <Text style={styles.Request} >Automatically Accept Rent Requests</Text>
-        </View>
         <TouchableOpacity onPress={showAlert} >
         <Image style={styles.Tick} source={Exclimation} />
         </TouchableOpacity>
+        <Text style={styles.Request} >This owner accepts rent requests automatically</Text>
+        </View>
+        {/* <TouchableOpacity onPress={showAlert} >
+        <Image style={styles.Tick} source={Exclimation} />
+        </TouchableOpacity> */}
         </View>
         </View>
         <View style={styles.Footer} >

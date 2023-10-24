@@ -18,7 +18,7 @@ export const styles=StyleSheet.create({
    },
    Body:{
     flex:0.5,
-     marginTop:'10%',
+     marginTop:'15%',
      alignItems:'center'
    },
    inputContainer: {

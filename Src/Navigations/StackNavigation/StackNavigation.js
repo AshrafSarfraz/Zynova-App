@@ -55,9 +55,10 @@ import OwnerProfiles from '../../Screens/OwnerProfile';
 import Add_Object from '../../Screens/Post/Add_Object';
 import Confirm_And_Post from '../../Screens/Post/Confirm_Post';
 import Graph from '../../Screens/Post/Graph';
-import Post from '../../Screens/Post/Post';
+
 import PostDetails from '../../Screens/Post/PostDetail';
 import PostModify from '../../Screens/Post/Modify';
+import Top_Reviews from '../../Screens/Search/Reviews';
 
 
 
@@ -120,12 +121,13 @@ const StackNavigations = () => {
         <Stack.Screen name='RequestDetail1'        component={RequestDetail_1} />
         <Stack.Screen name='RequestDetail2'        component={RequestDetail_2} />
         <Stack.Screen name='OwnerProfile'          component={OwnerProfiles} />
-        <Stack.Screen name='Post'                  component={Post} />
+
         <Stack.Screen name='Add_Object'            component={Add_Object} />
         <Stack.Screen name='Confirm_Post'          component={Confirm_And_Post} />
         <Stack.Screen name='Graph'                 component={Graph} />
         <Stack.Screen name='PostModify'            component={PostModify} />
         <Stack.Screen name='PostDetails'           component={PostDetails} />
+        <Stack.Screen name='Top_Reviews'           component={Top_Reviews} />
       </Stack.Navigator>
     </NavigationContainer>
 

@@ -139,8 +139,9 @@ const BobizzItemDetails = ({navigation}) => {
           <Image source={QR}   style={styles.QR} />
         </View>
         </TouchableOpacity>
-         
-         <View style={styles.OwnerDetail} >
+
+          <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
+          <View style={styles.OwnerDetail} >
             <View style={{flexDirection:'row',alignItems:"center"}} >
             <Image source={require('../../../Assets/Images/img1.png')} style={styles.OwnerImg} />
             <View  style={styles.User} >
@@ -148,11 +149,11 @@ const BobizzItemDetails = ({navigation}) => {
             <Text style={styles.OwnerName} >Alex Hales</Text>
             </View>
             </View>
-            <TouchableOpacity onPress={()=>{navigation.navigate('OwnerProfile')}} >
+            <TouchableOpacity onPress={()=>{navigation.navigate('Chatting')}} >
                 <Image source={Chatting} style={styles.Chatting} />
             </TouchableOpacity>
          </View>
-
+         </TouchableOpacity>
         
         <TouchableOpacity style={styles.ModifyBtn}  onPress={()=>{navigation.navigate('PostModify')}} >
             <Image source={Modify} style={styles.Modify} />

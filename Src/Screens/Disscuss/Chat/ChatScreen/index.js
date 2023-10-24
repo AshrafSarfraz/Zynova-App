@@ -212,13 +212,12 @@ const ChatScreen = ({navigation,}) => {
         
       />
       <View style={styles.InputOuter_View}>
-        <View style={{backgroundColor:Colors.Bg,marginBottom:"5%",flexDirection:'row',width:'100%',paddingTop:'1%',borderTopWidth:0.5,borderColor:Colors.Grey9}} >
+        <View style={{backgroundColor:Colors.Bg,marginBottom:"5%",flexDirection:'row',width:'100%',paddingTop:'1%',borderTopWidth:0.5,borderColor:Colors.Grey9,justifyContent:'space-between',}} >
         <View style={styles.InputContainer}>
         <TouchableOpacity  style={styles.Touch_Image} onPress={() => {alert('Smile')}}>
           <Icon name="smile-o" size={20} color={Colors.Green} />
         </TouchableOpacity>
-        <TextInput    style={styles.Textinputcontainer}
-
+        <TextInput  style={styles.Textinputcontainer}
           placeholder=" Type a message..."
           placeholderTextColor={Colors.Grey9}
           value={inputText}
@@ -231,7 +230,7 @@ const ChatScreen = ({navigation,}) => {
         <Icon name="camera" size={15} color={Colors.DarkPurple} /> 
          </TouchableOpacity> */}
          </View>
-        <View style={styles.Circular_View}>
+         <View style={styles.Circular_View}>
         <TouchableOpacity onPress={handleSend}>
           <Image
             resizeMode='contain'
@@ -241,13 +240,17 @@ const ChatScreen = ({navigation,}) => {
         </TouchableOpacity>
       </View>
       </View>
+       
       </View>
+
+
 
 
      
       <ReportAlert
         visible={alertVisible}
         message="This is a custom alert!"
+        onPress={()=>setAlertVisible(false)}
         onClose={()=>{hideAlert(),navigation.navigate('ReportUser')}}
       />  
 
@@ -413,18 +416,20 @@ mainContainer:{
    marginBottom: '1%'
 },
 Send_Image:{
-   height: 55, 
-   width: 55,
+   height: 50, 
+   width: 50,
   
    },
 Circular_View:{
   height:65,
-  width:100,
+  width:'15%',
   top:'0%',
   paddingLeft:'2%',
   justifyContent:'center',
   alignSelf:'center',
   marginBottom:"10%",
+  alignItems:'flex-end',
+  marginRight:'5%'
   
 },
 Smile_Icon:{
@@ -508,9 +513,9 @@ paySuccess_buttonYes: {
 InputOuter_View: {
    flexDirection: 'row', 
    alignItems: 'center',
-    backgroundColor: 'red',
     height:20,
     width:"100%",
+    
   
    },
 
@@ -520,13 +525,15 @@ InputContainer:{
   backgroundColor:Colors.White,
   borderRadius:12,
   height:55,
-  margin:"2%",
+  marginVertical:"2%",
   elevation:1,
-  paddingHorizontal:'2%'
+  paddingHorizontal:'2%',
+  marginLeft:"5%",
   
 },
 inputToolbar:{
   width:"100%",
+  alignItems:"center"
 
 },
 VectorImage:{
@@ -537,7 +544,8 @@ marginRight:10,
 resizeMode:'contain'
 },
 Textinputcontainer:{
-width:"70%"
+width:"70%",
+color:Colors.Black
 },
 Touch_Image:{
   alignSelf:'center',

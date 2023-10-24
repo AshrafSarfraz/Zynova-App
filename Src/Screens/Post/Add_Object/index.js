@@ -83,7 +83,7 @@ const Add_Object = ({navigation}) => {
      </View>
 
      <View style={styles.InputCont} >
-      <TextInput  placeholder='Original Value of your Object'  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
+      <TextInput keyboardType='numeric'  placeholder='Original Value of your Object'  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
      </View>
 
       <Text style={styles.State_Txt} >State of your object</Text>
@@ -109,20 +109,23 @@ const Add_Object = ({navigation}) => {
         <Text style={styles.Terrible} >Terrible</Text>
      </View>
      <View style={styles.Rent_Cont} >
-       <View style={styles.InputCont2} >
-      <TextInput  placeholder='Rent per day'  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
-     </View>
      <View style={styles.Qty_Cont} >
+      <TouchableOpacity>
       <Image source={Minus} style={styles.Plus} />
-      <Text style={styles.Val}>50 CHF</Text>
+      </TouchableOpacity>
+      <View style={styles.InputCont2} >
+      <TextInput  placeholder='Rent per day'  placeholderTextColor={Colors.Grey9}  style={styles.Rented_Input} />
+     </View>
+     <TouchableOpacity>
       <Image source={Plus2} style={styles.Plus} />
+      </TouchableOpacity>
      </View>
      </View>
      <View style={styles.InputCont} >
       <TextInput  placeholder='Description of your Object (Optional)'  placeholderTextColor={Colors.Grey9}  style={styles.Input} />
      </View>
      
-    <View  style={{}} >
+    {/* <View  style={{}} >
     <View style={styles.Img_Picker}>
       {singleFile==='' ?
       <View>
@@ -133,10 +136,7 @@ const Add_Object = ({navigation}) => {
         </View>
         :null}
         
-         {/* <Image
-          source={{ uri: singleFile }}
-          style={styles.Image_sq}
-        /> */}
+       
         {images.map((imageUri, index) => (
         <View key={index} style={styles.Img_Pickers}>
           <Image
@@ -159,7 +159,7 @@ const Add_Object = ({navigation}) => {
 
 
           </View>
-    </View>
+    </View> */}
 
 
 
@@ -216,7 +216,12 @@ const styles=StyleSheet.create({
   },
   Input:{
     width:'80%',
-    color:Colors.Black
+    color:Colors.Black,
+  },
+  Rented_Input:{
+    width:'100%',
+    color:Colors.Black,
+    textAlign:"center"
   },
   Location:{
     width:20,height:20,resizeMode:'contain',tintColor:Colors.Grey9
@@ -253,12 +258,12 @@ const styles=StyleSheet.create({
   Rent_Cont:{
     flexDirection:'row',
     alignItems:'center',
-    justifyContent:'space-between',
-  
+    justifyContent:'center',
+    marginVertical:'2%'
   
   },
   InputCont2:{
-    width:'47%',
+    width:'50%',
     padding:'1%',
     backgroundColor:Colors.White,
     elevation:1,
@@ -270,10 +275,11 @@ const styles=StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
-    width:'40%'
+    width:'80%',
+    alignSelf:"center"
   },
   Plus:{
-    width:35,height:35
+    width:30,height:30
   },
   Val:{
     fontSize:14,
@@ -302,7 +308,7 @@ const styles=StyleSheet.create({
     lineHeight:18, 
   },
   Exclimation:{
-      width:30,height:30
+      width:22,height:22
   },
   container: {
     flexDirection: 'row',
@@ -313,7 +319,7 @@ const styles=StyleSheet.create({
    flexDirection:'row',
    alignItems:'center',
    justifyContent:'space-between',
-   marginBottom:"10%"
+   marginBottom:"15%"
   },
   Forget_Btn:{
 

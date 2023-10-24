@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet,TouchableOpacity,Image,ScrollView, ProgressBarAndroid } from 'react-native'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { useRoute } from '@react-navigation/native'
 import { Back_Icon, Chatting, Flag, Heart, Location, Modify, Plus1, QR, Scan, Star } from '../../../Themes/Images';
@@ -29,9 +29,17 @@ const slides = [
 
 const PostDetails = ({navigation}) => {
     const route=useRoute();
- 
+    const [BtnState,setBtnState]=useState(0)
     const [currentIndex, setCurrentIndex] = useState(0);
   
+    useEffect(() => {
+      if (route.params && route.params.updateButtonState) {
+        setBtnState(1);
+      }
+    }, [route.params]);
+  
+
+
     const renderSlides = ({ item }) => (
       <View style={styles.slideContainer}>
         <Image source={item.image} style={styles.slideImage} resizeMode='cover' />
@@ -131,11 +139,14 @@ const PostDetails = ({navigation}) => {
          
         
 
-        
+        {BtnState===0? 
         <TouchableOpacity style={styles.ModifyBtn}  onPress={()=>{navigation.navigate('PostModify')}} >
-            <Image source={Modify} style={styles.Modify} />
-            <Text  style={styles.Modify_Txt}>Modify</Text>
-        </TouchableOpacity>
+        <Image source={Modify} style={styles.Modify} />
+        <Text  style={styles.Modify_Txt}>Modify</Text>
+    </TouchableOpacity> : null
+      
+      }
+        
           
       </View>
  
