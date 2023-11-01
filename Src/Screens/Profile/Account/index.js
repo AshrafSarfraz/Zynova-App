@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity,Image,TextInput, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity,Image,TextInput, ScrollView, Platform } from 'react-native'
 import React,{useState} from 'react'
 import { Colors } from '../../../Themes/Colors'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
@@ -6,6 +6,7 @@ import { Message, Profile } from '../../../Themes/Images'
 import CustomButton from '../../../Components/CustomButton/CustomButton'
 import { Fonts } from '../../../Themes/Fonts'
 import DeleteAlert from '../../../Components/Alerts/DeleteAlert'
+import spacerStyles from '../../../Components/Spacers/style'
 
 const Account = ({navigation}) => {
   const [Username, setUsername] = useState('');
@@ -23,9 +24,17 @@ const Account = ({navigation}) => {
 
   return (
     <ScrollView style={styles.MainCont}>
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
     <View style={styles.HeaderCont} >
     <CustomHeader title={'Account'}  onBackPress={()=>{navigation.goBack()}} />
     </View>
+    </> : 
+    <View style={styles.HeaderCont} >
+    <CustomHeader title={'Account'}  onBackPress={()=>{navigation.goBack()}} />
+    </View>
+    }
     <View  style={styles.Body} >
     <View style={[styles.Input_Name,Username!==''? styles.Active_Input_Field:null]}>
     <Image source={Profile} style={[styles.Input_Icon ,{tintColor:Username!==''?Colors.Black2:Colors.Grey9}  ]} resizeMode='contain' />

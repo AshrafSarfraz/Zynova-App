@@ -1,15 +1,22 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native'
 import React from 'react'
 import { Get, Give, Pick, Return } from '../../../../Themes/Images'
 import { Colors } from '../../../../Themes/Colors'
 import { Fonts } from '../../../../Themes/Fonts'
 import CustomHeader from '../../../../Components/CustomHeader/CustomHeader'
+import spacerStyles from '../../../../Components/Spacers/style'
 
 
 const SelectPreference = ({navigation}) => {
   return (
     <View style={styles.MainCont} >
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
        <CustomHeader title={'Select Preference'}  onBackPress={()=>{navigation.goBack()}} />
+       </> :
+       <CustomHeader title={'Select Preference'}  onBackPress={()=>{navigation.goBack()}} />
+      }
        <Text style={styles.Select_Txt} >Please select the respective action to continue:</Text>
     
        <View style={styles.Cart_Container} >

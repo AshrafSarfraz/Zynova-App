@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, TextInput ,Image, TouchableOpacity} from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TextInput ,Image, TouchableOpacity, Platform} from 'react-native'
 
 import React,{useState} from 'react'
 import Slider from 'react-native-slider';
@@ -14,6 +14,7 @@ import Icons from 'react-native-vector-icons/FontAwesome5';
 import RentAlert from '../../../Components/Alerts/RentRequest';
 import Exclimation_Alert from '../../../Components/Alerts/ExclimationAlert';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
+import spacerStyles from '../../../Components/Spacers/style';
 
 const Add_Object = ({navigation}) => {
   const [seekbarValue, setSeekbarValue] = useState(5);
@@ -66,7 +67,13 @@ const Add_Object = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.MainCont}>
+      {Platform.OS == "ios" ?
+      <>
+      <View style={spacerStyles.isDefault} />
+     <CustomHeader title={'Add Object'}   onBackPress={()=>{navigation.goBack()}} /> 
+     </> :
      <CustomHeader title={'Add Object'}   onBackPress={()=>{navigation.goBack()}} />
+    }
 
      <View style={{marginVertical:'5%'}} >
       <CustomProgressBar progress={1}/>

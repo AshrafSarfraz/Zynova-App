@@ -1,4 +1,4 @@
-import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet } from 'react-native'
+import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet, Platform } from 'react-native'
 import React,{useState} from 'react'
 import { Colors } from '../../../Themes/Colors'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
@@ -9,6 +9,7 @@ import PickupTime from '../../../Components/DropDown/PickupTime'
 import ReturnTime from '../../../Components/DropDown/Return'
 import SubmissionAlert from '../../../Components/Alerts/SubmissionAlert'
 import SubmissionAlert2 from '../../../Components/Alerts/SubmissionAlert2'
+import spacerStyles from '../../../Components/Spacers/style'
 
 const ModifyScreen = ({navigation}) => {
     const [BtnState,setBtnState]=useState(0)
@@ -24,7 +25,13 @@ const ModifyScreen = ({navigation}) => {
   };
   return (
    <ScrollView contentContainerStyle={styles.MainCont} >
+    {Platform.OS == "ios" ? 
+    <>
+    <View style={spacerStyles.isDefault} />
      <CustomHeader title={'Modify'}  onBackPress={()=>{navigation.goBack()}} />
+     </> : 
+     <CustomHeader title={'Modify'}  onBackPress={()=>{navigation.goBack()}} />
+    }
 
      <Text style={styles.Subject_txt}>Subject</Text>
 

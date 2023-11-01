@@ -1,4 +1,4 @@
-import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet } from 'react-native'
+import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet, Platform } from 'react-native'
 import React,{useState} from 'react'
 import { Colors } from '../../../Themes/Colors'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
@@ -8,12 +8,19 @@ import CustomButton from '../../../Components/CustomButton/CustomButton'
 import ReasonDropDown from '../../../Components/DropDown/Reason'
 import Bestdropdown2 from '../../../Components/DropDown/SelectObject'
 import ID_Type from '../../../Components/DropDown/ID_Type'
+import spacerStyles from '../../../Components/Spacers/style'
 
 const VerifyID = ({navigation}) => {
    
   return (
    <ScrollView contentContainerStyle={styles.MainCont} >
+    {Platform.OS == "ios" ? 
+    <>
+    <View style={spacerStyles.isDefault} />
      <CustomHeader title={'Verify ID'}  onBackPress={()=>{navigation.goBack()}} />
+     </> : 
+     <CustomHeader title={'Verify ID'}  onBackPress={()=>{navigation.goBack()}} />
+    }
         
       
         <View>

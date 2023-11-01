@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground,Image,TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground,Image,TouchableOpacity, Platform } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { Back_Icon, ScanBg } from '../../../Themes/Images';
 import { Colors } from '../../../Themes/Colors';
 import { Fonts } from '../../../Themes/Fonts';
+import spacerStyles from '../../../Components/Spacers/style';
 
 const QrcodeScanner = ({ navigation }) => {
   const onSuccess = (e) => {
@@ -13,12 +14,25 @@ const QrcodeScanner = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={ScanBg} style={styles.imageBackground}>
+
+        {Platform.OS == "ios" ? 
+        <>
+        <View style={spacerStyles.isDefault} />
         <View style={styles.HeaderCont} >
             <TouchableOpacity onPress={()=>{navigation.goBack()}} >
            <Image source={Back_Icon} style={styles.Back_Icon} />
            </TouchableOpacity>
            <Text style={styles.Scan_Txt} >Scan QR</Text>
         </View>
+        </>  : 
+        <View style={styles.HeaderCont} >
+            <TouchableOpacity onPress={()=>{navigation.goBack()}} >
+           <Image source={Back_Icon} style={styles.Back_Icon} />
+           </TouchableOpacity>
+           <Text style={styles.Scan_Txt} >Scan QR</Text>
+        </View>
+        }
+
         <View style={styles.Body} >
         <QRCodeScanner
           onRead={onSuccess}

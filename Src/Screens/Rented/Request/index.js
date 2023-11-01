@@ -6,12 +6,14 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Platform
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader';
 import { Dot, Dots } from '../../../Themes/Images';
+import spacerStyles from '../../../Components/Spacers/style';
 
 
 const RequestScreen = () => {
@@ -33,7 +35,13 @@ const RequestScreen = () => {
 
   return (
     <ScrollView style={styles.container}>
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
       <CustomHeader title={'Requests'} onBackPress={()=>{navigation.goBack()}}  />
+      </>  : 
+      <CustomHeader title={'Requests'} onBackPress={()=>{navigation.goBack()}}  />
+    }
     
       <View style={styles.Flatlist_View}>
         <FlatList

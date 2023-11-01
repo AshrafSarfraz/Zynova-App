@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Platform } from 'react-native'
 import React from 'react'
 import CustomHeader2 from '../../../Components/CustomHeader2/CustomHeader2'
 import CustomCalendar from '../Calender/Calender'
@@ -7,12 +7,19 @@ import ReturnTime from '../../../Components/DropDown/Return'
 import CustomButton from '../../../Components/CustomButton/CustomButton'
 import { Colors } from '../../../Themes/Colors'
 import { Fonts } from '../../../Themes/Fonts'
+import spacerStyles from '../../../Components/Spacers/style'
 
 
 const MultipleDay = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.MainCont}  >
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
      <CustomHeader2 title={'Set Durations'} onBackPress={()=>{navigation.goBack()}} />
+     </> : 
+     <CustomHeader2 title={'Set Durations'} onBackPress={()=>{navigation.goBack()}} />
+   }
      <View style={styles.CalenderCont} >
         <CustomCalendar/>
      </View>

@@ -1,4 +1,4 @@
-import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet } from 'react-native'
+import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet, Platform } from 'react-native'
 import React,{useState} from 'react'
 import { Colors } from '../../../Themes/Colors'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
@@ -8,6 +8,7 @@ import CustomButton from '../../../Components/CustomButton/CustomButton'
 import ReasonDropDown from '../../../Components/DropDown/Reason'
 import AcceptAlert from '../../../Components/Alerts/Request_Accept'
 import CancelAlert from '../../../Components/Alerts/CancelAlert'
+import spacerStyles from '../../../Components/Spacers/style'
 
 const CancelScreen = ({navigation}) => {
   const [alertVisible, setAlertVisible] = useState(false);
@@ -21,7 +22,13 @@ const CancelScreen = ({navigation}) => {
   };
   return (
    <ScrollView contentContainerStyle={styles.MainCont} >
+    {Platform.OS == "android" ? 
+    <>
+    <View style={spacerStyles.isDefault} />
      <CustomHeader title={'Cancel'}  onBackPress={()=>{navigation.goBack()}} />
+     </> :
+     <CustomHeader title={'Cancel'}  onBackPress={()=>{navigation.goBack()}} />
+    }
         
       
         <View>

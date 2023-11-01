@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TextInput, Image, TouchableOpacity, Platform } from 'react-native'
 import React,{useState} from 'react'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
 import { Colors } from '../../../Themes/Colors'
@@ -6,6 +6,7 @@ import { Fonts } from '../../../Themes/Fonts'
 import { DocPlus } from '../../../Themes/Images'
 import CustomButton from '../../../Components/CustomButton/CustomButton'
 import SubmissionAlert from '../../../Components/Alerts/SubmissionAlert'
+import spacerStyles from '../../../Components/Spacers/style'
 
 const Contact = ({navigation}) => {
   const [alertVisible, setAlertVisible] = useState(false);
@@ -22,7 +23,13 @@ const Contact = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.MainCont} >
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
       <CustomHeader title={'Contact us'} onBackPress={()=>{navigation.goBack()}} />
+      </> : 
+      <CustomHeader title={'Contact us'} onBackPress={()=>{navigation.goBack()}} />
+    }
       <View  style={styles.InputCont} >
        <Text style={styles.Subject_Txt} >Subject</Text>
        <TextInput style={styles.Input_Design} placeholder='Enter Subject' placeholderTextColor={Colors.Grey9} />

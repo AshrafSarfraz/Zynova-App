@@ -1,15 +1,22 @@
-import { View, Text, StyleSheet,TouchableOpacity,Image } from 'react-native'
+import { View, Text, StyleSheet,TouchableOpacity,Image, Platform } from 'react-native'
 import React from 'react'
 import Bestdropdown from '../../Components/DropDown/DropDown'
 import CustomHeader from '../../Components/CustomHeader/CustomHeader'
 import { Fonts } from '../../Themes/Fonts'
 import { Colors } from '../../Themes/Colors'
 import { W_Flag } from '../../Themes/Images'
+import spacerStyles from '../../Components/Spacers/style'
 
 const ReportUser = ({navigation}) => {
   return (
     <View style={styles.MainCont}>
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
         <CustomHeader title={'Report Object'} onBackPress={()=>{navigation.goBack()}}  />
+        </> :
+        <CustomHeader title={'Report Object'} onBackPress={()=>{navigation.goBack()}}  />
+      }
         <Text style={styles.Type_Txt} >Signalment type</Text>
       <Bestdropdown/>
 

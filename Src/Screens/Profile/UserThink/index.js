@@ -1,14 +1,21 @@
-import { View, Text, StyleSheet,ScrollView,Image } from 'react-native'
+import { View, Text, StyleSheet,ScrollView,Image, Platform } from 'react-native'
 import React from 'react'
 import { Colors } from '../../../Themes/Colors'
 import { Fonts } from '../../../Themes/Fonts'
 import Rating from '../../../Components/Rating/Rating'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
+import spacerStyles from '../../../Components/Spacers/style'
 
 const WhatUserThink = ({navigation}) => {
   return (
     <View style={styles.MainCont} >
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
       <CustomHeader title={'What users think about you'} onBackPress={()=>{navigation.goBack()}} />
+      </> : 
+      <CustomHeader title={'What users think about you'} onBackPress={()=>{navigation.goBack()}} />
+    }
     <ScrollView >
     <View style={styles.Cart} >
     <View style={styles.TopReviewCont} >
