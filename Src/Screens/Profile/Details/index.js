@@ -1,9 +1,10 @@
-import { View, Text,StyleSheet,Image,FlatList,ImageBackground,TouchableOpacity } from 'react-native'
+import { View, Text,StyleSheet,Image,FlatList,ImageBackground,TouchableOpacity, Platform } from 'react-native'
 import React from 'react'
 import { Fonts } from '../../../Themes/Fonts'
 import { Colors } from '../../../Themes/Colors'
 import { Data1 } from './Dummy'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
+import spacerStyles from '../../../Components/Spacers/style'
 
 const Data=[
   {
@@ -62,7 +63,13 @@ const Details = (props,{navigation}) => { // Change the parameter to 'props'
   
     return (
       <View style={styles.MainCont}>
+        {Platform.OS == "ios" ? 
+        <>
+        <View style={spacerStyles.isDefault} />
         <CustomHeader title={'Details'} onBackPress={()=>{props.navigation.goBack()}} />
+        </>   : 
+        <CustomHeader title={'Details'} onBackPress={()=>{props.navigation.goBack()}} />
+      }
         <View style={styles.Product} >
         <FlatList
           data={Data1}

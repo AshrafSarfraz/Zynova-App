@@ -1,5 +1,6 @@
-import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet } from 'react-native'
+import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet, Platform } from 'react-native'
 import React,{useState} from 'react'
+import { launchImageLibrary } from 'react-native-image-picker';
 import { Colors } from '../../../Themes/Colors'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
 import { Fonts } from '../../../Themes/Fonts'
@@ -9,11 +10,36 @@ import PickupTime from '../../../Components/DropDown/PickupTime'
 import ReturnTime from '../../../Components/DropDown/Return'
 import SubmissionAlert from '../../../Components/Alerts/SubmissionAlert'
 import SubmissionAlert2 from '../../../Components/Alerts/SubmissionAlert2'
+import spacerStyles from '../../../Components/Spacers/style'
 
 const ModifyScreen = ({navigation}) => {
     const [BtnState,setBtnState]=useState(0)
     const [alertVisible, setAlertVisible] = useState(false);
-
+    const [filePath, setFilePath] = useState(null);
+    const [replaceicon, setreplaceicon] = useState(true);
+  
+    const chooseFile = () => {
+      setreplaceicon(false)
+      let options = {
+        mediaType: 'photo',
+        maxWidth: 300,
+        maxHeight: 550,
+        quality: 1,
+  
+      };
+  
+      launchImageLibrary(options, (response) => {
+        console.log('Response = ', response);
+  
+        if (response.didCancel) {
+          console.log('User cancelled image picker');
+        } else if (response.errorMessage) {
+          console.log('ImagePicker Error: ', response.errorMessage);
+        } else {
+          setFilePath(response.assets[0].uri);
+        }
+      });
+    };
 
   const showAlert = () => {
     setAlertVisible(true);
@@ -24,7 +50,13 @@ const ModifyScreen = ({navigation}) => {
   };
   return (
    <ScrollView contentContainerStyle={styles.MainCont} >
+    {Platform.OS == "ios" ? 
+    <>
+    <View style={spacerStyles.isDefault} />
      <CustomHeader title={'Modify'}  onBackPress={()=>{navigation.goBack()}} />
+     </> : 
+     <CustomHeader title={'Modify'}  onBackPress={()=>{navigation.goBack()}} />
+    }
 
      <Text style={styles.Subject_txt}>Subject</Text>
 
@@ -57,7 +89,9 @@ const ModifyScreen = ({navigation}) => {
       <Text style={styles.Subject_Txt} >Upload up to 3 images:</Text>
        <View style={styles.Doc_Cont} >
         <TouchableOpacity onPress={()=>{}} >
-        <Image style={styles.Img} source={DocPlus} />
+        {replaceicon === true ? (<Image source={DocPlus} style={styles.Img} />)
+        : 
+        (<Image source={{ uri: filePath }} style={{width:200,height:200,marginTop:'4%',marginBottom:"-4%"}} />)}
         <Text style={styles.Upload_Txt} >Upload here</Text>
         </TouchableOpacity>
        </View>

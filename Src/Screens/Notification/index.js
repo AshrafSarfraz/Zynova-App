@@ -150,6 +150,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Platform
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 import styles from './style';
@@ -157,6 +158,7 @@ import { useNavigation } from '@react-navigation/native';
 import CustomHeader from '../../Components/CustomHeader/CustomHeader';
 import { Dot } from '../../Themes/Images';
 import { Colors } from '../../Themes/Colors';
+import spacerStyles from '../../Components/Spacers/style';
 
 const Notifications = () => {
   const navigation = useNavigation();
@@ -189,7 +191,13 @@ const [notificationArray1, setNotificationArray1] = useState([
 
   return (
     <ScrollView style={styles.container}>
+      {Platform.OS == "ios" ?
+      <> 
+      <View style={spacerStyles.isDefault} />
       <CustomHeader title={'Notifications'} onBackPress={() => navigation.goBack()} />
+      </> :
+      <CustomHeader title={'Notifications'} onBackPress={() => navigation.goBack()} />
+    }
       <Text style={styles.Today_Text}>Today</Text>
       <View style={styles.Flatlist_View}>
         <FlatList

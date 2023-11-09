@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ImageBackground, Platform } from 'react-native'
 import { Heart, Wishlist } from '../../Themes/Images'
 import { Colors } from '../../Themes/Colors'
 import { Fonts } from '../../Themes/Fonts'
 import { WishlistData } from './DummyData'
 import CustomHeader from '../../Components/CustomHeader/CustomHeader'
+import spacerStyles from '../../Components/Spacers/style'
 
 const WishlistItem = (props,{ navigation }) => {
   // Create an array to store the state for each item
@@ -41,7 +42,13 @@ const WishlistItem = (props,{ navigation }) => {
 
   return (
     <View style={styles.MainCont}>
+      {Platform.OS == "ios" ?
+      <> 
+      <View style={spacerStyles.isDefault} />
       <CustomHeader title={'Favorites'} onBackPress={() => {props.navigation.goBack()}} />
+      </>  : 
+      <CustomHeader title={'Favorites'} onBackPress={() => {props.navigation.goBack()}} />
+    }
       <View style={styles.Fav}>
         <FlatList
           data={WishlistData}

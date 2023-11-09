@@ -1,10 +1,11 @@
-import { View, Text, ScrollView, StyleSheet, TextInput,TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TextInput,TouchableOpacity, Platform } from 'react-native'
 import React,{useState} from 'react'
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import { Colors } from '../../../Themes/Colors'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
 import { Fonts } from '../../../Themes/Fonts'
 import CustomButton from '../../../Components/CustomButton/CustomButton';
+import spacerStyles from '../../../Components/Spacers/style';
 
 const Withdraw = ({navigation}) => {
     const [isChecked, setIsChecked] = useState(false);
@@ -14,7 +15,13 @@ const Withdraw = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.MainCont} >
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
       <CustomHeader title={'Withdraw'} onBackPress={()=>{navigation.goBack()}}  />
+      </> :
+      <CustomHeader title={'Withdraw'} onBackPress={()=>{navigation.goBack()}}  />
+    }
       <View style={styles.InputCont} >
        <TextInput placeholder='Amount' placeholderTextColor={Colors.Grey9} style={styles.Input_Design} />
        <TextInput placeholder='First Name' placeholderTextColor={Colors.Grey9} style={styles.Input_Design} />

@@ -1,8 +1,10 @@
-import { View, Text, StyleSheet, ScrollView, ImageBackground, Image, TextInput, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, ImageBackground, Image, TextInput, TouchableOpacity, Alert, Platform } from 'react-native'
 import React, { useState } from 'react'
 import { Colors } from '../../Themes/Colors'
 import { Bank, Bg_Logo, Bobi_Logo, Profile, Profile2 } from '../../Themes/Images'
 import { Fonts } from '../../Themes/Fonts'
+import Spacer from '../../Components/Spacers/index (1)'
+import spacerStyles from '../../Components/Spacers/style'
 
 
 const Welcome = ({navigation}) => {
@@ -15,7 +17,13 @@ const Welcome = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.MainCont} >
+        {Platform.OS == "ios" ?
+        <>
+        <View style={spacerStyles.isDefault} />
+        <Image source={Bobi_Logo}  style={[styles.Logo, ]} resizeMode='contain' />
+        </> :  
         <Image source={Bobi_Logo}  style={styles.Logo} resizeMode='contain' />
+        }
         <Text style={styles.Welcome} >Welcome!!</Text>
     <ImageBackground source={Bg_Logo} style={styles.Bg_Img} resizeMode='contain' >
       <Text style={styles.Doing_Txt}>You are joining us today as:</Text>

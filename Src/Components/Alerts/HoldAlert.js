@@ -17,7 +17,7 @@ const HoldAlert = ({ visible, message, onClose,OnHold }) => {
             <Text style={styles.CancelButtonText}>Cancel</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.okButton} onPress={OnHold}>
-            <Text style={styles.okButtonText}>Hold</Text>
+            <Text style={styles.okButtonText}>Pause</Text>
           </TouchableOpacity>
           </View>
         </View>

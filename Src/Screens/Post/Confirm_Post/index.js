@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, TextInput ,Image, TouchableOpacity} from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TextInput ,Image, TouchableOpacity, Platform} from 'react-native'
 
 import React,{useState} from 'react'
 import Slider from 'react-native-slider';
@@ -15,6 +15,7 @@ import RentAlert from '../../../Components/Alerts/RentRequest';
 import Exclimation_Alert from '../../../Components/Alerts/ExclimationAlert';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import PostAlert from '../../../Components/Alerts/PostAlert';
+import spacerStyles from '../../../Components/Spacers/style';
 
 const Confirm_And_Post = ({navigation}) => {
    const[ Categories,setCategories]=useState('Electronics')
@@ -87,7 +88,13 @@ const Confirm_And_Post = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.MainCont}>
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
      <CustomHeader title={'Confirm & Post'}  onBackPress={()=>{navigation.goBack()}}  />
+     </> : 
+     <CustomHeader title={'Confirm & Post'}  onBackPress={()=>{navigation.goBack()}}  />
+    }
 
      <View style={{marginVertical:'10%'}} >
       <CustomProgressBar progress={3}/>

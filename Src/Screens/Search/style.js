@@ -21,11 +21,12 @@ export const styles=StyleSheet.create({
     justifyContent:'space-between',
     paddingVertical:'2%',
     backgroundColor:Colors.Bg,
+    alignItems:"center"
     },
     Scan_Cont:{
        flexDirection:'row',
        alignItems:"center",
-    
+       
     },
     Scan_Txt:{
          marginLeft:"5%",
@@ -39,14 +40,15 @@ export const styles=StyleSheet.create({
     },
     Bobi:{
       width:50,height:50,
-      resizeMode:'contain'
+      resizeMode:'contain',
+      marginLeft:'3%'
     },
     Auth_Container:{
       flexDirection:'row',
       alignItems:"center",
       borderWidth:1,
-      height:40,
-      paddingHorizontal:'3%',
+      height:38,
+      paddingHorizontal:'2%',
       borderRadius:10,
       borderColor:Colors.Green
     },
@@ -69,7 +71,8 @@ export const styles=StyleSheet.create({
       paddingVertical:'3%',
       paddingHorizontal:'4%',
       borderRadius:10,
-      alignItems:'center'
+      alignItems:'center',
+      height:55
     
     },
     SearchBtn:{
@@ -79,6 +82,7 @@ export const styles=StyleSheet.create({
     Input:{
       width:'100%',
       color:Colors.LightGreen,
+      
     },
     
     Bell:{
@@ -94,7 +98,7 @@ export const styles=StyleSheet.create({
     width:20,height:20
     },
     category_Icon:{
-      width:30,height:30
+      width:25,height:25
     },
     Icon:{
       width:30,height:30,
@@ -133,8 +137,9 @@ export const styles=StyleSheet.create({
        fontFamily:Fonts.SF_Regular
     },
     SearchImg:{
-      width:'65%',
-      height:200,
+      width:'70%',
+      height:220,
+      resizeMode:"contain",
       alignSelf:'center',
       top:"6%",
       right:'4%'

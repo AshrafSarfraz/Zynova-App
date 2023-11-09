@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TextInput, Image, TouchableOpacity, Platform } from 'react-native'
 import React,{useState} from 'react'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
 import { Colors } from '../../../Themes/Colors'
@@ -6,9 +6,36 @@ import { Fonts } from '../../../Themes/Fonts'
 import { DocPlus } from '../../../Themes/Images'
 import CustomButton from '../../../Components/CustomButton/CustomButton'
 import SubmissionAlert from '../../../Components/Alerts/SubmissionAlert'
+import spacerStyles from '../../../Components/Spacers/style'
+import { launchImageLibrary } from 'react-native-image-picker';
 
 const Contact = ({navigation}) => {
   const [alertVisible, setAlertVisible] = useState(false);
+  const [filePath, setFilePath] = useState(null);
+  const [replaceicon, setreplaceicon] = useState(true);
+
+  const chooseFile = () => {
+    setreplaceicon(false)
+    let options = {
+      mediaType: 'photo',
+      maxWidth: 300,
+      maxHeight: 550,
+      quality: 1,
+
+    };
+
+    launchImageLibrary(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.errorMessage) {
+        console.log('ImagePicker Error: ', response.errorMessage);
+      } else {
+        setFilePath(response.assets[0].uri);
+      }
+    });
+  };
 
   const showAlert = () => {
     setAlertVisible(true);
@@ -22,7 +49,13 @@ const Contact = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.MainCont} >
+      {Platform.OS == "ios" ? 
+      <>
+      <View style={spacerStyles.isDefault} />
       <CustomHeader title={'Contact us'} onBackPress={()=>{navigation.goBack()}} />
+      </> : 
+      <CustomHeader title={'Contact us'} onBackPress={()=>{navigation.goBack()}} />
+    }
       <View  style={styles.InputCont} >
        <Text style={styles.Subject_Txt} >Subject</Text>
        <TextInput style={styles.Input_Design} placeholder='Enter Subject' placeholderTextColor={Colors.Grey9} />
@@ -31,8 +64,10 @@ const Contact = ({navigation}) => {
       </View>
       <Text style={styles.Subject_Txt} >Upload up to 3 images:</Text>
        <View style={styles.Doc_Cont} >
-        <TouchableOpacity onPress={()=>{}} >
-        <Image style={styles.Img} source={DocPlus} />
+        <TouchableOpacity onPress={chooseFile} >
+        {replaceicon === true ? (<Image source={DocPlus} style={styles.Img} />)
+          : 
+          (<Image source={{ uri: filePath }} style={{width:200,height:200,marginTop:'4%',marginBottom:"-4%"}} />)}
         <Text style={styles.Upload_Txt} >Upload here</Text>
         </TouchableOpacity>
        </View>

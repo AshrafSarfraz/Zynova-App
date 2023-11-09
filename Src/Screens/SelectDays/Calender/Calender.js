@@ -114,7 +114,13 @@ const CustomCalendar = () => {
     if (!selectedStartDate) {
       setSelectedStartDate(date);
     } else if (!selectedEndDate) {
-      setSelectedEndDate(date);
+      if (date >= selectedStartDate) {
+        setSelectedEndDate(date);
+      } else {
+        // Deselect both dates if the new date is before the existing start date
+        setSelectedStartDate(date);
+        setSelectedEndDate(null);
+      }
     } else {
       setSelectedStartDate(date);
       setSelectedEndDate(null);

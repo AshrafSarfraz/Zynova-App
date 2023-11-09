@@ -8,12 +8,14 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  Platform
 } from 'react-native';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import { Colors } from '../../../Themes/Colors';
 import {  Hide, Lock, Logo, Message, Show } from '../../../Themes/Images';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import { styles } from './style';
+import spacerStyles from '../../../Components/Spacers/style';
 
 
 const SignInScreen = ({ navigation }) => {
@@ -29,7 +31,13 @@ const SignInScreen = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={styles.MainContainer}>
       <View>
+        {Platform.OS == "ios" ? 
+        <>
+        <View style={spacerStyles.isDefault}/>
+        <Image source={Logo} style={styles.H_Logo} resizeMode="contain" /> 
+        </> : 
         <Image source={Logo} style={styles.H_Logo} resizeMode="contain" />
+      }
         <Text style={styles.Welcome_Txt}>Welcome Back!</Text>
         <Text style={styles.SignUp_Txt}>Sign in with your account</Text>
         <View style={styles.InputContainer}>
@@ -80,7 +88,13 @@ const SignInScreen = ({ navigation }) => {
 
         </View>
         <View style={styles.SignUp_Btn} >
-        <CustomButton title='Sign In' onPress={()=>{navigation.navigate('BottomTab')}} />
+        <CustomButton
+           title='Sign In'
+           onPress={() => {
+           navigation.navigate('BottomTab', { updateButtonState: 1 });
+  }}
+/>
+
         </View>
         <TouchableOpacity style={styles.Guest} onPress={()=>{navigation.navigate('BottomTab')}} >
           <Text style={styles.Guest_Btn} >Continue as Guest</Text>

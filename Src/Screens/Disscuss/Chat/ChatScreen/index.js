@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { View, TextInput, TouchableOpacity,Image,Modal,Text,StyleSheet,FlatList } from 'react-native';
+import { View, TextInput, TouchableOpacity, Image, Modal, Text, StyleSheet, FlatList, Platform } from 'react-native';
 import { GiftedChat, IMessage, Bubble } from 'react-native-gifted-chat';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -9,33 +9,34 @@ import { Fonts } from '../../../../Themes/Fonts';
 import { Back_Icon, Dots, Exclimation, Send, Tick2 } from '../../../../Themes/Images';
 import { RentedData } from './DummyData';
 import ReportAlert from '../../../../Components/Alerts/ReportAlert';
+import spacerStyles from '../../../../Components/Spacers/style';
 
 
 
 
 
-const ChatScreen = ({navigation,}) => {
-    const [messages, setMessages] = useState([]);
-    const [inputText, setInputText] = useState('');
-  
+const ChatScreen = ({ navigation, }) => {
+  const [messages, setMessages] = useState([]);
+  const [inputText, setInputText] = useState('');
 
-    const [alertVisible, setAlertVisible] = useState(false);
 
-    const showAlert = () => {
-      setAlertVisible(true);
-    };
-  
-    const hideAlert = () => {
-      setAlertVisible(false);
-    };
-     
-  
+  const [alertVisible, setAlertVisible] = useState(false);
 
-    const renderItem = ({ item }) => (
-      <TouchableOpacity onPress={() => { navigation.navigate('ProductDetails',{Data:item})  }}>
+  const showAlert = () => {
+    setAlertVisible(true);
+  };
+
+  const hideAlert = () => {
+    setAlertVisible(false);
+  };
+
+
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity onPress={() => { navigation.navigate('ProductDetails', { Data: item }) }}>
       <View style={styles.Cart}>
-        <Image source={item.Image1} style={styles.Product_Img}  resizeMode='contain' />
-        <TouchableOpacity onPress={() => { navigation.navigate('ProductDetails',{Data:item})  }}>
+        <Image source={item.Image1} style={styles.Product_Img} resizeMode='contain' />
+        <TouchableOpacity onPress={() => { navigation.navigate('ProductDetails', { Data: item }) }}>
           <Text style={styles.Title}>{item.Title}</Text>
           <Text style={styles.MeetingPoint}>{item.MeetingPoint}</Text>
           <View style={{ flexDirection: 'row', marginBottom: "4%" }}>
@@ -44,40 +45,40 @@ const ChatScreen = ({navigation,}) => {
           </View>
         </TouchableOpacity>
       </View>
-      </TouchableOpacity>
-    )
+    </TouchableOpacity>
+  )
 
 
 
 
 
-    useEffect(() => {
-      setMessages([
-        {
-          _id: 1,
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          createdAt: new Date(),
-          name: 'React Native',
-          avatar: require('../../../../Assets/Images/Bobi.png'),
-          user: {
-            _id: 2,
-          },
-        },
-        {
+  useEffect(() => {
+    setMessages([
+      {
+        _id: 1,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        createdAt: new Date(),
+        name: 'React Native',
+        avatar: require('../../../../Assets/Images/Bobi.png'),
+        user: {
           _id: 2,
-          text: 'Lorem ipsum dolor sit amet, ',
-          createdAt: new Date(),
-          name: 'React Native',
-          avatar: require('../../../../Assets/Images/Bobi.png'),
-          user: {
-            _id: 2,
-          },
-          sent: true,
-          received: true,
         },
-      ]);
-    }, []);
- 
+      },
+      {
+        _id: 2,
+        text: 'Lorem ipsum dolor sit amet, ',
+        createdAt: new Date(),
+        name: 'React Native',
+        avatar: require('../../../../Assets/Images/Bobi.png'),
+        user: {
+          _id: 2,
+        },
+        sent: true,
+        received: true,
+      },
+    ]);
+  }, []);
+
   const renderBubble = (props) => {
     return (
       <Bubble
@@ -140,7 +141,7 @@ const ChatScreen = ({navigation,}) => {
   const renderInputToolbar = (props) => {
     return (
       <InputToolbar {...props}>
-        
+
         <TextInput
           placeholder="Type a message..."
           value={inputText}
@@ -158,7 +159,7 @@ const ChatScreen = ({navigation,}) => {
         createdAt: new Date(),
         user: {
           _id: 1,
-          name: 'User', 
+          name: 'User',
         },
       };
 
@@ -171,25 +172,41 @@ const ChatScreen = ({navigation,}) => {
   return (
     <View style={styles.container}>
       <View style={styles.Header_Cont} >
-    <View  style={styles.Header} >
-      <View style={{flexDirection:'row',alignItems:'center'}} >
-        <TouchableOpacity  onPress={()=>{navigation.goBack()}} >
-        <Image source={Back_Icon} style={styles.Go_Back_Icon} />
-        </TouchableOpacity>
-        <Text style={styles.Alex} >Alex Hales</Text>
+        {Platform.OS == "ios" ?
+          <>
+          <View style={spacerStyles.isDefault} />
+            <View style={styles.Header} >
+              <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+                <TouchableOpacity onPress={() => { navigation.goBack() }} >
+                  <Image source={Back_Icon} style={styles.Go_Back_Icon} />
+                </TouchableOpacity>
+                <Text style={styles.Alex} >Alex Hales</Text>
+              </View>
+              <TouchableOpacity onPress={showAlert} >
+                <Image source={Dots} style={styles.Dots} />
+              </TouchableOpacity>
+            </View>
+          </> :
+          <View style={styles.Header} >
+            <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+              <TouchableOpacity onPress={() => { navigation.goBack() }} >
+                <Image source={Back_Icon} style={styles.Go_Back_Icon} />
+              </TouchableOpacity>
+              <Text style={styles.Alex} >Alex Hales</Text>
+            </View>
+            <TouchableOpacity onPress={showAlert} >
+              <Image source={Dots} style={styles.Dots} />
+            </TouchableOpacity>
+          </View>
+        }
+
+        <View style={styles.Product} >
+          <FlatList
+            data={RentedData}
+            renderItem={renderItem}
+          />
         </View>
-        <TouchableOpacity onPress={showAlert} >
-        <Image source={Dots} style={styles.Dots} />
-        </TouchableOpacity>
-   </View>
-   <View style={styles.Product} >
-        <FlatList
-          data={RentedData}
-          renderItem={renderItem}
-        />
-        </View>
-   
-   </View>
+      </View>
 
 
 
@@ -209,52 +226,52 @@ const ChatScreen = ({navigation,}) => {
         renderBubble={renderBubble}
         renderTime={renderTime}
         renderAvatar={null}
-        
+
       />
       <View style={styles.InputOuter_View}>
-        <View style={{backgroundColor:Colors.Bg,marginBottom:"5%",flexDirection:'row',width:'100%',paddingTop:'1%',borderTopWidth:0.5,borderColor:Colors.Grey9,justifyContent:'space-between',}} >
-        <View style={styles.InputContainer}>
-        <TouchableOpacity  style={styles.Touch_Image} onPress={() => {alert('Smile')}}>
-          <Icon name="smile-o" size={20} color={Colors.Green} />
-        </TouchableOpacity>
-        <TextInput  style={styles.Textinputcontainer}
-          placeholder=" Type a message..."
-          placeholderTextColor={Colors.Grey9}
-          value={inputText}
-          onChangeText={(text) => setInputText(text)}
-        />
-         {/* <TouchableOpacity style={styles.Touch_Image}>
+        <View style={{ backgroundColor: Colors.Bg, marginBottom: "5%", flexDirection: 'row', width: '100%', paddingTop: '1%', borderTopWidth: 0.5, borderColor: Colors.Grey9, justifyContent: 'space-between', }} >
+          <View style={styles.InputContainer}>
+            <TouchableOpacity style={styles.Touch_Image} onPress={() => { alert('Smile') }}>
+              <Icon name="smile-o" size={20} color={Colors.Green} />
+            </TouchableOpacity>
+            <TextInput style={styles.Textinputcontainer}
+              placeholder=" Type a message..."
+              placeholderTextColor={Colors.Grey9}
+              value={inputText}
+              onChangeText={(text) => setInputText(text)}
+            />
+            {/* <TouchableOpacity style={styles.Touch_Image}>
        <Image source={require('../../../../Assets/Images/Bobi.png')} style={styles.VectorImage} />
          </TouchableOpacity>
       <TouchableOpacity style={styles.Touch_Image}>
         <Icon name="camera" size={15} color={Colors.DarkPurple} /> 
          </TouchableOpacity> */}
-         </View>
-         <View style={styles.Circular_View}>
-        <TouchableOpacity onPress={handleSend}>
-          <Image
-            resizeMode='contain'
-            style={styles.Send_Image}
-             source={Send}
-          />
-        </TouchableOpacity>
+          </View>
+          <View style={styles.Circular_View}>
+            <TouchableOpacity onPress={handleSend}>
+              <Image
+                resizeMode='contain'
+                style={styles.Send_Image}
+                source={Send}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+
       </View>
-      </View>
-       
-      </View>
 
 
 
 
-     
+
       <ReportAlert
         visible={alertVisible}
         message="This is a custom alert!"
-        onPress={()=>setAlertVisible(false)}
-        onClose={()=>{hideAlert(),navigation.navigate('ReportUser')}}
-      />  
+        onPress={() => setAlertVisible(false)}
+        onClose={() => { hideAlert(), navigation.navigate('ReportUser') }}
+      />
 
-      
+
     </View>
   );
 };
@@ -266,66 +283,66 @@ export default ChatScreen;
 
 const styles = StyleSheet.create({
   container: {
-       flex: 1,
-       backgroundColor:Colors.Bg,    
-    },
-    Header_Cont:{
-     borderBottomWidth:0.5,
-     color:Colors.Grey9,
-     padding:'3%',
-     paddingBottom:'0%'
-    },
-    Header:{
-     flexDirection:'row',
-     justifyContent:'space-between',
-     marginVertical:'2%'
-    },
-    Go_Back_Icon:{
-     width:30,height:30,
-     tintColor:Colors.Black,
-     marginRight:'5%'
-    },
-    Alex:{
-     fontSize:20,fontFamily:Fonts.SF_SemiBold,color:Colors.Green
-    },
-    Dots:{
-     width:25,height:25,tintColor:'#000000',
-     resizeMode:'center'
-    },
-    Buttons_View:{
-      flexDirection:'row',
-      height:77,
-      width:"90%",
-      marginHorizontal:'5%'
-    },
-    Button_View:{
-      width:"42%",
-      backgroundColor:Colors.White,
-      borderRadius:10,
-      borderWidth:1,
-      borderColor:Colors.DarkPurple,
-      height:46,
-    },
-    Button_Style:{
-      color:Colors.DarkPurple,
-      fontWeight:'700',
-      fontSize:12,
-      fontFamily:Fonts.SF_Bold
-    },
-    Line_View:{
-      width:'100%',
-      height:2,
-      backgroundColor:Colors.Grey4
-    },
-    footer: {
-    
-      height: 35,
-      backgroundColor: Colors.White,
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      right: 0,
-    },
+    flex: 1,
+    backgroundColor: Colors.Bg,
+  },
+  Header_Cont: {
+    borderBottomWidth: 0.5,
+    color: Colors.Grey9,
+    padding: '3%',
+    paddingBottom: '0%'
+  },
+  Header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: '2%'
+  },
+  Go_Back_Icon: {
+    width: 30, height: 30,
+    tintColor: Colors.Black,
+    marginRight: '5%'
+  },
+  Alex: {
+    fontSize: 20, fontFamily: Fonts.SF_SemiBold, color: Colors.Green
+  },
+  Dots: {
+    width: 25, height: 25, tintColor: '#000000',
+    resizeMode: 'center'
+  },
+  Buttons_View: {
+    flexDirection: 'row',
+    height: 77,
+    width: "90%",
+    marginHorizontal: '5%'
+  },
+  Button_View: {
+    width: "42%",
+    backgroundColor: Colors.White,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: Colors.DarkPurple,
+    height: 46,
+  },
+  Button_Style: {
+    color: Colors.DarkPurple,
+    fontWeight: '700',
+    fontSize: 12,
+    fontFamily: Fonts.SF_Bold
+  },
+  Line_View: {
+    width: '100%',
+    height: 2,
+    backgroundColor: Colors.Grey4
+  },
+  footer: {
+
+    height: 35,
+    backgroundColor: Colors.White,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
   voucherDropdownButton: {
     flexDirection: 'row',
     height: 54,
@@ -363,26 +380,26 @@ const styles = StyleSheet.create({
   },
   dropdownItem: {
 
-    backgroundColor:Colors.DarkPurple,
-    marginVertical:'5%',
-    height:70,
-    marginHorizontal:"5%",
-    borderRadius:10
-    
+    backgroundColor: Colors.DarkPurple,
+    marginVertical: '5%',
+    height: 70,
+    marginHorizontal: "5%",
+    borderRadius: 10
+
   },
   dropdownItemText: {
     fontSize: 18,
-    fontFamily:Fonts.SF_SemiBold,
-    color:Colors.White,
-    marginLeft:'5%',
-    marginTop:'5%'
+    fontFamily: Fonts.SF_SemiBold,
+    color: Colors.White,
+    marginLeft: '5%',
+    marginTop: '5%'
   },
-  dropdownItemdesc:{
+  dropdownItemdesc: {
     fontSize: 14,
-    fontFamily:Fonts.SF_SemiBold,
-    color:Colors.White,
-    marginLeft:'5%',
-    bottom:5
+    fontFamily: Fonts.SF_SemiBold,
+    color: Colors.White,
+    marginLeft: '5%',
+    bottom: 5
   },
   // container: {
   //   paddingVertical: 16,
@@ -390,11 +407,11 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
- 
+
     bottom: '10%',
-    justifyContent:'space-between',
-    marginHorizontal:"5%",
-    marginVertical:"7%",
+    justifyContent: 'space-between',
+    marginHorizontal: "5%",
+    marginVertical: "7%",
   },
   icon: {
     width: 24,
@@ -404,207 +421,207 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
-  fontFamily:Fonts.SF_SemiBold,
-  color:Colors.DarkPurple,
-  width:'79%'
+    fontFamily: Fonts.SF_SemiBold,
+    color: Colors.DarkPurple,
+    width: '79%'
   },
-previousTxt:{
-  fontFamily:Fonts.SF_SemiBold,color:Colors.DarkPurple,fontSize:22,marginLeft:"5%"
-},
-mainContainer:{
-  flex: 1,
-   marginBottom: '1%'
-},
-Send_Image:{
-   height: 50, 
-   width: 50,
-  
-   },
-Circular_View:{
-  height:65,
-  width:'15%',
-  top:'0%',
-  paddingLeft:'2%',
-  justifyContent:'center',
-  alignSelf:'center',
-  marginBottom:"10%",
-  alignItems:'flex-end',
-  marginRight:'5%'
-  
-},
-Smile_Icon:{
-  width:20,
-  height:20,
-},
-IconImage:{
-  width:15,
-  height:15,
-},
-textInput:{
-  
-},
-modalContainer: {
-  flex: 1,
-  width: '100%',
+  previousTxt: {
+    fontFamily: Fonts.SF_SemiBold, color: Colors.DarkPurple, fontSize: 22, marginLeft: "5%"
+  },
+  mainContainer: {
+    flex: 1,
+    marginBottom: '1%'
+  },
+  Send_Image: {
+    height: 50,
+    width: 50,
 
-  alignItems: 'center',
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  marginLeft:'5%',
-  marginRight:"5%",
- alignSelf:'center'
-},
-modalChildContainer: {
-  height:"8%",
-  width: '35%',
-   backgroundColor: Colors.White,
-  borderRadius: 5,
-  top:'7%',
- left:'10%',
- flexDirection:'row'
-   
-},
-ReportImage:{
-width:16,
-height:16,
-alignSelf:'center',
-marginLeft:'5%'
-},
-modalbutton:{
-  width:'50%',
-  height:40,
-  backgroundColor:Colors.White,
-  borderRadius:10,
-  alignSelf:'center',
-  justifyContent:'center'
-},
-modalbutton1:{
-  width:'45%',
-  height:58,
-  backgroundColor:Colors.White,
-  borderRadius:10,
-  alignSelf:'center',
-  justifyContent:'center',
-  borderWidth:1,
-  borderColor:Colors.DarkPurple
-},
-paySuccess_button: {
-  marginTop:'5%',
-  fontFamily: Fonts.SF_Bold,
-  FontWeight: "700",
-  FontSize: 16,
-  Lineheight: 22.13,
-  color: Colors.Black,
-  alignSelf:'center',
+  },
+  Circular_View: {
+    height: 65,
+    width: '15%',
+    top: '0%',
+    paddingLeft: '2%',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginBottom: "10%",
+    alignItems: 'flex-end',
+    marginRight: '5%'
 
-  
-},
-paySuccess_buttonYes: {
-  marginTop:'5%',
-  fontFamily: Fonts.SF_Bold,
-  FontWeight: "700",
-  FontSize: 16,
-  Lineheight: 22,
-  color: Colors.Red,
-  alignSelf:'center',
+  },
+  Smile_Icon: {
+    width: 20,
+    height: 20,
+  },
+  IconImage: {
+    width: 15,
+    height: 15,
+  },
+  textInput: {
 
-  
-},
+  },
+  modalContainer: {
+    flex: 1,
+    width: '100%',
 
-InputOuter_View: {
-   flexDirection: 'row', 
-   alignItems: 'center',
-    height:20,
-    width:"100%",
-    
-  
-   },
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    marginLeft: '5%',
+    marginRight: "5%",
+    alignSelf: 'center'
+  },
+  modalChildContainer: {
+    height: "8%",
+    width: '35%',
+    backgroundColor: Colors.White,
+    borderRadius: 5,
+    top: '7%',
+    left: '10%',
+    flexDirection: 'row'
 
-InputContainer:{
-  flexDirection:'row',
-  width:"75%",
-  backgroundColor:Colors.White,
-  borderRadius:12,
-  height:55,
-  marginVertical:"2%",
-  elevation:1,
-  paddingHorizontal:'2%',
-  marginLeft:"5%",
-  
-},
-inputToolbar:{
-  width:"100%",
-  alignItems:"center"
+  },
+  ReportImage: {
+    width: 16,
+    height: 16,
+    alignSelf: 'center',
+    marginLeft: '5%'
+  },
+  modalbutton: {
+    width: '50%',
+    height: 40,
+    backgroundColor: Colors.White,
+    borderRadius: 10,
+    alignSelf: 'center',
+    justifyContent: 'center'
+  },
+  modalbutton1: {
+    width: '45%',
+    height: 58,
+    backgroundColor: Colors.White,
+    borderRadius: 10,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: Colors.DarkPurple
+  },
+  paySuccess_button: {
+    marginTop: '5%',
+    fontFamily: Fonts.SF_Bold,
+    FontWeight: "700",
+    FontSize: 16,
+    Lineheight: 22.13,
+    color: Colors.Black,
+    alignSelf: 'center',
 
-},
-VectorImage:{
-width:14.8,
-height:16, 
-alignSelf:'center',
-marginRight:10,
-resizeMode:'contain'
-},
-Textinputcontainer:{
-width:"70%",
-color:Colors.Black
-},
-Touch_Image:{
-  alignSelf:'center',
- marginLeft:5,
-},
-Cart: {
-  backgroundColor: Colors.White,
-  borderRadius: 10,
-  marginBottom:'3%',
-  width: '100%',
-  paddingHorizontal: '2%',
-  flexDirection:'row',
-  alignItems:'center'
-},
-Product_Img: {
-  width:110, height: 100,
-   marginRight:'4%'
-},
 
-Title: {
-  fontSize: 14,
-  fontFamily: Fonts.SF_Medium,
-  lineHeight: 18,
-  color: Colors.Black,
-  marginVertical: '4%',
-  marginHorizontal: '4%'
-},
-MeetingPoint: {
-  fontSize: 10,
-  fontFamily: Fonts.SF_Regular,
-  lineHeight: 15,
-  color: Colors.Green,
-  width:150,
-  marginBottom: '2%',
-  marginLeft: '4%',
-  marginRight:'1%',
-},
-Price_Txt: {
-  fontSize: 12,
-  fontFamily: Fonts.SF_Medium,
-  lineHeight: 15,
-  color: Colors.Black,
-  marginBottom: '2%',
-  marginHorizontal: '4%'
-},
-Total: {
-  fontSize: 12,
-  fontFamily: Fonts.SF_Medium,
-  lineHeight: 15,
-  color: Colors.Green,
-  marginBottom: '2%',
-  marginRight: '4%'
-},
-From_Txt:{
-  fontSize: 18,
-  fontFamily: Fonts.SF_Medium,
-  lineHeight: 22,
-  color: Colors.Black,
-  marginVertical: '3%',
- 
-},
+  },
+  paySuccess_buttonYes: {
+    marginTop: '5%',
+    fontFamily: Fonts.SF_Bold,
+    FontWeight: "700",
+    FontSize: 16,
+    Lineheight: 22,
+    color: Colors.Red,
+    alignSelf: 'center',
+
+
+  },
+
+  InputOuter_View: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 20,
+    width: "100%",
+
+
+  },
+
+  InputContainer: {
+    flexDirection: 'row',
+    width: "75%",
+    backgroundColor: Colors.White,
+    borderRadius: 12,
+    height: 55,
+    marginVertical: "2%",
+    elevation: 1,
+    paddingHorizontal: '2%',
+    marginLeft: "5%",
+
+  },
+  inputToolbar: {
+    width: "100%",
+    alignItems: "center"
+
+  },
+  VectorImage: {
+    width: 14.8,
+    height: 16,
+    alignSelf: 'center',
+    marginRight: 10,
+    resizeMode: 'contain'
+  },
+  Textinputcontainer: {
+    width: "70%",
+    color: Colors.Black
+  },
+  Touch_Image: {
+    alignSelf: 'center',
+    marginLeft: 5,
+  },
+  Cart: {
+    backgroundColor: Colors.White,
+    borderRadius: 10,
+    marginBottom: '3%',
+    width: '100%',
+    paddingHorizontal: '2%',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  Product_Img: {
+    width: 110, height: 100,
+    marginRight: '4%'
+  },
+
+  Title: {
+    fontSize: 14,
+    fontFamily: Fonts.SF_Medium,
+    lineHeight: 18,
+    color: Colors.Black,
+    marginVertical: '4%',
+    marginHorizontal: '4%'
+  },
+  MeetingPoint: {
+    fontSize: 10,
+    fontFamily: Fonts.SF_Regular,
+    lineHeight: 15,
+    color: Colors.Green,
+    width: 150,
+    marginBottom: '2%',
+    marginLeft: '4%',
+    marginRight: '1%',
+  },
+  Price_Txt: {
+    fontSize: 12,
+    fontFamily: Fonts.SF_Medium,
+    lineHeight: 15,
+    color: Colors.Black,
+    marginBottom: '2%',
+    marginHorizontal: '4%'
+  },
+  Total: {
+    fontSize: 12,
+    fontFamily: Fonts.SF_Medium,
+    lineHeight: 15,
+    color: Colors.Green,
+    marginBottom: '2%',
+    marginRight: '4%'
+  },
+  From_Txt: {
+    fontSize: 18,
+    fontFamily: Fonts.SF_Medium,
+    lineHeight: 22,
+    color: Colors.Black,
+    marginVertical: '3%',
+
+  },
 });
