@@ -239,7 +239,7 @@ const PostModify = ({ navigation }) => {
       <View style={{ marginBottom: '7%' }} >
         <TouchableOpacity style={styles.Hold_Btn} onPress={showAlert1} >
           <Image source={require('../../../Assets/Images/play.png')} style={styles.play} />
-          <Text style={styles.Hold_Txt} >Un -Hold</Text>
+          <Text style={styles.Hold_Txt} >Un Pause</Text>
         </TouchableOpacity>
       </View>
 

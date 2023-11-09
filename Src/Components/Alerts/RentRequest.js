@@ -11,7 +11,11 @@ const RentAlert = ({ visible, message, onClose }) => {
         <View style={styles.alertContainer}>
        
 
-        <Text style={styles.Txt} >The owner accepts the rent request automatically and your object will be booked. Thanks!</Text>
+        <Text style={styles.Txt} >The 
+        owner accepts the rent
+        automatically. Proceed with
+        payment and your object will be
+        booked</Text>
        
 
           <TouchableOpacity style={styles.okButton} onPress={onClose}>

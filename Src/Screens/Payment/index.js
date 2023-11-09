@@ -9,6 +9,17 @@ import spacerStyles from '../../Components/Spacers/style'
 
 const Payment = ({ navigation }) => {
   const [alertVisible, setAlertVisible] = useState(false);
+  const [date, setDate] = useState('');
+
+  const handleDateChange = (input) => {
+    // Only allow digits and limit the length to 8 characters
+    const formattedInput = input.replace(/[^0-9]/g, '').slice(0, 8);
+
+    // Add '/' after the first 2 characters
+    const formattedDate = formattedInput.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
+
+    setDate(formattedDate);
+  };
 
   const showAlert = () => {
     setAlertVisible(true);
@@ -43,7 +54,8 @@ const Payment = ({ navigation }) => {
         <View style={styles.InputCont}>
           <View style={styles.CvvCont} >
             <Text style={styles.CardTxt} >Expiry</Text>
-            <TextInput placeholder='09/07/26' placeholderTextColor={Colors.Grey9} style={styles.Cvv} keyboardType='numeric' />
+            <TextInput placeholder='09/07/26' placeholderTextColor={Colors.Grey9}   value={date}
+            onChangeText={handleDateChange}  style={styles.Cvv} keyboardType='numeric' />
           </View>
           <View style={styles.CvvCont} >
             <Text style={styles.CardTxt} >CVV</Text>

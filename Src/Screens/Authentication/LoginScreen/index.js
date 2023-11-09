@@ -88,7 +88,13 @@ const SignInScreen = ({ navigation }) => {
 
         </View>
         <View style={styles.SignUp_Btn} >
-        <CustomButton title='Sign In' onPress={()=>{navigation.navigate('BottomTab')}} />
+        <CustomButton
+           title='Sign In'
+           onPress={() => {
+           navigation.navigate('BottomTab', { updateButtonState: 1 });
+  }}
+/>
+
         </View>
         <TouchableOpacity style={styles.Guest} onPress={()=>{navigation.navigate('BottomTab')}} >
           <Text style={styles.Guest_Btn} >Continue as Guest</Text>

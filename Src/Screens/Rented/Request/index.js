@@ -52,9 +52,12 @@ const RequestScreen = () => {
         <TouchableOpacity style={styles.Card_View} onPress={()=>{
             if(item.Id===1){
                 navigation.navigate('RequestDetail1',{Data:item})}
-            else{
+                if(item.Id===2){
                 navigation.navigate('RequestDetail2',{Data:item}) 
             }
+            if(item.Id===3){
+              navigation.navigate('BobizzDetail',{Data:item})
+             }
             }}         
 > 
         

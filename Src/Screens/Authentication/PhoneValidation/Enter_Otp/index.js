@@ -86,7 +86,7 @@ const Otp = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <CustomButton title={'Next'} onPress={() => { navigation.navigate('BottomTab') }} />
+      <CustomButton title={'Next'} onPress={() => { navigation.navigate('BottomTab',{ updateButtonState: 1 }) }} />
 
 
 

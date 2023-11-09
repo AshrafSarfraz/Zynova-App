@@ -112,6 +112,7 @@ const Search = ({ navigation }) => {
           </View>
           <Image source={require('../../Assets/Images/Hi_Fi_Logo.png')} style={styles.Logo2} />
           <Text style={styles.Welcome_Txt} >Welcome Back, What are you looking for?</Text>
+          
         </View>
         : null
       }

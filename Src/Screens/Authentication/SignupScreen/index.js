@@ -126,7 +126,7 @@ const SignUp = ({ navigation }) => {
       </TouchableOpacity>
 
       <View style={styles.SignUp_Btn} >
-        <CustomButton title='Sign Up' onPress={() => { navigation.navigate('PhoneValidation') }} />
+        <CustomButton title='Sign Up' onPress={() => { navigation.navigate('Otp', { Phone: PhoneNumber }) }} />
       </View>
       <View style={styles.Btn_Cont} >
         <Text style={styles.Already_Txt} >Already have an account?  </Text>

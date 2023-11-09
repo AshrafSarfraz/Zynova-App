@@ -1,5 +1,6 @@
 import { View, Text,ScrollView,TouchableOpacity,Image,TextInput,StyleSheet, Platform } from 'react-native'
 import React,{useState} from 'react'
+import { launchImageLibrary } from 'react-native-image-picker';
 import { Colors } from '../../../Themes/Colors'
 import CustomHeader from '../../../Components/CustomHeader/CustomHeader'
 import { Fonts } from '../../../Themes/Fonts'
@@ -11,7 +12,32 @@ import ID_Type from '../../../Components/DropDown/ID_Type'
 import spacerStyles from '../../../Components/Spacers/style'
 
 const VerifyID = ({navigation}) => {
-   
+  const [filePath, setFilePath] = useState(null);
+  const [replaceicon, setreplaceicon] = useState(true);
+
+  const chooseFile = () => {
+    setreplaceicon(false)
+    let options = {
+      mediaType: 'photo',
+      maxWidth: 300,
+      maxHeight: 550,
+      quality: 1,
+
+    };
+
+    launchImageLibrary(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.errorMessage) {
+        console.log('ImagePicker Error: ', response.errorMessage);
+      } else {
+        setFilePath(response.assets[0].uri);
+      }
+    });
+  };
+
   return (
    <ScrollView contentContainerStyle={styles.MainCont} >
     {Platform.OS == "ios" ? 
@@ -29,8 +55,11 @@ const VerifyID = ({navigation}) => {
         
        </View>
        <View style={styles.Doc_Cont} >
-        <TouchableOpacity onPress={()=>{}} style={styles.Btn} >
-        <Image style={styles.Img} source={DocPlus} />
+        <TouchableOpacity onPress={chooseFile} style={styles.Btn} >
+        {replaceicon === true ? (<Image source={DocPlus} style={styles.Img} />)
+        : 
+        (<Image source={{ uri: filePath }} style={{width:200,height:200,marginTop:'4%',marginBottom:"-4%"}} />)}
+
         <Text style={styles.Upload_Txt} >Tap to attach your Identity Card</Text>
         </TouchableOpacity>
        </View>
